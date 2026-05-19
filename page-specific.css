@@ -1,0 +1,260 @@
+/*
+===========================================
+  PAGE-NAME.CSS — Sirf is page ki unique CSS
+  
+  ⚠️ IMPORTANT:
+  - Navbar aur Footer CSS yahaan mat likhna
+  - Woh global.css mein hain
+  - Sirf is page ke UNIQUE sections ki CSS likhna
+===========================================
+*/
+
+/* ===== HERO (Service Page Hero) ===== */
+.hero {
+    width: 100%;
+    padding: 80px 20px;
+    background: white;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1156px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 50px;
+    animation: fadeUp 0.9s ease forwards;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text p {
+    font-size: 12px;
+    color: #01328E;
+    display: inline-block;
+    border: 1px solid #01328E;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    margin-left: 12px;
+    opacity: 0;
+    animation: slideLeft 0.7s ease forwards;
+}
+
+.hero-text h2 {
+    font-size: 42px;
+    color: #01328E;
+    margin-left: 15px;
+    opacity: 0;
+    animation: slideLeft 0.9s ease forwards;
+    animation-delay: 0.2s;
+    margin-top: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 69px;
+    margin-right: 18px;
+    opacity: 0;
+    animation: slideRight 0.9s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.btn-secondary,
+.btn-primary {
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    padding: 10px 12px;
+}
+
+.btn-secondary {
+    background-color: #01328E;
+    color: #fff;
+    border-radius: 50%;
+    height: 33px;
+    width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: #01328E;
+    color: #fff;
+    padding: 9px 25px;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    background: #08A1DD;
+    color: #fff;
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(8, 161, 221, 0.25);
+}
+
+.btn-secondary img {
+    filter: brightness(0) invert(1);
+}
+
+/* ===== HERO ANIMATIONS ===== */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(35px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-35px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(35px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* HERO RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-container { margin-top: 75px; }
+    .hero-buttons { justify-content: center; margin-top: 57px; margin-right: 0; }
+    .hero-text h2 { font-size: 30px; }
+}
+
+@media (max-width: 564px) {
+    .hero-container { flex-direction: column; margin-top: 20px; text-align: center; }
+    .hero-buttons { justify-content: center; margin-top: -37px; margin-right: 0; }
+}
+
+
+/* ===== IMAGE SECTION ===== */
+.image-section {
+    width: 100%;
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .image-section { max-height: 300px; }
+}
+
+
+/* ============================= */
+/*  APNI PAGE KI UNIQUE CSS      */
+/*  Yahaan se neeche likhna      */
+/* ============================= */
+
+/* ===== WHAT SECTION ===== */
+.what-section {
+    padding: 80px 20px;
+}
+
+.what-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.what-left {
+    flex: 1;
+}
+
+.what-right {
+    flex: 1;
+}
+
+.what-tag {
+    display: inline-block;
+    border: 1px solid #01328E;
+    padding: 5px 14px;
+    border-radius: 30px;
+    font-size: 11px;
+    color: #01328E;
+    margin-bottom: 20px;
+}
+
+.what-left h2 {
+    font-size: 38px;
+    color: #01328E;
+    margin-bottom: 20px;
+}
+
+.what-left p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .what-container { flex-direction: column; }
+    .what-left h2 { font-size: 28px; }
+}
+
+
+/* ===== STATS SECTION ===== */
+.stats-section {
+    background: #01328E;
+    padding: 60px 20px;
+}
+
+.stats-container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.stat-box {
+    text-align: center;
+    color: white;
+}
+
+.stat-box h3 {
+    font-size: 48px;
+    font-weight: 800;
+    color: white;
+}
+
+.text-color {
+    color: #08A1DD;
+}
+
+.stat-box p {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-top: 8px;
+    max-width: 150px;
+}
+
+@media (max-width: 768px) {
+    .stats-container { flex-direction: column; align-items: center; }
+}
+
+/*
+  ========================================
+  Baaki sections ki CSS yahaan add karo:
+  - .deliver-section { }
+  - .why-section { }
+  - .work-section { }
+  - .explore-section { }
+  - .testimonial-section { }
+  - .transparent-section { }
+  ========================================
+*/

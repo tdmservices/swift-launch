@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="../global.css">
+      <link rel="icon" type="image/png" href="/img1/favicon icon. (2).png">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <img src="img/swift lauch logo black (1) 1.png" alt="">
+            </a>
+
+            <!-- Hamburger -->
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Nav Links -->
+            <div class="nav-links" id="navLinks">
+                <a href="./index.html">Home</a>
+                <a href="./about.html">About</a>
+                <a href="./services.html">Services</a>
+                <a href="./pricing.html">Pricing</a>
+                <a href="./portfolio.html" class="active">Portfolio</a>
+                <a href="./blogs.html">Blogs</a>
+                <a href="./contact.html">Contact</a>
+                <button class="login-btn">Login</button>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <p>PORTFOLIO</p>
+                <h2>Our work <br>Proven Results</h2>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary">Free Consultation</button>
+                <button class="btn-secondary"><img src="/img1/ven-back.svg" alt=""></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TWO -->
+    <section class="image-section">
+        <div class="image-container">
+            <img src="/img/pexels-vlada-karpovich-7433848-2048x900.jpg.webp" alt="Section Image">
+        </div>
+    </section>
+
+    <!-- SECTION THREE -->
+    <h4 class="filter-btn">FILTER</h4>
+    <div class="filters">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="ecommerce">E-Commerce Management</button>
+        <button data-filter="web">Web Development</button>
+        <button data-filter="social">Social Media & Marketing</button>
+        <button data-filter="logistics">Fulfilment & Logistics</button>
+    </div>
+
+    <div class="card-wrapper">
+
+        <div class="card" data-category="logistics">
+            <img src="/img/Rectangle 532.webp" alt="">
+            <div class="tag">Fulfilment</div>
+            <h3>UrbanThreads</h3>
+            <p> Amazon SEO & Listing Optimisation</p>
+            <div class="line"></div>
+            <div class="stats-two">
+                <div>+214% <span>sales growth</span></div>
+                <div>⭐ 4.9 <span>customer rating</span></div>
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="card" data-category="social">
+            <img src="/img/Rectangle 535.webp" alt="">
+            <div class="tag">Social Media & Marketing</div>
+            <h3>UrbanThreads</h3>
+            <p>TikTok Shop Setup & Management </p>
+            <div class="line"></div>
+            <div class="stats-two">
+                <div>+180% <span> revenue in 60 days </span></div>
+                <div>⭐ 4.8 <span>customer rating</span></div>
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="card" data-category="ecommerce">
+            <img src="/img/Rectangle 538.webp" alt="">
+            <div class="tag">E-Commerce</div>
+            <h3>UrbanThreads</h3>
+            <p> Shopify Store Launch & Marketing</p>
+            <div class="line"></div>
+            <div class="stats-two">
+                <div> +260% <span>sales growth</span></div>
+                <div>⭐ 5.0 <span>customer rating</span></div>
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="card" data-category="web">
+            <img src="/img/Rectangle 543.webp" alt="">
+            <div class="tag"> Web Development </div>
+            <h3>UrbanThreads</h3>
+            <p> Custom Shopify Design System </p>
+            <div class="line"></div>
+            <div class="stats-two">
+                <div> 3x <span>conversion rate improvement </span></div>
+                <div>⭐ 4.9<span>customer rating</span></div>
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="card" data-category="social">
+            <img src="/img/Rectangle 544.webp" alt="">
+            <div class="tag">Social Media & Marketing </div>
+            <h3>UrbanThreads</h3>
+            <p>Performance Marketing & PPC</p>
+            <div class="line"></div>
+            <div class="stats-two">
+                <div> 4.2x <span>return on ad spend</span></div>
+                <div>⭐ 4.8 <span>customer rating</span></div>
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="card" data-category="logistics">
+            <img src="/img/Rectangle 545.webp" alt="">
+            <div class="tag">Fulfilment</div>
+            <h3>UrbanThreads</h3>
+            <p> Amazon & eBay Full Management</p>
+            <div class="line"></div>
+            <div class="stats-two">
+                <div>+ 200% <span>sales growth</span></div>
+                <div>⭐ 4.7 <span>customer rating</span></div>
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="card" data-category="logistics">
+            <img src="/img/Rectangle 552.webp" alt="">
+            <div class="tag"> Fulfilment & Logistics</div>
+            <h3>UrbanThreads</h3>
+            <p> UK Warehouse Fulfilment & Dispatch </p>
+            <div class="line"></div>
+            <div class="stats-two">
+                <div> 99.4% <span>on-time dispatch rate</span></div>
+                <div>⭐ 5.0 <span>customer rating</span></div>
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="card" data-category="ecommerce">
+            <img src="/img/Rectangle 553.webp" alt="">
+            <div class="tag"> E-Commerce </div>
+            <h3>UrbanThreads</h3>
+            <p> eBay Store Reinstatement & Rebuild </p>
+            <div class="line"></div>
+            <div class="stats-two">
+                <div> Account restored <span>+ 170% growth </span></div>
+                <div>⭐ 4.8 <span>customer rating</span></div>
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="card" data-category="ecommerce">
+            <img src="/img/Rectangle 554.webp" alt="">
+            <div class="tag"> E-Commerce</div>
+            <h3>UrbanThreads</h3>
+            <p> Full Brand Launch — Amazon, TikTok & Shopify </p>
+            <div class="line"></div>
+            <div class="stats-two">
+                <div> £40K <span> revenue in first 90 days</span></div>
+                <div>⭐5.0 <span>customer rating</span></div>
+            </div>
+            <div class="line"></div>
+        </div>
+
+    </div>
+
+    <!-- SECTION FOUR -->
+    <section class="stats-section">
+        <div class="stats-container">
+
+            <div class="divider"></div>
+
+            <div class="stat-box">
+                <div class="icon"><img src="/img1/ix_projects.svg" alt=""></div>
+                <h2 class="counter" data-target="50"> <span>+</span></h2>
+                <p>Projects Delivered</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="stat-box">
+                <div class="icon"><img src="/img1/carbon_growth.svg" alt=""></div>
+                <h2 class="counter" data-target="100">£100K+</h2>
+                <p>Average Revenue Generated </p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="stat-box">
+                <div class="icon"><img src="/img1/ix_projects (1).svg" alt=""></div>
+                <h2 class="counter" data-target="99">%</h2>
+                <p>Fulfilment Accuracy Rate</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="stat-box">
+                <div class="icon"><img src="/img1/carbon_growth (1).svg" alt=""></div>
+                <h2 class="counter" data-target="4.9 ">0</h2>
+                <p>Average Client Satisfaction</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION FIVE -->
+    <div class="love">
+        <h2>OUR PORTFOLIO</h2>
+        <h1>What We've Launched</h1>
+    </div>
+    <div class="brand-slider">
+        <div class="brand-slider">
+            <div class="brand-track" id="brandTrack">
+                <div class="brand-item"><img src="/img/Frame 1643.webp" alt=""></div>
+                <div class="brand-item"><img src="/img/Frame 570 (1).webp" alt=""></div>
+                <div class="brand-item"><img src="/img/Frame 571.webp" alt=""></div>
+                <div class="brand-item"><img src="/img/Frame 572.webp" alt=""></div>
+                <div class="brand-item"><img src="/img/Frame 574.webp" alt=""></div>
+                <!-- Duplicate -->
+                <div class="brand-item"><img src="/img/Frame 1643.webp" alt=""></div>
+                <div class="brand-item"><img src="/img/Frame 570 (1).webp" alt=""></div>
+                <div class="brand-item"><img src="/img/Frame 571.webp" alt=""></div>
+                <div class="brand-item"><img src="/img/Frame 572.webp" alt=""></div>
+                <div class="brand-item"><img src="/img/Frame 574.webp" alt=""></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION SIX - TESTIMONIALS -->
+    <section class="testimonial-section">
+        <div class="top-title">
+            <span>TESTIMONIALS</span>
+        </div>
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="slide-wrapper">
+                        <div class="testimonial-card">
+
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop"
+                                alt="">
+                            <div class="testimonial-content">
+                                <p>"Before Swift Launch, I was managing everything alone. Six months later, my store
+                                    runs smoothly and my monthly revenue has more than tripled."
+                                </p>
+                                <div class="author">
+                                    <div class="author-circle">
+                                        <h2>H&N</h2>
+                                    </div>
+                                    <div class="para">
+                                        <h4>Rebecca Roy</h4>
+                                        <span class="ceo">CEO & PRESIDENT</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <img class="logo-three" src="/img1/svg-two.svg" alt="">
+                            <img class="logo-icon" src="/img/Mask Group.png" alt="">
+                            <div>
+                                <div class="tag-tow">SUCCESS STORY</div>
+                                <h2>How a UK Home Brand Went From Inconsistent Sales to £40K in 90 Days</h2>
+                            </div>
+                            <div class="bottom-row">
+                                <div class="metric">
+                                    <h3> 3.2x
+                                    </h3>
+                                    <p>Revenue growth achieved within the first quarter</p>
+                                </div>
+                                <a href="#" class="btn">Read Full Story</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="slide-wrapper">
+                        <div class="testimonial-card">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1200&auto=format&fit=crop"
+                                alt="">
+                            <div class="testimonial-content">
+                                <p>"The portfolio doesn't lie — Swift Launch delivered exactly what they promised. Our
+                                    Shopify conversion rate went from 1.2% to 4.1% after the redesign. That's a
+                                    completely different business."
+                                </p>
+                                <div class="author">
+                                    <div class="author-circle">
+                                        <h2>H&N</h2>
+                                    </div>
+                                    <div class="para-two">
+                                        <h4>Priya M.</h4>
+                                        <span class="ceo"> Co-Founder </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <img class="logo-three" src="/img1/svg-two.svg" alt="">
+                            <img class="logo-icon" src="/img/Mask Group.png" alt="">
+                            <div>
+                                <div class="tag-tow">SUCCESS STORY</div>
+                                <h2> Shopify Redesign Delivers 3x Conversion Rate Improvement for UK E-Commerce Brand
+                                </h2>
+                            </div>
+                            <div class="bottom-row">
+                                <div class="metric">
+                                    <h3>3.4x </h3>
+                                    <p>conversion rate improvement achieved following full Shopify redesign</p>
+                                </div>
+                                <a href="#" class="btn">Read Full Story</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+
+
+    <!-- SECTION SEVEN - REVIEWS -->
+    <section class="review-section">
+        <div class="review-wrapper">
+            <div class="review-container">
+
+                <div class="review-box">
+                    <div class="review-icon"><img class="img-icon" src="/img/Vector (2).svg" alt=""></div>
+                    <p class="review-text">"The team at Swift Launch took over our Amazon account when we were on the
+                        verge of giving up. Within three months our BSR improved, our reviews were climbing, and we
+                        finally felt like a real brand."
+                    </p>
+                    <div class="review-user">
+                        <div class="review-avatar">H&N</div>
+                        <div>
+                            <h4 class="review-name">Rebecca Roy</h4>
+                            <span class="review-role">H&N — CEO & PRESIDENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-box">
+                    <div class="review-icon"><img class="img-icon" src="/img/Vector (2).svg" alt=""></div>
+                    <p class="review-text">"What impressed me most was the speed. From onboarding to our first sale was
+                        less than two weeks. The listings were professional, the ads were targeted, and the results
+                        spoke for themselves."</p>
+                    <div class="review-user">
+                        <div class="review-avatar">H&N</div>
+                        <div>
+                            <h4 class="review-name">Rebecca Roy</h4>
+                            <span class="review-role">H&N — CEO & PRESIDENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-box">
+                    <div class="review-icon"><img class="img-icon" src="/img/Vector (2).svg" alt=""></div>
+                    <p class="review-text">"We'd tried two other agencies before Swift Launch. The difference was
+                        immediate — clear communication, real strategy, and an actual team that knew what they were
+                        doing on TikTok Shop."
+                    </p>
+                    <div class="review-user">
+                        <div class="review-avatar">H&N</div>
+                        <div>
+                            <h4 class="review-name">Rebecca Roy</h4>
+                            <span class="review-role">H&N — CEO & PRESIDENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-box">
+                    <div class="review-icon"><img class="img-icon" src="/img/Vector (2).svg" alt=""></div>
+                    <p class="review-text"> "The fulfilment side alone has saved us hours every week. Orders go out the
+                        same day, customers are happy, and we haven't had a single dispatch complaint since we
+                        switched."
+                    </p>
+                    <div class="review-user">
+                        <div class="review-avatar">H&N</div>
+                        <div>
+                            <h4 class="review-name">Rebecca Roy</h4>
+                            <span class="review-role">H&N — CEO & PRESIDENT</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- SECTION EIGHT - FAQ -->
+    <section class="faq-section">
+        <div class="faq-container">
+
+            <span class="faq-tag">FAQs</span>
+            <h2 class="faq-title">Everything You Need to Know
+            </h2>
+            <p class="faq-subtitle">Quick answers to the questions we hear most before <br> people get started.
+            </p>
+
+            <div class="faq-wrapper">
+
+                <div class="faq-item active">
+                    <button class="faq-question">
+                        Can I see more examples of your work?
+                        <span class="faq-icon"><img src="/img1/fe_arrow-up.svg" alt=""></span>
+                    </button>
+                    <div class="faq-answer">
+                        Absolutely. The portfolio above represents a selection of our work across e-commerce management,
+                        fulfilment, web development, and marketing. For detailed case studies or specific examples
+                        relevant to your industry or platform, book a free consultation and we'll walk you through them
+                        directly.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you provide support after the launch?
+                        <span class="faq-icon"><img src="/img1/fe_arrow-up.svg" alt=""></span>
+                    </button>
+                    <div class="faq-answer">
+                        Yes — always. Post-launch support is built into every plan. Your store goes live and our team
+                        stays active, monitoring performance, optimising listings, managing ads, and handling
+                        fulfilment. Growth Partner clients also receive weekly strategy calls and a dedicated account
+                        manager who knows your business inside out.
+
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I upgrade from the Starter Plan later?
+                        <span class="faq-icon"><img src="/img1/fe_arrow-up.svg" alt=""></span>
+                    </button>
+                    <div class="faq-answer">
+                        Yes, and it's seamless. Many of our clients start on the Starter Plan to get their store
+                        running, then upgrade to Growth Partner when they're ready to scale. There are no penalties, no
+                        complicated transitions — just a conversation with your account manager and we handle the rest.
+
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is fulfilment included in both plans?
+                        <span class="faq-icon"><img src="/img1/fe_arrow-up.svg" alt=""></span>
+                    </button>
+                    <div class="faq-answer">
+                        Fulfilment support is available on both plans. The Starter Plan includes 24–48h dispatch and
+                        returns management. The Growth Partner plan includes priority fulfilment — your orders are
+                        handled first, which is especially valuable during high-volume periods like peak season.
+
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How does monthly billing work?
+                        <span class="faq-icon"><img src="/img1/fe_arrow-up.svg" alt=""></span>
+                    </button>
+                    <div class="faq-answer">
+                        Billing is straightforward. You're charged at the start of each month with a clear, itemised
+                        breakdown of what's included. No surprise fees, no vague invoices — just transparent pricing
+                        that reflects exactly what we deliver.
+
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I cancel the Growth Partner plan anytime?
+                        <span class="faq-icon"><img src="/img1/fe_arrow-up.svg" alt=""></span>
+                    </button>
+                    <div class="faq-answer">
+                        Yes. We operate on a 30-day notice basis — no long-term lock-ins, no cancellation fees. We
+                        believe our results should be the reason you stay, not a contract clause. If for any reason
+                        things aren't working, we'll have an honest conversation and find the right path forward.
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="faq-buttons">
+                <a href="#" class="faq-btn">Book a call</a>
+                <a href="#" class="faq-btn">Learn More</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SECTON 13 SECTON 13 SECTON 13 SECTON 13 SECTON 13 -->
+
+    <section class="contact-section">
+        <div class="contact-container">
+
+            <!-- LEFT FORM -->
+            <div class="contact-form">
+                <button class="bottom-tag">SCHEDULE CONSULTATION</button>
+                <h2>Let’s Connect</h2>
+                <p>Seen something in our portfolio that resonates? Let's talk about what we can build for your brand.
+                    Book a free consultation — no pressure, just a straight conversation about your goals and how we can
+                    help you get there.
+                </p>
+
+                <form>
+
+                    <div class="row">
+                        <div class="field">
+                            <label>Your name</label>
+                            <input type="text" placeholder="e.g. John Smith">
+                        </div>
+
+                        <div class="field">
+                            <label>Email address</label>
+                            <input type="email" placeholder="e.g. john@email.com">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="field">
+                            <label>Phone number</label>
+                            <input type="text" placeholder="e.g. +1 222 444 66">
+                        </div>
+
+                        <div class="field">
+                            <label>Company name</label>
+                            <input type="text" placeholder="e.g. Execor">
+                        </div>
+                    </div>
+
+                    <div class="field full">
+                        <label>Your message</label>
+                        <textarea placeholder="Type here ..."></textarea>
+                    </div>
+
+                    <button class="form-btn">
+                        Schedule a Free Consultation
+                    </button>
+
+                </form>
+            </div>
+
+            <!-- RIGHT IMAGE -->
+            <div class="contact-image">
+                <img src="/img/form.webp" alt="meeting">
+
+                <div class="call-box">
+                    <div class="icon-bottom"><img src="/img1/call logo.png" alt=""></div>
+                    <p>Call us at (101) 500 0200 or fill out our form, and we'll contact you within one business day.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SUBSCRIBE BAR -->
+        <div class="subscribe">
+            <p>Stay ahead of the competition. Get weekly e-commerce strategies, platform insights, and growth playbooks
+                from the Swift Launch team — direct to your inbox.
+            </p>
+
+            <div class="subscribe-box">
+                <input type="email" placeholder="Subscribe">
+                <button>
+                    <img src="/img/arrow.png" alt="">
+                    <!-- <span class="icon-three">↗</span> -->
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER FOOTER FOOTER FOOTER FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- Left Section -->
+            <div class="footer-col">
+
+                <div class="bottom">
+                    <img src="/img/Group 1642.png" alt="Logo">
+                </div>
+
+                <p><br>
+                    <span class="link">The serious infrastructure behind serious sellers.</span>
+                </p>
+
+                <p class="contact">
+                    Swift Launch Ltd Manchester, United Kingdom hello@swiftlaunch.co.uk
+                </p>
+
+                <div class="btn-group">
+                    <button class="button-ten">Contact Us</button>
+                    <button class="button-seven">
+
+                        <img src="/img/Container.svg" alt="">
+
+                    </button>
+                </div>
+            </div>
+
+            <!-- Industries -->
+            <div class="footer-col">
+                <h4>PLATFORMS</h4>
+                <ul>
+                    <li>Amazon</li>
+                    <li>eBay</li>
+                    <li>TikTok Shop</li>
+                    <li>Shopify</li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-col">
+                <h4>SERVICES</h4>
+                <ul>
+                    <li><a href="/E-commerce/E-commerce.html">E-Commerce Management</a></li>
+                    <li><a href="/Reinstate services/Reinstate Services.html">Reinstate Services</a></li>
+                    <li><a href="Social media marketing/Social media marketing.html">Social Media Marketing</a></li>
+                    <li><a href="SEO/SEO.html">SEO Services</a></li>
+                    <li><a href="Performance marketing/Performance  marketing.html">Performance Marketing</a></li>
+                    <li><a href="Custom Web Dev + Shopify/Custom website  development.html">Web Development</a></li>
+                    <li><a href="Fulfilment Services/Fulfilment Services.html">Fulfilment Services</a></li>
+                    <li><a href="Returns Management/Returns Management.html">Returns Management</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="#">Our philosophy</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="Pricing.html">Pricing</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom -->
+        <div class="footer-bottom">
+            <p>© 2025 Swift Launch Ltd. All Rights Reserved. Terms & Conditions </p>
+
+            <div class="links">
+                <span>TERMS</span>
+                <span>PRIVACY</span>
+            </div>
+
+            <div class="social">
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="portfolio.js"></script>
+</body>
+
+</html>

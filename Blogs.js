@@ -1,0 +1,121 @@
+function filterAllBlogs(category) {
+    const allCards = document.querySelectorAll('#blogsGrid .blog-card');
+    const sidebarItems = document.querySelectorAll('.blog-sidebar .sidebar-item');
+
+    sidebarItems.forEach(item => {
+        const filterVal = item.getAttribute('data-filter');
+        if ((category === 'all' && filterVal === 'all') || (filterVal === category)) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+
+    let visibleCount = 0;
+    if (category === 'all') {
+        allCards.forEach(card => {
+            card.classList.remove('hidden');
+            visibleCount++;
+        });
+    } else {
+        allCards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            if (cardCat === category) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    const gridContainer = document.getElementById('blogsGrid');
+    let noResultDiv = document.querySelector('#blogsGrid .no-results');
+    if (visibleCount === 0) {
+        if (!noResultDiv) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'no-results';
+            msgDiv.innerHTML = '✨ No articles found in this category. Browse other topics!';
+            gridContainer.appendChild(msgDiv);
+        }
+    } else {
+        if (noResultDiv) noResultDiv.remove();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    filterAllBlogs('all');
+    const allImages = document.querySelectorAll('.blog-card img');
+    allImages.forEach(img => {
+        img.style.objectFit = 'cover';
+    });
+});
+
+// ── FAQ Toggle ──
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+    const question = item.querySelector(".faq-question");
+
+    question.addEventListener("click", () => {
+        faqItems.forEach(faq => {
+            faq.classList.remove("active");
+        });
+        item.classList.add("active");
+    });
+});
+
+
+// ── Section 13 Contact Animation ──
+document.addEventListener("DOMContentLoaded", () => {
+
+    const elements = document.querySelectorAll(
+        ".contact-form, .contact-image, .subscribe"
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    elements.forEach(el => observer.observe(el));
+
+});
+
+
+// ── Plan Cards Animation ──
+document.addEventListener("DOMContentLoaded", () => {
+
+    const cards = document.querySelectorAll(".plan-card");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    cards.forEach(card => observer.observe(card));
+
+});
+
+
+// ── Hamburger Menu ──
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (toggle && navLinks) {
+        toggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    }
+});

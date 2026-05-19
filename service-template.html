@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    ========================================================
+    TEMPLATE INSTRUCTIONS:
+    1. Title change karo (line 10)
+    2. Page-specific CSS link karo (line 14)
+    3. Active nav link change karo (navbar mein)
+    4. Hero heading & breadcrumb change karo
+    5. Body sections apne content se bharo
+    ========================================================
+  -->
+  <title>Page Title — Swift Launch</title>
+
+  <!-- ✅ STEP 1: Pehle global.css link karo (navbar + footer + common) -->
+  <link rel="stylesheet" href="../global.css">
+
+  <!-- ✅ STEP 2: Phir sirf apni page ki unique CSS link karo -->
+  <link rel="stylesheet" href="page-name.css">
+
+  <!-- Fonts & Icons (yeh hamesha rahenge) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ============================================ -->
+  <!--  NAVBAR (Yeh sab pages mein same rahega)     -->
+  <!-- ============================================ -->
+  <nav class="navbar">
+    <div class="nav-container">
+
+      <!-- Logo -->
+      <a href="../index.html" class="logo">
+        <img src="/img/Group 1642.png" alt="Swift Launch Logo">
+      </a>
+
+      <!-- Hamburger (Mobile) -->
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Nav Links -->
+      <!-- ✅ STEP 3: Jo page active ho uss link mein class="active" lagao -->
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html">Home</a>
+        <a href="../About.html">About</a>
+        <a href="../services.html" class="active">Services</a>
+        <a href="../Pricing.html">Pricing</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../Blogs.html">Blogs</a>
+        <a href="../Contact.html">Contact</a>
+        <button class="login-btn">Login</button>
+      </div>
+
+    </div>
+  </nav>
+  <!-- ============================================ -->
+  <!--  NAVBAR END                                  -->
+  <!-- ============================================ -->
+
+
+  <!-- ============================================ -->
+  <!--  HERO SECTION                                -->
+  <!-- ============================================ -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-text">
+        <!-- ✅ STEP 4: Breadcrumb aur heading change karo -->
+        <p>Services</p>
+        <h2>Page Title Here</h2>
+      </div>
+      <div class="hero-buttons">
+        <button class="btn-primary">Free Consultation</button>
+        <button class="btn-secondary"><img src="/img/arrow.png" alt=""></button>
+      </div>
+    </div>
+  </section>
+  <!-- ============================================ -->
+  <!--  HERO SECTION END                            -->
+  <!-- ============================================ -->
+
+
+  <!-- ============================================ -->
+  <!--  APNA CONTENT YAHAAN LIKHNA                  -->
+  <!-- ============================================ -->
+
+  <!-- Image Section -->
+  <section class="image-section">
+    <div class="image-container">
+      <img src="/img/new background.png" alt="Section Image">
+    </div>
+  </section>
+
+  <!-- Section 3 — What Is It -->
+  <section class="what-section">
+    <div class="what-container">
+      <div class="what-left">
+        <span class="what-tag">WHAT IS IT</span>
+        <h2>What Is It?</h2>
+        <p>
+          Yahaan apni service ki description likhna...
+        </p>
+      </div>
+      <div class="what-right">
+        <!-- Right side content -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 — Deliver Section -->
+  <section class="deliver-section">
+    <!-- Your content here -->
+  </section>
+
+  <!-- Section 5 — Stats -->
+  <section class="stats-section">
+    <div class="stats-container">
+      <div class="stat-box">
+        <h3><span class="text-color">50</span>+</h3>
+        <p>Brands Successfully Managed</p>
+      </div>
+      <div class="stat-box">
+        <h3>£<span class="text-color">100K</span>+</h3>
+        <p>Revenue Generated for Clients</p>
+      </div>
+      <div class="stat-box">
+        <h3><span class="text-color">90</span>%</h3>
+        <p>Account Health Rate Maintained</p>
+      </div>
+      <div class="stat-box">
+        <h3><span class="text-color">4</span></h3>
+        <p>Platforms Fully Managed</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6 — Why Section -->
+  <section class="why-section">
+    <!-- Your content here -->
+  </section>
+
+  <!-- Section 7 — Work Section -->
+  <section class="work-section">
+    <!-- Your content here -->
+  </section>
+
+  <!-- Section 8 — Explore Section -->
+  <section class="explore-section">
+    <!-- Your content here -->
+  </section>
+
+  <!-- Section 9 — Testimonials -->
+  <section class="testimonial-section">
+    <!-- Your content here -->
+  </section>
+
+  <!-- Section 10 — Transparent CTA -->
+  <section class="transparent-section">
+    <!-- Your content here -->
+  </section>
+
+  <!-- ============================================ -->
+  <!--  APNA CONTENT YAHAAN KHATAM HOTA HAI         -->
+  <!-- ============================================ -->
+
+
+  <!-- ============================================ -->
+  <!--  CONTACT + SUBSCRIBE (Sab pages mein same)  -->
+  <!-- ============================================ -->
+  <section class="contact-section">
+    <div class="contact-container">
+
+      <!-- LEFT FORM -->
+      <div class="contact-form">
+        <button class="bottom-tag">SCHEDULE CONSULTATION</button>
+        <h2>Let's Connect</h2>
+        <p>Connect with our experts for a free consultation and tailored solutions.</p>
+
+        <form>
+          <div class="row">
+            <div class="field">
+              <label>Your name</label>
+              <input type="text" placeholder="e.g. John Smith">
+            </div>
+            <div class="field">
+              <label>Email address</label>
+              <input type="email" placeholder="e.g. john@email.com">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Phone number</label>
+              <input type="text" placeholder="e.g. +1 222 444 66">
+            </div>
+            <div class="field">
+              <label>Company name</label>
+              <input type="text" placeholder="e.g. Execor">
+            </div>
+          </div>
+
+          <div class="field full">
+            <label>Your message</label>
+            <textarea placeholder="Type here ..."></textarea>
+          </div>
+
+          <button class="form-btn">Schedule a Free Consultation</button>
+        </form>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="contact-image">
+        <img src="/img/form.png" alt="meeting">
+        <div class="call-box">
+          <div class="icon-bottom"><img src="/img1/call logo.png" alt=""></div>
+          <p>Call us at (101) 500 0200 or fill out our form, and we'll contact you within one business day.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SUBSCRIBE BAR -->
+    <div class="subscribe">
+      <p>Get weekly e-commerce strategies and platform updates from the Swift Launch team — straight to your inbox.</p>
+      <div class="subscribe-box">
+        <input type="email" placeholder=" Subscribe">
+        <button><img src="/img/arrow.png" alt=""></button>
+      </div>
+    </div>
+  </section>
+  <!-- ============================================ -->
+  <!--  CONTACT SECTION END                         -->
+  <!-- ============================================ -->
+
+
+  <!-- ============================================ -->
+  <!--  FOOTER (Sab pages mein same)               -->
+  <!-- ============================================ -->
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <!-- Logo + Info -->
+      <div class="footer-col">
+        <div class="bottom">
+          <img src="/img/Group 1642.png" alt="Logo">
+        </div>
+        <p><br>
+          <span class="link">The serious infrastructure behind serious sellers.</span>
+        </p>
+        <p class="contact">Swift Launch Ltd Manchester, United Kingdom hello@swiftlaunch.co.uk</p>
+        <div class="btn-group">
+          <button class="button-ten">Contact Us</button>
+          <button class="button-seven">
+            <img src="/img/Container.svg" alt="">
+          </button>
+        </div>
+      </div>
+
+      <!-- Platforms -->
+      <div class="footer-col">
+        <h4>PLATFORMS</h4>
+        <ul>
+          <li>Amazon</li>
+          <li>eBay</li>
+          <li>TikTok Shop</li>
+          <li>Shopify</li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h4>SERVICES</h4>
+        <ul>
+          <li><a href="/E-commerce/E-commerce.html">E-Commerce Management</a></li>
+          <li><a href="/Reinstate services/Reinstate Services.html">Reinstate Services</a></li>
+          <li><a href="/Social media marketing/Social media marketing.html">Social Media Marketing</a></li>
+          <li><a href="/SEO/SEO.html">SEO Services</a></li>
+          <li><a href="/Performance marketing/Performance  marketing.html">Performance Marketing</a></li>
+          <li><a href="/Custom Web Dev + Shopify/Custom website  development.html">Web Development</a></li>
+          <li><a href="/Fulfilment Services/Fulfilment Services.html">Fulfilment Services</a></li>
+          <li><a href="/Returns Management/Returns Management.html">Returns Management</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4>QUICK LINKS</h4>
+        <ul>
+          <li><a href="#">Our philosophy</a></li>
+          <li><a href="#">Success Stories</a></li>
+          <li><a href="../portfolio.html">Portfolio</a></li>
+          <li><a href="../Pricing.html">Pricing</a></li>
+          <li><a href="../Contact.html">Contact Us</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 Swift Launch Ltd. All Rights Reserved.</p>
+      <div class="links">
+        <span>TERMS</span>
+        <span>PRIVACY</span>
+      </div>
+      <div class="social">
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+
+  </footer>
+  <!-- ============================================ -->
+  <!--  FOOTER END                                  -->
+  <!-- ============================================ -->
+
+
+  <!-- ============================================ -->
+  <!--  SCRIPTS                                     -->
+  <!-- ============================================ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Navbar Toggle Script (Global — sab pages ke liye) -->
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Contact form animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.contact-form, .contact-image, .subscribe').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+  <!-- ✅ STEP 5: Apna page-specific JS yahan link karo -->
+  <!-- <script src="page-name.js"></script> -->
+
+</body>
+
+</html>
