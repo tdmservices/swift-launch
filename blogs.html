@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="Blogs.css">
+      <link rel="icon" type="image/png" href="/img1/favicon icon. (2).png">
+    <link rel="stylesheet" href="../global.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <img src="img/swift lauch logo black (1) 1.png" alt="">
+            </a>
+
+            <!-- Hamburger -->
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Nav Links -->
+            <div class="nav-links" id="navLinks">
+                <a href="./index.html">Home</a>
+                <a href="./about.html">About</a>
+                <a href="./services.html">Services</a>
+                <a href="./pricing.html">Pricing</a>
+                <a href="./portfolio.html">Portfolio</a>
+                <a href="./blogs.html" class="active">Blogs</a>
+                <a href="./contact.html">Contact</a>
+                <button class="login-btn">Login</button>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <p>BLOGS</p>
+                <h2>The E-Commerce Playbook. Straight From the People Who Do It.
+                </h2>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary">Free Consultation</button>
+                <button class="btn-secondary"><img src="/img1/ven-back.svg" alt=""></button>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION TWO -->
+    <section class="image-section">
+        <div class="image-container">
+            <img src="/img/pexels-vlada-karpovich-7433848-2048x900.jpg.webp" alt="Section Image">
+        </div>
+    </section>
+
+    <!-- OUR BLOGS -->
+    <!-- OUR BLOGS Section -->
+    <section class="our-blogs">
+        <div class="section-title">Our Blogs</div>
+        <div class="our-blogs-inner">
+            <!-- Card 1 - Date format: ICON + TEXT + ICON + TEXT -->
+            <div class="blog-card">
+                <img src="img2/685c72d2661b2e9103ffdea1_Blog-Img-4.jpg.webp"
+                    alt="How to Start Marketing Your Small Business Online">
+                <div class="blog-card-body">
+                    <div class="blog-date">
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="date-text"> Jan 15 </span>
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                        <span class="date-text">2025</span>
+                    </div>
+                    <h3>How to Launch Your Brand on Amazon UK — The Complete Beginner's Guide</h3>
+                    <p>Everything you need to know before your first product goes live. From account setup and listing
+                        optimisation to pricing strategy and your first reviews — we break it all down step by step.
+                    </p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="blog-card">
+                <img src="img2/685c730c8bd51bebf966ace7_Blog-Img-6.jpg.webp"
+                    alt="How to Start Marketing Your Small Business Online">
+                <div class="blog-card-body">
+                    <div class="blog-date">
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="date-text"> Feb 02 </span>
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                        <span class="date-text">2025</span>
+                    </div>
+                    <h3>Why UK Sellers Are Moving to Done-For-You Fulfilment in 2025</h3>
+                    <p>Rising costs, complexity, and lost time are pushing more UK brand owners toward professional
+                        fulfilment solutions. Here's what to look for — and what to avoid.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sidebar - NO ICONS, only text -->
+            <div class="blog-sidebar">
+                <div class="sidebar-title">Blog Categories</div>
+                <div class="sidebar-item active" data-filter="all" onclick="filterAllBlogs('all')">
+                    <span class="sidebar-text-only"> All Blogs</span>
+                </div>
+                <div class="sidebar-item" data-filter="business" onclick="filterAllBlogs('business')">
+                    <span class="sidebar-text-only">Business Strategy</span>
+                </div>
+                <div class="sidebar-item" data-filter="marketing" onclick="filterAllBlogs('marketing')">
+                    <span class="sidebar-text-only">Marketing Tips</span>
+                </div>
+                <div class="sidebar-item" data-filter="startup" onclick="filterAllBlogs('startup')">
+                    <span class="sidebar-text-only">Platform Guides</span>
+                </div>
+                <div class="sidebar-item" data-filter="finance" onclick="filterAllBlogs('finance')">
+                    <span class="sidebar-text-only">Finance & Growth</span>
+                </div>
+                <div class="sidebar-item" data-filter="product" onclick="filterAllBlogs('product')">
+                    <span class="sidebar-text-only">Product Launch</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALL BLOGS Section - All cards follow same format: ICON + TEXT + ICON + TEXT -->
+    <section class="all-blogs">
+        <div class="section-title">All Blogs</div>
+        <div class="blogs-grid" id="blogsGrid">
+            <!-- Card 1 - Product -->
+            <div class="blog-card" data-category="product">
+                <img src="img2/685c731dfeed3664bc61ba87_Blog-Img-9.jpg.webp"
+                    alt="How to Build Your Product Launch Strategy">
+                <div class="blog-card-body">
+                    <div class="blog-date">
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="date-text">Branding</span>
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+
+                        <span class="date-text">Mar 10 2025</span>
+                    </div>
+                    <h3>How to Build a Product Launch Strategy That Actually Converts</h3>
+                    <p> A step-by-step guide to planning and executing a successful product launch on Amazon and TikTok
+                        Shop — from pre-launch buzz to day-one sales.
+                    </p>
+                </div>
+            </div>
+            <!-- Card 2 - Marketing -->
+            <div class="blog-card" data-category="marketing">
+                <img src="img2/685c7352ba73affa9974f670_Blog-Img-8.jpg.webp"
+                    alt="Marketing Strategies That Actually Work for Small Teams">
+                <div class="blog-card-body">
+                    <div class="blog-date">
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="date-text">Mar 18 </span>
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                        <span class="date-text">2025</span>
+                    </div>
+                    <h3> E-Commerce Marketing Strategies That Actually Work in 2025</h3>
+                    <p> Proven approaches that UK sellers are using right now to drive traffic and revenue — without
+                        burning through their entire ad budget.
+                    </p>
+                </div>
+            </div>
+            <!-- Card 3 - Marketing -->
+            <div class="blog-card" data-category="marketing">
+                <img src="img2/685c736cec1de7efd0680381_Blog-Img-7.jpg.webp"
+                    alt="Run Profitable Facebook Ads for Your New Business">
+                <div class="blog-card-body">
+                    <div class="blog-date">
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="date-text">Apr 01 </span>
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                        <span class="date-text">2025</span>
+                    </div>
+                    <h3> How to Run Profitable Amazon PPC Ads for Your Brands</h3>
+                    <p>Understanding the basics of Amazon advertising — and how to structure your campaigns to get the
+                        best return on every pound you spend.
+
+                    </p>
+                </div>
+            </div>
+            <!-- Card 4 - Startup -->
+            <div class="blog-card" data-category="startup">
+                <img src="img2/685c7425a266d28a2b47c63b_Blog-Img-3.jpg.webp"
+                    alt="How to Successfully Build Your Startup Team">
+                <div class="blog-card-body">
+                    <div class="blog-date">
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="date-text"> Apr 12</span>
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                        <span class="date-text">2025</span>
+                    </div>
+                    <h3> How to Build a High-Performance E-Commerce Team</h3>
+                    <p>Whether you're hiring in-house or outsourcing, finding and retaining the right people is critical
+                        to scaling your store — here's how to get it right.
+                    </p>
+                </div>
+            </div>
+            <!-- Card 5 - Startup -->
+            <div class="blog-card" data-category="startup">
+                <img src="img2/685c744a7ad72ab1ff197257_Blog-Img-2.jpg.webp"
+                    alt="What New Entrepreneurs Should Know Before They Start">
+                <div class="blog-card-body">
+                    <div class="blog-date">
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="date-text">Apr 20 </span>
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                        <span class="date-text">2025</span>
+                    </div>
+                    <h3>What Every UK Seller Should Know Before Launching on TikTok Shop</h3>
+                    <p>Key platform insights and common mistakes that first-time TikTok Shop sellers make — and exactly
+                        how to avoid them before you go live.
+
+                    </p>
+                </div>
+            </div>
+            <!-- Card 6 - Business -->
+            <div class="blog-card" data-category="business">
+                <img src="img2/685c748ca1a966335b0f0253_Blog-Img-1.jpg (1).webp"
+                    alt="Run Productive Team Meetings That Actually Get Results">
+                <div class="blog-card-body">
+                    <div class="blog-date">
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="date-text"> May 01 </span>
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                        <span class="date-text">2025</span>
+                    </div>
+                    <h3>How to Turn Your Shopify Store Into a Revenue Machine </h3>
+                    <p> Stop leaving money on the table. These are the conversion optimisation and fulfilment strategies
+                        your Shopify store needs to scale profitably.
+
+                    </p>
+                </div>
+            </div>
+            <!-- Card 7 - Business -->
+            <div class="blog-card" data-category="business">
+                <img src="img2/685c748ca1a966335b0f0253_Blog-Img-1.jpg.webp"
+                    alt="What's New in Business Management Tools This Year">
+                <div class="blog-card-body">
+                    <div class="blog-date">
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="date-text"> May 16 </span>
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                        <span class="date-text">2025</span>
+                    </div>
+                    <h3>eBay in 2025 — What's Changed and How to Stay Ahead</h3>
+                    <p>The eBay algorithm, seller standards, and listing strategies have evolved. Here's what UK sellers
+                        need to know to maintain and grow their rankings.
+
+                    </p>
+                </div>
+            </div>
+            <!-- Card 8 - Marketing with Advertising chip -->
+            <div class="blog-card" data-category="marketing">
+                <img src="img2/Link (1).webp" alt="Top Digital Marketing Tips for Non-Marketers">
+                <div class="blog-card-body">
+                    <div class="blog-date">
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="date-text">May 25</span>
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                        <span class="date-text"> 2025</span>
+                    </div>
+                    <h3>The No-Nonsense Guide to Social Media Marketing for E-Commerce Brands</h3>
+                    <p>You don't need a huge following to drive real sales from social. Here's the practical playbook
+                        for turning content into conversions.
+
+                    </p>
+                </div>
+            </div>
+            <!-- Card 9 - Finance -->
+            <div class="blog-card" data-category="finance">
+                <img src="img2/Link.webp" alt="Better Financial Management Strategies for Entrepreneurs">
+                <div class="blog-card-body">
+                    <div class="blog-date">
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="date-text">Jun 06 </span>
+                        <svg class="date-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                        <span class="date-text">2024</span>
+                    </div>
+                    <h3>E-Commerce Cash Flow: How to Stay Profitable While You Scale</h3>
+                    <p>Scaling fast is exciting — but cash flow mismanagement kills more growing brands than bad
+                        products. Here's how to stay financially sharp as you grow.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTION EIGHT - FAQ -->
+    <section class="faq-section">
+        <div class="faq-container">
+
+            <span class="faq-tag">FAQs</span>
+            <h2 class="faq-title">Everything You Need to Know</h2>
+            <p class="faq-subtitle">Quick answers to the questions we hear most before <br> people get started.
+            </p>
+
+            <div class="faq-wrapper">
+
+                <div class="faq-item active">
+                    <button class="faq-question">
+                        What topics does the Swift Launch blog cover?
+                        <span class="faq-icon"><img src="/img1/fe_arrow-up.svg" alt=""></span>
+                    </button>
+                    <div class="faq-answer">
+                        We cover everything relevant to UK e-commerce sellers — Amazon, eBay, TikTok Shop, and Shopify
+                        platform strategies, performance marketing, SEO, fulfilment, branding, product launches, and
+                        business growth. Every post is written by our in-house team based on real experience managing
+                        50+ brands.
+
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How often do you publish new content?
+                        <span class="faq-icon"><img src="/img1/fe_arrow-up.svg" alt=""></span>
+                    </button>
+                    <div class="faq-answer">
+                        We publish new blog posts weekly. If you want to stay up to date with the latest e-commerce
+                        strategies, platform changes, and Swift Launch insights, subscribe to our newsletter and we'll
+                        deliver the best content straight to your inbox.
+
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I get personalised advice rather than just reading articles?
+                        <span class="faq-icon"><img src="/img1/fe_arrow-up.svg" alt=""></span>
+                    </button>
+                    <div class="faq-answer">
+                        Absolutely. Our blog is a great starting point, but nothing beats a direct conversation with our
+                        team. Book a free consultation and we'll review your specific setup, identify what's holding you
+                        back, and give you a tailored action plan — no obligation.
+
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you cover fulfilment and logistics topics?
+                        <span class="faq-icon"><img src="/img1/fe_arrow-up.svg" alt=""></span>
+                    </button>
+                    <div class="faq-answer">
+                        Yes. We have a dedicated section covering UK fulfilment — warehouse storage, pick and pack,
+                        dispatch timelines, returns management, and dropshipping strategies. If you're trying to decide
+                        whether outsourcing your fulfilment makes sense, our guides will give you the full picture.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Are your blog posts relevant for beginners or experienced sellers?
+                        <span class="faq-icon"><img src="/img1/fe_arrow-up.svg" alt=""></span>
+                    </button>
+                    <div class="faq-answer">
+                        Both. We categorise our content clearly so you can find what's relevant to where you are right
+                        now. Whether you're launching your first product or managing a multi-platform operation, there's
+                        actionable content here for you.
+
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I suggest a blog topic?
+                        <span class="faq-icon"><img src="/img1/fe_arrow-up.svg" alt=""></span>
+                    </button>
+                    <div class="faq-answer">
+                        Yes — and we love it when clients and readers do. If there's a specific challenge, platform
+                        question, or topic you'd like us to cover, drop us a message through the contact form below and
+                        we'll add it to our editorial calendar.
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="faq-buttons">
+                <a href="#" class="faq-btn">Book a call</a>
+                <a href="#" class="faq-btn">Learn More</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SECTION 13 -->
+    <section class="contact-section">
+        <div class="contact-container">
+
+            <!-- LEFT FORM -->
+            <div class="contact-form">
+                <button class="bottom-tag">SCHEDULE CONSULTATION</button>
+                <h2>Let's Connect</h2>
+                <p>Read something that sparked an idea for your business? Let's talk about it. Book a free consultation
+                    and we'll show you exactly how Swift Launch can turn that idea into real, measurable results.
+                </p>
+
+                <form>
+
+                    <div class="row">
+                        <div class="field">
+                            <label>Your name</label>
+                            <input type="text" placeholder="e.g. John Smith">
+                        </div>
+
+                        <div class="field">
+                            <label>Email address</label>
+                            <input type="email" placeholder="e.g. john@email.com">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="field">
+                            <label>Phone number</label>
+                            <input type="text" placeholder="e.g. +1 222 444 66">
+                        </div>
+
+                        <div class="field">
+                            <label>Company name</label>
+                            <input type="text" placeholder="e.g. Execor">
+                        </div>
+                    </div>
+
+                    <div class="field full">
+                        <label>Your message</label>
+                        <textarea placeholder="Type here ..."></textarea>
+                    </div>
+
+                    <button class="form-btn">
+                        Schedule a Free Consultation
+                    </button>
+
+                </form>
+            </div>
+
+            <!-- RIGHT IMAGE -->
+            <div class="contact-image">
+                <img src="/img/form.webp" alt="meeting">
+
+                <div class="call-box">
+                    <div class="icon-bottom"><img src="/img1/call logo.png" alt=""></div>
+                    <p>Call us at (101) 500 0200 or fill out our form, and we'll contact you within one business day.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SUBSCRIBE BAR -->
+        <div class="subscribe">
+            <p>Don't miss a post. Get the latest e-commerce strategies, platform updates, and seller insights from the
+                Swift Launch team — delivered to your inbox every week.</p>
+
+            <div class="subscribe-box">
+                <input type="email" placeholder="Subscribe">
+                <button>
+                    <img src="/img/arrow.png" alt="">
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- Left Section -->
+            <div class="footer-col">
+                <div class="bottom">
+                    <img src="/img/Group 1642.png" alt="Logo">
+                </div>
+                <p>
+                    <span class="link">The serious infrastructure behind serious sellers.</span>
+                </p>
+                <p class="contact">
+                    Swift Launch Ltd Manchester, United Kingdom hello@swiftlaunch.co.uk
+                </p>
+                <div class="btn-group">
+                    <button class="button-ten">Contact Us</button>
+                    <button class="button-seven">
+                        <img src="/img/Container.svg" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Industries -->
+            <div class="footer-col">
+                <h4>PLATFORMS</h4>
+                <ul>
+                    <li>Amazon</li>
+                    <li>eBay</li>
+                    <li>TikTok Shop</li>
+                    <li>Shopify</li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-col">
+                <h4>SERVICES</h4>
+                <ul>
+                    <li><a href="/E-commerce/E-commerce.html">E-Commerce Management</a></li>
+                    <li><a href="/Reinstate services/Reinstate Services.html">Reinstate Services</a></li>
+                    <li><a href="Social media marketing/Social media marketing.html">Social Media Marketing</a></li>
+                    <li><a href="SEO/SEO.html">SEO Services</a></li>
+                    <li><a href="Performance marketing/Performance  marketing.html">Performance Marketing</a></li>
+                    <li><a href="Custom Web Dev + Shopify/Custom website  development.html">Web Development</a></li>
+                    <li><a href="Fulfilment Services/Fulfilment Services.html">Fulfilment Services</a></li>
+                    <li><a href="Returns Management/Returns Management.html">Returns Management</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="#">Our philosophy</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="Pricing.html">Pricing</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Bottom -->
+        <div class="footer-bottom">
+            <p>© 2025 Swift Launch Ltd. All Rights Reserved. Terms & Conditions </p>
+
+            <div class="links">
+                <span>TERMS</span>
+                <span>PRIVACY</span>
+            </div>
+
+            <div class="social">
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="Blogs.js"></script>
+
+</body>
+
+</html>
