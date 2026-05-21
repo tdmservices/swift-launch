@@ -1,4 +1,4 @@
-        * {
+        /* * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -51,7 +51,6 @@
             transform: translateY(-4px);
         }
 
-        /* HERO */
 
         .hero {
             padding-top: 140px;
@@ -103,7 +102,7 @@
             object-fit: cover;
         }
 
-        /* ABOUT */
+       
 
         .about-grid {
             display: grid;
@@ -130,7 +129,6 @@
             margin-bottom: 20px;
         }
 
-        /* CARDS */
 
         .cards-grid {
             display: grid;
@@ -175,8 +173,6 @@
             font-size: 21px;
         }
 
-        /* BLUE SECTION */
-
         .blue-section {
             background: linear-gradient(135deg, #01328E, #08A1DD);
             color: white;
@@ -203,7 +199,7 @@
             backdrop-filter: blur(10px);
         }
 
-        /* TIMELINE */
+   
 
         .timeline {
             margin-top: 60px;
@@ -228,7 +224,7 @@
             font-weight: 700;
         }
 
-        /* IMAGE SECTION */
+
 
         .image-flex {
             display: flex;
@@ -247,7 +243,7 @@
             flex: 1;
         }
 
-        /* INDUSTRIES */
+    
 
         .industry-grid {
             display: grid;
@@ -271,8 +267,6 @@
             color: white;
         }
 
-        /* QUOTE */
-
         .quote-box {
             background: white;
             padding: 70px;
@@ -286,8 +280,6 @@
             line-height: 1.4;
             margin-bottom: 25px;
         }
-
-        /* CTA */
 
         .cta {
             text-align: center;
@@ -304,7 +296,7 @@
             margin-bottom: 35px;
         }
 
-        /* FOOTER */
+ 
 
         footer {
             background: #01328E;
@@ -312,8 +304,6 @@
             text-align: center;
             color: white;
         }
-
-        /* RESPONSIVE */
 
         @media(max-width:1100px) {
 
@@ -359,10 +349,6 @@
             }
         }
 
-        /* =========================
-   GLOBAL ANIMATIONS
-========================= */
-
         html {
             scroll-behavior: smooth;
         }
@@ -371,7 +357,6 @@
             animation: fadeUp 1s ease;
         }
 
-        /* Fade Up */
 
         @keyframes fadeUp {
             from {
@@ -385,8 +370,6 @@
             }
         }
 
-        /* Zoom Animation */
-
         @keyframes zoomIn {
             from {
                 opacity: 0;
@@ -399,7 +382,7 @@
             }
         }
 
-        /* Floating */
+     
 
         @keyframes floating {
             0% {
@@ -415,7 +398,6 @@
             }
         }
 
-        /* Gradient Move */
 
         @keyframes gradientMove {
             0% {
@@ -427,9 +409,7 @@
             }
         }
 
-        /* =========================
-   HERO ANIMATION
-========================= */
+
 
         .hero-text span {
             animation: fadeUp .8s ease;
@@ -456,9 +436,7 @@
             transform: scale(1.03);
         }
 
-        /* =========================
-   BUTTON ANIMATION
-========================= */
+
 
         .btn {
             background-size: 200%;
@@ -471,9 +449,6 @@
             box-shadow: 0 12px 30px rgba(1, 50, 142, .25);
         }
 
-        /* =========================
-   CARD ANIMATION
-========================= */
 
         .card {
             transition: .4s ease;
@@ -492,10 +467,6 @@
         .icon {
             transition: .4s;
         }
-
-        /* =========================
-   BLUE SECTION
-========================= */
 
         .blue-card {
             transition: .4s;
@@ -519,9 +490,7 @@
             background: rgba(255, 255, 255, .18);
         }
 
-        /* =========================
-   TIMELINE
-========================= */
+
 
         .timeline-item {
             transition: .4s;
@@ -540,10 +509,6 @@
             transform: scale(1.1);
         }
 
-        /* =========================
-   IMAGE SECTION
-========================= */
-
         .image-flex img,
         .about-image img {
             transition: .6s;
@@ -554,9 +519,6 @@
             transform: scale(1.04);
         }
 
-        /* =========================
-   INDUSTRY CARDS
-========================= */
 
         .industry {
             transition: .4s;
@@ -567,9 +529,6 @@
             box-shadow: 0 14px 30px rgba(1, 50, 142, .14);
         }
 
-        /* =========================
-   QUOTE BOX
-========================= */
 
         .quote-box {
             transition: .5s;
@@ -581,9 +540,7 @@
             box-shadow: 0 18px 40px rgba(0, 0, 0, .1);
         }
 
-        /* =========================
-   CTA SECTION
-========================= */
+
 
         .cta h2 {
             animation: fadeUp 1s ease;
@@ -593,9 +550,7 @@
             animation: fadeUp 1.2s ease;
         }
 
-        /* =========================
-   FLOATING ELEMENTS
-========================= */
+
 
         .hero-image,
         .quote-box,
@@ -603,9 +558,7 @@
             animation: floating 5s ease-in-out infinite;
         }
 
-        /* =========================
-   SCROLL REVEAL EFFECT
-========================= */
+
 
         .reveal {
             opacity: 0;
@@ -617,11 +570,4 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /*
-===========================================
-  GLOBAL.CSS — Swift Launch Website
-  Yeh file SABI pages mein link karni hai
-  Navbar + Footer + Common styles yahaan hain
-===========================================
-*/
+ */

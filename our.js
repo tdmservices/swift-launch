@@ -1,17 +1,17 @@
-const reveals = document.querySelectorAll(".reveal");
+// const reveals = document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", () => {
+// window.addEventListener("scroll", () => {
 
-    reveals.forEach((element) => {
+//     reveals.forEach((element) => {
 
-        const windowHeight = window.innerHeight;
-        const revealTop = element.getBoundingClientRect().top;
-        const revealPoint = 120;
+//         const windowHeight = window.innerHeight;
+//         const revealTop = element.getBoundingClientRect().top;
+//         const revealPoint = 120;
 
-        if (revealTop < windowHeight - revealPoint) {
-            element.classList.add("active");
-        }
+//         if (revealTop < windowHeight - revealPoint) {
+//             element.classList.add("active");
+//         }
 
-    });
+//     });
 
-});
+// });
