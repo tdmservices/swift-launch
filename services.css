@@ -425,10 +425,7 @@
   /* optional hover zoom */
 }
 
-.image-container img:hover {
-  transform: scale(1.03);
-  /* optional subtle zoom */
-}
+
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1400px) {
