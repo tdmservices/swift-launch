@@ -421,6 +421,7 @@
   border-radius: 10px;
   object-fit: cover;
   display: block;
+  margin-top: 76px;
   transition: transform 0.3s ease;
   /* optional hover zoom */
 }
