@@ -1045,6 +1045,9 @@ h5.services {
 
 /* SECTION SIX SECTION SIX SECTION SIX SECTION SIX SECTION SIX */
 
+/* ============================= */
+/* SERVICE SECTION */
+/* ============================= */
 
 .service-section {
   padding: 0px 20px;
@@ -1052,11 +1055,21 @@ h5.services {
   box-sizing: border-box;
 }
 
+/* ============================= */
+/* TITLE */
+/* ============================= */
+
 .service-title {
   font-size: 32px;
   color: #01328E;
   margin-bottom: 45px;
   margin-top: 51px;
+
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .services-ten {
@@ -1071,7 +1084,24 @@ h5.services {
   text-align: center;
   width: fit-content;
 
+  opacity: 0;
+  transform: translateY(30px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
+
+.services-ten:hover {
+  background: #01328E;
+  color: #fff;
+}
+
+/* ============================= */
+/* GRID */
+/* ============================= */
 
 .service-grid {
   display: grid;
@@ -1081,6 +1111,10 @@ h5.services {
   margin: 0 auto;
 }
 
+/* ============================= */
+/* CARD */
+/* ============================= */
+
 .service-card {
   width: 100%;
   background: #F6F5F2;
@@ -1089,9 +1123,26 @@ h5.services {
   position: relative;
   padding-bottom: 10px;
   min-height: 300px;
-  transition: all 0.4s ease;
   box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+
+  /* Smooth Animation */
+  opacity: 0;
+  transform: translateY(50px);
+
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease,
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
+
+  will-change: transform, opacity;
 }
+
+/* ============================= */
+/* IMAGE */
+/* ============================= */
 
 .insan-logo {
   position: absolute;
@@ -1109,7 +1160,13 @@ h5.services {
   height: 300px;
   object-fit: cover;
   display: block;
+
+  transition: transform 0.5s ease;
 }
+
+/* ============================= */
+/* TEXT */
+/* ============================= */
 
 .service-name {
   font-weight: 500;
@@ -1122,7 +1179,23 @@ h5.services {
   align-items: center;
   margin-top: 18px;
 
+  transition: color 0.3s ease;
 }
+
+.service-card h1,
+.service-card h2,
+.service-card h3,
+.service-card h4,
+.service-card p,
+.service-card .card-title,
+.service-card .card-description,
+.service-card .service-name {
+  transition: color 0.3s ease;
+}
+
+/* ============================= */
+/* ICON */
+/* ============================= */
 
 .service-icon {
   position: absolute;
@@ -1136,21 +1209,37 @@ h5.services {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.service-icon img {
+  transition: filter 0.3s ease;
+}
+
+.service-icon:hover {
+  background: #08A1DD;
+  transform: scale(1.08);
 }
 
 .service-icon:hover img {
   filter: brightness(0) invert(1);
 }
 
-/* FIXED: no space */
-.service-icon:hover {
-  background: #08A1DD;
-
-}
+/* ============================= */
+/* HOVER EFFECT */
+/* ============================= */
 
 .service-card:hover {
-  transform: translateY(-10px) scale(1.03);
+  transform: translateY(-10px) scale(1.02);
   background-color: #01328E;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.04);
 }
 
 .service-card:hover h1,
@@ -1167,16 +1256,9 @@ h5.services {
   color: #dddddd;
 }
 
-.service-card h1,
-.service-card h2,
-.service-card h3,
-.service-card h4,
-.service-card p,
-.service-card .card-title,
-.service-card .card-description,
-.service-card .service-name {
-  transition: color 0.3s ease;
-}
+/* ============================= */
+/* BUTTON */
+/* ============================= */
 
 .service-button {
   margin-top: 40px;
@@ -1186,6 +1268,15 @@ h5.services {
   border-radius: 25px;
   cursor: pointer;
   border: 1px solid #01328E;
+
+  opacity: 0;
+  transform: translateY(30px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .service-button:hover {
@@ -1193,47 +1284,39 @@ h5.services {
   border-color: #08A1DD;
 }
 
-/* Animation */
-.service-title,
-.service-card,
-.service-button {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.0s ease;
-}
+/* ============================= */
+/* SHOW ANIMATION */
+/* ============================= */
 
 .show {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Smooth Delays */
+
 .service-card:nth-child(1) {
-  transition-delay: 0.0s;
+  transition-delay: 0.05s;
 }
 
 .service-card:nth-child(2) {
-  transition-delay: 0.0s;
+  transition-delay: 0.1s;
 }
 
 .service-card:nth-child(3) {
-  transition-delay: 0.0s;
+  transition-delay: 0.15s;
 }
 
 .service-card:nth-child(4) {
-  transition-delay: 0.0s;
+  transition-delay: 0.2s;
 }
 
-.service-card:hover {
-  text-decoration: none;
-}
+/* ============================= */
+/* TABLET */
+/* ============================= */
 
-.service-card {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Tablet */
 @media (max-width: 992px) {
+
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
     max-width: 650px;
@@ -1244,8 +1327,12 @@ h5.services {
   }
 }
 
-/* Mobile */
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
 @media (max-width: 600px) {
+
   .service-section {
     padding: 40px 15px;
   }
@@ -1277,10 +1364,14 @@ h5.services {
   .service-button {
     margin-top: 10px;
   }
-
 }
 
+/* ============================= */
+/* EXTRA */
+/* ============================= */
+
 @media (max-width: 768px) {
+
   .card {
     display: flex;
     flex-direction: column;
@@ -1290,7 +1381,6 @@ h5.services {
     margin-bottom: -14px;
   }
 }
-
 
 
 /* SECTION SEVEN SECTION SEVEN SECTION SEVEN SECTION SEVEN  */
