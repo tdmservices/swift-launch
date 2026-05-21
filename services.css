@@ -1102,11 +1102,6 @@ h5.services {
   transition: 0.3s ease;
 }
 
-.services:hover {
-  background: #01328E;
-  color: white;
-}
-
 /* ================================= */
 /* TABLET */
 /* ================================= */
