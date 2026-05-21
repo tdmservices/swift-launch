@@ -1,3 +1,9 @@
+body {
+    background: #F7F9FC;
+    color: #111;
+    overflow-x: hidden;
+}
+
 .container {
     max-width: 1250px;
     margin: auto;
