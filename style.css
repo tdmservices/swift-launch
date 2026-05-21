@@ -2070,6 +2070,11 @@
 
   /* SECTON 10 SECTON 10 SECTON 10 SECTON 10 SECTON 10 */
 
+
+  .testimonial-section {
+    margin-top: -30px;
+  }
+
   /* Main Container */
   .testimonial-slider {
     max-width: 1200px;
