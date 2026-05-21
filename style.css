@@ -1313,7 +1313,6 @@
   }
 
   /* SECTION SIX SECTION SIX SECTION SIX SECTION SIX SECTION SIX */
-
   .service-section {
     padding: 5px 20px;
     text-align: center;
@@ -1342,8 +1341,17 @@
     position: relative;
     padding-bottom: 20px;
     min-height: 300px;
-    transition: all 0.4s ease;
     box-sizing: border-box;
+
+    /* Smooth Animation */
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.8s ease,
+      background-color 0.4s ease,
+      box-shadow 0.4s ease;
+    will-change: transform, opacity;
   }
 
   .insan-logo {
@@ -1370,6 +1378,7 @@
     font-size: 17px;
     color: #01328E;
     text-align: left;
+    transition: color 0.4s ease;
   }
 
   .service-icon {
@@ -1385,21 +1394,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transition:
+      background 0.35s ease,
+      transform 0.35s ease;
+  }
+
+  .service-icon img {
+    transition: filter 0.35s ease;
   }
 
   .service-icon:hover img {
     filter: brightness(0) invert(1);
   }
 
-  /* FIXED: no space */
   .service-icon:hover {
     background: #08A1DD;
-
+    transform: scale(1.08);
   }
 
   .service-card:hover {
-    transform: translateY(-10px) scale(1.03);
+    transform: translateY(-12px) scale(1.03);
     background-color: #01328E;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
   }
 
   .service-card:hover h1,
@@ -1424,7 +1441,7 @@
   .service-card .card-title,
   .service-card .card-description,
   .service-card .service-name {
-    transition: color 0.3s ease;
+    transition: color 0.4s ease;
   }
 
   .service-button {
@@ -1435,41 +1452,40 @@
     border-radius: 25px;
     cursor: pointer;
     border: 1px solid #01328E;
+
+    transition:
+      background-color 0.35s ease,
+      border-color 0.35s ease,
+      transform 0.35s ease;
   }
 
   .service-button:hover {
     background-color: #08A1DD;
     border-color: #08A1DD;
+    transform: translateY(-3px);
   }
 
-  /* Animation */
-  .service-title,
-  .service-card,
-  .service-button {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.0s ease;
-  }
-
+  /* SHOW ANIMATION */
   .show {
     opacity: 1;
     transform: translateY(0);
   }
 
+  /* Smooth Delays */
   .service-card:nth-child(1) {
-    transition-delay: 0.0s;
+    transition-delay: 0.1s;
   }
 
   .service-card:nth-child(2) {
-    transition-delay: 0.0s;
+    transition-delay: 0.2s;
   }
 
   .service-card:nth-child(3) {
-    transition-delay: 0.0s;
+    transition-delay: 0.3s;
   }
 
   .service-card:nth-child(4) {
-    transition-delay: 0.0s;
+    transition-delay: 0.4s;
   }
 
   /* Tablet */
@@ -1517,7 +1533,6 @@
     .service-button {
       margin-top: 10px;
     }
-
   }
 
   @media (max-width: 768px) {
