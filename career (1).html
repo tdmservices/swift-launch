@@ -9,6 +9,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
     rel="stylesheet">
+  <link rel="icon" type="image/png" href="/favico.icon.png">
+  <link rel="stylesheet" href="../global.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
       --ink: #01328E;
@@ -20,12 +23,6 @@
       --mid-blue: #0077b6;
       --muted: #4a6a9a;
       --border: rgba(1, 50, 142, 0.12);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -1178,6 +1175,36 @@
 </head>
 
 <body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <img src="/img/swift lauch logo black (1) 1.png" alt="">
+      </a>
+
+      <!-- Hamburger -->
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Nav Links -->
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../services.html" class="active">Services</a>
+        <a href="../pricing.html">Pricing</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../blogs.html">Blogs</a>
+        <a href="/Contact.html">Contact</a>
+        <button class="login-btn">Login</button>
+      </div>
+
+    </div>
+  </nav>
   <section class="hero">
     <div class="hero-container">
       <div class="hero-text">
@@ -1663,7 +1690,162 @@
     </div>
   </section>
 
+  <section class="contact-section">
+    <div class="contact-container">
 
+      <!-- LEFT FORM -->
+      <div class="contact-form">
+        <button class="bottom-tag">SCHEDULE CONSULTATION</button>
+        <h2>Let's Connect</h2>
+        <p>Connect with our experts for a free consultation and tailored solutions.</p>
+
+        <form>
+
+          <div class="row">
+            <div class="field">
+              <label>Your name</label>
+              <input type="text" placeholder="e.g. John Smith">
+            </div>
+
+            <div class="field">
+              <label>Email address</label>
+              <input type="email" placeholder="e.g. john@email.com">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Phone number</label>
+              <input type="text" placeholder="e.g. +1 222 444 66">
+            </div>
+
+            <div class="field">
+              <label>Company name</label>
+              <input type="text" placeholder="e.g. Execor">
+            </div>
+          </div>
+
+          <div class="field full">
+            <label>Your message</label>
+            <textarea placeholder="Type here ..."></textarea>
+          </div>
+
+          <button class="form-btn">
+            Schedule a Free Consultation
+          </button>
+
+        </form>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="contact-image">
+        <img src="/img/form.webp" alt="meeting">
+
+        <div class="call-box">
+          <div class="icon-bottom"><img src="/call logo.png" alt=""></div>
+          <p>Call us at (101) 500 0200 or fill out our form, and we'll contact you within one business day.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SUBSCRIBE BAR -->
+    <div class="subscribe">
+      <p>Get weekly e-commerce strategies and platform updates from the Swift Launch team — straight to your
+        inbox.</p>
+
+      <div class="subscribe-box">
+        <input type="email" placeholder=" Subscribe">
+        <button>
+          <img src="/img/arrow.png" alt="">
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <!-- Left Section -->
+      <div class="footer-col">
+        <div class="bottom">
+          <img src="/img/Group 1642.png" alt="Logo">
+        </div>
+        <p><br>
+          <span class="link">The serious infrastructure behind serious sellers.</span>
+        </p>
+        <p class="contact">
+          Swift Launch Ltd Manchester, United Kingdom hello@swiftlaunch.co.uk
+        </p>
+        <div class="btn-group">
+          <button class="button-ten">Contact Us</button>
+          <button class="button-seven">
+            <img src="/img/Container.svg" alt="">
+          </button>
+        </div>
+      </div>
+
+      <!-- Industries -->
+      <div class="footer-col">
+        <h4>PLATFORMS</h4>
+        <ul>
+          <li>Amazon</li>
+          <li>eBay</li>
+          <li>TikTok Shop</li>
+          <li>Shopify</li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h4>SERVICES</h4>
+        <ul>
+          <li><a href="/E-commerce/E-commerce.html">E-Commerce Management</a></li>
+          <li><a href="/Reinstate Services.html">Reinstate Services</a></li>
+          <li><a href="/Social media marketing.html">Social Media Marketing</a></li>
+          <li><a href="/SEO.html">SEO Services</a></li>
+          <li><a href="/Performance  marketing.html">Performance Marketing</a></li>
+          <li><a href="/Custom website  development.html">Web Development</a></li>
+          <li><a href="/Fulfilment Services/Fulfilment Services.html">Fulfilment Services</a></li>
+          <li><a href="/Returns Management.html">Returns Management</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4>QUICK LINKS</h4>
+        <ul>
+          <li><a href="#">Our philosophy</a></li>
+          <li><a href="#">Success Stories</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/pricing.html">Pricing</a></li>
+          <li><a href="/Contact.html">Contact Us</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 Swift Launch Ltd. All Rights Reserved. Terms & Conditions </p>
+
+      <div class="links">
+        <span>TERMS</span>
+        <span>PRIVACY</span>
+      </div>
+
+      <div class="social">
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+
+  </footer>
 
   <script>
     // Scroll animations
