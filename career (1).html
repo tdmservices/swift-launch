@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers — Join Our Team</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #01328E;
+      --paper: #f0f6ff;
+      --cream: #e8f2ff;
+      --blue: #08A1DD;
+      --blue-light: #b3e2f7;
+      --dark-blue: #012f84;
+      --mid-blue: #0077b6;
+      --muted: #4a6a9a;
+      --border: rgba(1, 50, 142, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO ===== */
+
+    .hero {
+      width: 100%;
+      padding: 80px 20px;
+      background: white;
+      overflow: hidden;
+    }
+
+    .hero-container {
+      max-width: 1156px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 50px;
+      animation: fadeUp 0.9s ease forwards;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text p {
+      font-size: 12px;
+      color: #01328E;
+      display: inline-block;
+      border: 1px solid #01328E;
+      padding: 5px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      margin-left: 12px;
+      opacity: 0;
+      animation: slideLeft 0.7s ease forwards;
+    }
+
+    .hero-text h2 {
+      font-size: 42px;
+      color: #01328E;
+      margin-left: 15px;
+      opacity: 0;
+      animation: slideLeft 0.9s ease forwards;
+      animation-delay: 0.2s;
+      margin-top: 15px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 69px;
+      margin-right: 18px;
+      opacity: 0;
+      animation: slideRight 0.9s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    .btn-secondary,
+    .btn-mind {
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      padding: 10px 12px;
+    }
+
+    .btn-secondary {
+      background-color: #01328E;
+      color: #fff;
+      border-radius: 50%;
+      height: 33px;
+      width: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-mind {
+      background: #01328E;
+      color: #fff;
+      padding: 9px 25px;
+    }
+
+    .btn-mind:hover,
+    .btn-secondary:hover {
+      background: #08A1DD;
+      color: #fff;
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(8, 161, 221, 0.25);
+    }
+
+    .btn-secondary img {
+      filter: brightness(0) invert(1);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-35px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideRight {
+      from {
+        opacity: 0;
+        transform: translateX(35px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 1400px) {
+      .hero-container {
+        max-width: 1140px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        margin-top: 50px;
+        animation: fadeUp 0.9s ease forwards;
+      }
+
+    }
+
+    @media (max-width: 768px) {
+      .hero-container {
+        margin-top: 75px;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+        margin-top: 57px;
+        margin-right: 0;
+      }
+
+      .hero-text h2 {
+        font-size: 30px;
+      }
+    }
+
+    @media (max-width: 564px) {
+      .hero-container {
+        flex-direction: column;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+        margin-top: -37px;
+        margin-right: 0;
+      }
+
+      .hero-text h2 {
+        font-size: 30px;
+      }
+    }
+
+    @media (max-width: 364px) {
+      .hero-container {
+        flex-direction: column;
+        margin-top: -48px;
+        text-align: center;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+        margin-top: -42px;
+        margin-right: 0;
+      }
+
+      .hero-text h2 {
+        font-size: 30px;
+      }
+    }
+
+    /* ===== SECTION TWO ===== */
+
+    .image-section {
+      width: 100%;
+      padding: 16px 20px 0;
+      margin-top: -40px;
+      background: #fff;
+      box-sizing: border-box;
+    }
+
+    .image-container {
+      width: 100%;
+      max-width: 1280px;
+      margin: auto;
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 1156px;
+      height: auto;
+      display: block;
+      margin: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 1200px) {
+      .image-container img {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .image-section {
+        padding: 12px 15px 0;
+        margin-top: -20px;
+      }
+
+      .image-container img {
+        border-radius: 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .image-section {
+        padding: 10px;
+        margin-top: -10px;
+      }
+
+      .image-container img {
+        border-radius: 6px;
+        margin-top: -48px;
+      }
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+      background-color: white;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 5% 6rem 8%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid;
+      /* background: var(--blue-light); */
+      color: var(--ink);
+      padding: 0.4rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      width: fit-content;
+    }
+
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.4)
+      }
+    }
+
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--blue);
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 460px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: white;
+      padding: 1rem 2rem;
+      border: 2px solid var(--ink);
+      font-weight: 400;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.25s;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      padding: 1rem 2rem;
+      border: 2px solid var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.25s;
+    }
+
+    .btn-outline:hover {
+      background: var(--ink);
+      color: white;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      height: 100%;
+      gap: 4px;
+    }
+
+    .hero-cell {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .hero-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .hero-cell:hover img {
+      transform: scale(1.06);
+    }
+
+    .hero-cell-label {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      color: white;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-cell-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(1, 50, 142, 0.55) 0%, transparent 60%);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 7rem 8%;
+      background-color: white;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      /* font-weight: 700; */
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      /* color: var(--blue); */
+      margin-bottom: 1rem;
+      border: 1px solid;
+      padding: 8px;
+      width: fit-content;
+      border-radius: 20px;
+    }
+
+    .section-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 550px;
+    }
+
+    .section-header {
+      margin-bottom: 4rem;
+    }
+
+    /* WHY JOIN */
+
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .why-card {
+      background: var(--cream);
+      padding: 2.5rem;
+      border-top: 3px solid transparent;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .why-card:hover {
+      border-top-color: var(--blue);
+      transform: translateY(-4px);
+    }
+
+    .why-icon {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .why-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .why-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* CULTURE */
+    #culture {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      padding: 7rem 8%;
+    }
+
+    .culture-visual {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .culture-visual>img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .culture-stat-box {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: var(--ink);
+      padding: 2rem 2.5rem;
+      text-align: center;
+    }
+
+    .culture-stat-box .big-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--blue);
+    }
+
+    .culture-stat-box p {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    .culture-list {
+      list-style: none;
+      margin-top: 2rem;
+    }
+
+    .culture-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .culture-list li::before {
+      content: '→';
+      color: var(--blue);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* OPEN ROLES */
+    #roles {
+      background: var(--ink);
+      color: white;
+    }
+
+    #roles .section-h2 {
+      color: white;
+    }
+
+    #roles .section-sub {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .roles-filter {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: rgba(255, 255, 255, 0.65);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--blue);
+      color: white;
+      border-color: var(--blue);
+      font-weight: 600;
+    }
+
+    #role-count {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 1.5rem;
+    }
+
+    .roles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .role-item {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.5rem 2rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+
+    .role-item:hover {
+      background: rgba(8, 161, 221, 0.12);
+      border-color: rgba(8, 161, 221, 0.35);
+    }
+
+    .role-item[style*="none"] {
+      display: none !important;
+    }
+
+    .role-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .role-dept-label {
+      font-size: 0.78rem;
+      color: var(--blue);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    .role-tag {
+      padding: 0.3rem 0.9rem;
+      font-size: 0.78rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.55);
+      white-space: nowrap;
+    }
+
+    .role-location {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.45);
+      white-space: nowrap;
+    }
+
+    .role-arrow {
+      color: var(--blue);
+      font-size: 1.2rem;
+      transition: transform 0.2s;
+    }
+
+    .role-item:hover .role-arrow {
+      transform: translateX(5px);
+    }
+
+    /* BENEFITS */
+    #benefits {
+      background: white;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      align-items: start;
+      padding: 7rem 8%;
+    }
+
+    /* LEFT SIDE STICKY */
+    #benefits .fade-up:first-child {
+      position: sticky;
+      top: 120px;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .benefit-card {
+      background: var(--cream);
+      padding: 2rem;
+      transition: box-shadow 0.3s;
+    }
+
+    .benefit-card:hover {
+      box-shadow: 0 8px 30px rgba(1, 50, 142, 0.1);
+    }
+
+    .benefit-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .benefit-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .benefit-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* PROCESS */
+    #process {
+      padding: 7rem 8%;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      margin-top: 1rem;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: var(--border);
+      z-index: 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .step:hover .step-circle {
+      background: var(--blue);
+      border-color: var(--blue);
+      transform: scale(1.1);
+    }
+
+    .step-num {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .step p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .para-tag {
+      font-size: 0.75rem;
+      /* font-weight: 700; */
+      /* text-align: center; */
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      /* color: var(--blue); */
+      margin-bottom: 1rem;
+      border: 1px solid;
+      padding: 8px;
+      width: fit-content;
+      margin-left: 215px;
+      border-radius: 20px;
+    }
+
+    /* TESTIMONIALS */
+    #testimonials {
+      background: var(--ink);
+      color: white;
+      padding: 7rem 8%;
+    }
+
+    #testimonials .section-h2 {
+      color: white;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .testi-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 2.5rem;
+      transition: background 0.3s;
+    }
+
+    .testi-card:hover {
+      background: rgba(8, 161, 221, 0.08);
+    }
+
+    .testi-quote {
+      font-size: 2.5rem;
+      color: var(--blue);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .testi-text {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testi-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .testi-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .testi-role {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 0.2rem;
+    }
+
+    /* LIFE */
+    #life {
+      padding: 7rem 8%;
+    }
+
+    .life-mosaic {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 240px 240px;
+      gap: 4px;
+      margin-top: 2rem;
+    }
+
+    .life-cell {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .life-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+      display: block;
+    }
+
+    .life-cell:hover img {
+      transform: scale(1.07);
+    }
+
+    .life-cell-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(1, 50, 142, 0.65) 0%, transparent 55%);
+      transition: opacity 0.3s;
+    }
+
+    .life-cell-label {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      color: white;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .lc1 {
+      grid-row: 1/3;
+    }
+
+    /* VALUES */
+    #values {
+      padding: 7rem 8%;
+      text-align: center;
+    }
+
+    .values-intro {
+      max-width: 600px;
+      margin: 0 auto 4rem;
+    }
+
+    .values-intro .section-sub {
+      margin: 1rem auto 0;
+    }
+
+    .values-row {
+      display: flex;
+      gap: 2px;
+    }
+
+    .value-block {
+      flex: 1;
+      padding: 3rem 2rem;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .value-block:hover {
+      transform: translateY(-6px);
+    }
+
+    .value-block::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    .value-block:hover::before {
+      transform: scaleX(1);
+    }
+
+    .value-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: #08A1DD;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .value-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .value-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px) {
+      #hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        height: 320px;
+      }
+
+      #culture {
+        grid-template-columns: 1fr;
+      }
+
+      .culture-visual {
+        height: 280px;
+        margin-bottom: 2rem;
+      }
+
+      #benefits {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .process-steps::before {
+        display: none;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .values-row {
+        flex-wrap: wrap;
+      }
+
+
+
+      .life-mosaic {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      .lc1 {
+        grid-row: auto;
+      }
+
+      .role-item {
+        grid-template-columns: 1fr auto;
+      }
+
+      .role-tag,
+      .role-location {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-text">
+        <p> CAREERS</p>
+        <h2>Careers</h2>
+      </div>
+      <div class="hero-buttons">
+        <button class="btn-mind">Free Consultation</button>
+        <button class="btn-secondary"><img src="/ven-back.svg" alt=""></button>
+      </div>
+    </div>
+  </section>
+  <!-- SECTION TWO -->
+  <section class="image-section">
+    <div class="image-container">
+      <img src="/ec62a846a91728e8a24c1520a4d459be.jpg" alt="Section Image">
+    </div>
+  </section>
+
+  <!-- SECTION 1: HERO -->
+  <section id="hero">
+    <div class="hero-left fade-up">
+      <div class="hero-badge">WE'RE HIRING
+      </div>
+      <h1 class="hero-h1">Build the<em>Future,</em>With Us.</h1>
+      <p class="hero-sub">We're a team of bold operators, relentless executors, and genuine collaborators. If you want
+        work that moves fast and actually matters — this is your place.
+      </p>
+      <div class="hero-actions">
+        <a href="#roles" class="btn-primary">Explore Roles</a>
+        <a href="#culture" class="btn-outline">Our Culture</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">16+</div>
+          <div class="stat-label">Team Members</div>
+        </div>
+        <div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">Countries</div>
+        </div>
+        <div>
+          <div class="stat-num">4.8★</div>
+          <div class="stat-label">Glassdoor Rating</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-grid">
+        <div class="hero-cell">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80"
+            alt="Team collaboration" loading="lazy" />
+          <div class="hero-cell-overlay"></div>
+          <div class="hero-cell-label">Launch Careers</div>
+        </div>
+        <div class="hero-cell">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&auto=format&fit=crop&q=80"
+            alt="Remote work" loading="lazy" />
+          <div class="hero-cell-overlay"></div>
+          <div class="hero-cell-label">Remote First</div>
+        </div>
+        <div class="hero-cell">
+          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop&q=80"
+            alt="Innovation" loading="lazy" />
+          <div class="hero-cell-overlay"></div>
+          <div class="hero-cell-label">Innovate Daily</div>
+        </div>
+        <div class="hero-cell">
+          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&auto=format&fit=crop&q=80"
+            alt="Grow together" loading="lazy" />
+          <div class="hero-cell-overlay"></div>
+          <div class="hero-cell-label">Grow Together</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: WHY JOIN US -->
+  <section id="why">
+    <div class="section-header fade-up">
+      <div class="section-tag"> WHY SWIFT LAUNCH
+      </div>
+      <h2 class="section-h2">A place where great<br>people do great work.</h2>
+      <p class="section-sub">We've built a culture where you're trusted, challenged, and genuinely supported to do the
+        best work of your career.
+      </p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-up"><span class="why-icon">🎯</span>
+        <h3>Meaningful Impact</h3>
+        <p>Every campaign you run and every store you manage touches real brands and real people. Your work is never
+          invisible here — it shapes the business.</p>
+      </div>
+      <div class="why-card fade-up"><span class="why-icon">📈</span>
+        <h3>Real Growth</h3>
+        <p> Structured progression, learning budgets, and a culture that celebrates moving up — not just sideways. Your
+          career develops here, not stagnates.
+        </p>
+      </div>
+      <div class="why-card fade-up"><span class="why-icon">🌐</span>
+        <h3>Truly Flexible</h3>
+        <p> Work from anywhere — we mean it. Async-friendly, timezone-considerate, and built for a team that performs
+          from wherever they do their best work.</p>
+      </div>
+      <div class="why-card fade-up"><span class="why-icon">🧩</span>
+        <h3>Inclusive by Design</h3>
+        <p>Diversity isn't a checkbox here. We actively build teams where every background, perspective, and experience
+          makes the whole team sharper.
+        </p>
+      </div>
+      <div class="why-card fade-up"><span class="why-icon">⚡</span>
+        <h3>Move Fast, Stay Smart</h3>
+        <p>We move with urgency — but never recklessly. Ship fast, learn faster, and operate with the real autonomy to
+          make decisions that matter.
+        </p>
+      </div>
+      <div class="why-card fade-up"><span class="why-icon">🛡️</span>
+        <h3>Stability You Can Trust</h3>
+        <p>Backed by a growing client base and a leadership team that prioritises long-term team health. You're joining
+          something built to last.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: CULTURE -->
+  <section id="culture">
+    <div class="culture-visual fade-up">
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&auto=format&fit=crop&q=80"
+        alt="Our Culture" />
+      <div class="culture-stat-box">
+        <div class="big-num">94%</div>
+        <p>Would Recommend Us</p>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="section-tag">OUR CULTURE</div>
+      <h2 class="section-h2">We don't just talk about culture — we live it.
+        .</h2>
+      <p class="section-sub">From how we run meetings to how we give feedback, our culture is intentional at every
+        level.
+      </p>
+      <ul class="culture-list">
+        <li>— Radical transparency: every team member sees company metrics, goals, and strategy in real time.</li>
+        <li>No blame culture: when things break, we fix them together and learn — not point fingers.</li>
+        <li>— Deep work is protected: no-meeting blocks, async standups, and focus time that's genuinely respected.</li>
+        <li>Leadership is earned, not assigned: your ideas get heard regardless of title or tenure.</li>
+        <li>— We celebrate bold moves as much as results — it's where the best lessons live.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 4: OPEN ROLES -->
+  <section id="roles">
+    <div class="section-header fade-up">
+      <div class="section-tag"> OPEN POSITIONS
+      </div>
+      <h2 class="section-h2">Find your role.</h2>
+      <p class="section-sub">We're hiring across e-commerce, marketing, design, fulfilment operations, and more.
+      </p>
+    </div>
+    <div class="roles-filter fade-up">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Engineering">E-Commerce</button>
+      <button class="filter-btn" data-filter="Product">Marketing</button>
+      <button class="filter-btn" data-filter="Design">Design</button>
+      <button class="filter-btn" data-filter="Marketing">Operations</button>
+      <button class="filter-btn" data-filter="Operations">Tech</button>
+    </div>
+    <p id="role-count">7 open positions</p>
+    <div class="roles-list fade-up">
+      <div class="role-item" data-dept="Engineering">
+        <div>
+          <div class="role-title">E-Commerce Account Manager</div>
+          <div class="role-dept-label">E-COMMERCE</div>
+        </div>
+        <span class="role-tag">Full-Time</span><span class="role-location">📍 Remote</span><span
+          class="role-arrow">→</span>
+      </div>
+      <div class="role-item" data-dept="Product">
+        <div>
+          <div class="role-title">Head of Performance Marketing</div>
+          <div class="role-dept-label">MARKETING</div>
+        </div>
+        <span class="role-tag">Full-Time</span><span class="role-location">📍 Remote</span><span
+          class="role-arrow">→</span>
+      </div>
+      <div class="role-item" data-dept="Design">
+        <div>
+          <div class="role-title">Shopify & Web Developer</div>
+          <div class="role-dept-label">TECH</div>
+        </div>
+        <span class="role-tag">Full-Time</span><span class="role-location">📍 Remote · UK</span><span
+          class="role-arrow">→</span>
+      </div>
+      <div class="role-item" data-dept="Engineering">
+        <div>
+          <div class="role-title">Social Media Strategist</div>
+          <div class="role-dept-label">MARKETING</div>
+        </div>
+        <span class="role-tag">Full-Time</span><span class="role-location">📍 Remote</span><span
+          class="role-arrow">→</span>
+      </div>
+      <div class="role-item" data-dept="Marketing">
+        <div>
+          <div class="role-title">Fulfilment Operations Lead</div>
+          <div class="role-dept-label">OPERATIONS</div>
+        </div>
+        <span class="role-tag">Full-Time</span><span class="role-location">📍 Manchester, UK
+        </span><span class="role-arrow">→</span>
+      </div>
+      <div class="role-item" data-dept="Engineering">
+        <div>
+          <div class="role-title">UI / UX Designer
+
+          </div>
+          <div class="role-dept-label">DESIGN</div>
+        </div>
+        <span class="role-tag">Full-Time</span><span class="role-location">📍 Remote · EU</span><span
+          class="role-arrow">→</span>
+      </div>
+      <div class="role-item" data-dept="Operations">
+        <div>
+          <div class="role-title">Customer Success Manager</div>
+          <div class="role-dept-label">OPERATIONS</div>
+        </div>
+        <span class="role-tag">Full-Time</span><span class="role-location">📍 Remote</span><span
+          class="role-arrow">→</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: BENEFITS -->
+  <section id="benefits">
+    <div class="fade-up">
+      <div class="section-tag"> BENEFITS & PERKS</div>
+      <h2 class="section-h2">We take care of you — fully.</h2>
+      <p class="section-sub"> Great compensation is just the start. Here's everything we offer to make sure you
+        genuinely thrive working with us.
+      </p>
+    </div>
+    <div class="benefits-grid fade-up">
+      <div class="benefit-card">
+        <div class="benefit-icon">💰</div>
+        <h4>Competitive Salary</h4>
+        <p>Top-of-market pay, benchmarked regularly and offered with full transparency from the very first conversation.
+        </p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🏥</div>
+        <h4>Health & Wellness</h4>
+        <p>Comprehensive health cover and a personal wellness stipend — because your physical wellbeing matters as much
+          as your output.
+        </p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🌴</div>
+        <h4>Unlimited PTO</h4>
+        <p> Genuine rest matters. Minimum 20 days off per year — and we actually mean it. Burnout isn't a badge of
+          honour here.
+        </p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📚</div>
+        <h4>Learning Budget</h4>
+        <p>£1,500 per year for courses, books, conferences, certifications, or anything that makes you better at what
+          you do.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🖥️</div>
+        <h4>Home Office Setup</h4>
+        <p> £800 to build your ideal remote workspace, plus an annual equipment refresh stipend so you're always set up
+          to do great work.
+        </p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📈</div>
+        <h4> Performance Bonuses </h4>
+        <p> Hit your goals and get rewarded for it. Transparent bonus structure tied to real metrics — not vague
+          management discretion.
+        </p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">👶</div>
+        <h4>Parental Leave</h4>
+        <p>16 weeks fully paid for all parents — biological, adoptive, or foster. Family comes first, full stop.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">✈️</div>
+        <h4>Team Retreats</h4>
+        <p>Two fully-funded company retreats per year so our distributed team connects, recharges, and builds something
+          real together.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: HIRING PROCESS -->
+  <section id="process">
+    <div class="section-header fade-up" style="text-align:center;max-width:600px;margin:0 auto 4rem;">
+      <div class="para-tag">HIRING PROCESS
+      </div>
+      <h2 class="section-h2">Simple, fair, and fast.</h2>
+      <p class="section-sub" style="margin:0 auto;"> No 8-round interviews. We respect your time and move with real
+        intention.
+
+      </p>
+    </div>
+    <div class="process-steps fade-up">
+      <div class="step">
+        <div class="step-circle">📝<span class="step-num">1</span></div>
+        <h4>Apply</h4>
+        <p>Submit your application. No cover letter required — just your work and a few honest answers.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-circle">📞<span class="step-num">2</span></div>
+        <h4>Intro Call</h4>
+        <p>A 30-minute casual conversation with the hiring lead. No prep needed — we just want to get to know you.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-circle">🎯<span class="step-num">3</span></div>
+        <h4>Skills Review</h4>
+        <p> A focused, paid take-home task that reflects real work you'd actually do in this role. No trick questions.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-circle">👥<span class="step-num">4</span></div>
+        <h4>Team Interview</h4>
+        <p>Meet 2–3 of your future teammates. We talk culture, collaboration, and how you work — not just what you know.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-circle">🎉<span class="step-num">5</span></div>
+        <h4>Offer</h4>
+        <p>Decision within 48 hours. Straightforward offer, no games, no ghosting — ever.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-header fade-up">
+      <div class="section-tag">HEAR FROM THE TEAM
+      </div>
+      <h2 class="section-h2">Real words.<br>Real people.</h2>
+    </div>
+    <div class="testimonials-grid fade-up">
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">"Swift Launch is the first place where I genuinely feel like my work makes a difference.
+          My ideas don't disappear into a void — they get shipped, tested, and talked about in the same week."
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar"> AH</div>
+          <div>
+            <div class="testi-name"> Ayesha H</div>
+            <div class="testi-role">Senior E-Commerce Manager · 2 years
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text"> "The team culture here is unlike anything I've experienced in a professional setting. We
+          debate openly, learn from failures without drama, and genuinely celebrate each other's wins. It's rare — and I
+          don't take it for granted."
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">MK</div>
+          <div>
+            <div class="testi-name">Marcus K</div>
+            <div class="testi-role">Performance Marketing Lead · 1.5 years</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">"Within a week I felt more connected to this team than I did at my old in-office job after
+          six months. The culture isn't performative — it's real. I'm not going anywhere."
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">LT</div>
+          <div>
+            <div class="testi-name">Lucia T</div>
+            <div class="testi-role">Growth Manager · 1.5 years</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: LIFE AT NOVAWORKS -->
+  <section id="life">
+    <div class="section-header fade-up">
+      <div class="section-tag"> LIFE AT SWIFT LAUNCH</div>
+      <h2 class="section-h2">More than a job.</h2>
+      <p class="section-sub"> From team rituals to offsites, we've built a company that's genuinely fun to be part of.
+
+      </p>
+    </div>
+    <div class="life-mosaic fade-up">
+      <div class="life-cell lc1">
+        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&auto=format&fit=crop&q=80"
+          alt="Wellness First" loading="lazy" />
+        <div class="life-cell-overlay"></div>
+        <div class="life-cell-label">Wellness First</div>
+      </div>
+      <div class="life-cell">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80"
+          alt="Team Retreats" loading="lazy" />
+        <div class="life-cell-overlay"></div>
+        <div class="life-cell-label">Team Retreats</div>
+      </div>
+      <div class="life-cell">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&auto=format&fit=crop&q=80"
+          alt="Demo Days" loading="lazy" />
+        <div class="life-cell-overlay"></div>
+        <div class="life-cell-label">Demo Days</div>
+      </div>
+      <div class="life-cell">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&auto=format&fit=crop&q=80"
+          alt="Learning Sprints" loading="lazy" />
+        <div class="life-cell-overlay"></div>
+        <div class="life-cell-label">Learning Sprints</div>
+      </div>
+      <div class="life-cell">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&auto=format&fit=crop&q=80"
+          alt="Coffee Chats" loading="lazy" />
+        <div class="life-cell-overlay"></div>
+        <div class="life-cell-label">Coffee Chats</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: VALUES -->
+  <section id="values">
+    <div class="values-intro fade-up">
+      <div class="para-tag">OUR VALUES</div>
+      <h2 class="section-h2">The principles we never compromise on.</h2>
+      <p class="section-sub"> These aren't wall decorations — they're how we make decisions, hire people, and show up to
+        work every single day
+      </p>
+    </div>
+    <div class="values-row fade-up">
+      <div class="value-block">
+        <div class="value-num">01</div>
+        <div class="value-name">Integrity First</div>
+        <p class="value-desc"> We do the right thing even when no one is watching. Every time. No exceptions, no grey
+          areas.
+        </p>
+      </div>
+      <div class="value-block">
+        <div class="value-num">02</div>
+        <div class="value-name">Client Obsession</div>
+        <p class="value-desc">Our clients' success is our success. Full stop. Every decision we make starts by asking
+          what's best for the brand we serve.
+        </p>
+      </div>
+      <div class="value-block">
+        <div class="value-num">03</div>
+        <div class="value-name">Bold Thinking</div>
+        <p class="value-desc">We challenge the obvious and aren't afraid to be wrong on the way to being right. Mediocre
+          answers don't survive here.
+        </p>
+      </div>
+      <div class="value-block">
+        <div class="value-num">04</div>
+        <div class="value-name">Radical Ownership</div>
+        <p class="value-desc">Everyone here acts like a founder. Own your work, your impact, and your growth — nobody is
+          waiting to be told what to do.
+        </p>
+      </div>
+      <div class="value-block">
+        <div class="value-num">05</div>
+        <div class="value-name">Kindness Scales</div>
+        <p class="value-desc">Being excellent and being kind aren't opposites — we demand both. Ego doesn't build great
+          teams. Generosity does.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Filter buttons — WORKING
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        let count = 0;
+        document.querySelectorAll('.role-item').forEach(item => {
+          const dept = item.getAttribute('data-dept');
+          if (filter === 'all' || dept === filter) {
+            item.style.display = 'grid';
+            item.style.animation = 'fadeIn 0.3s ease';
+            count++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        const badge = document.getElementById('role-count');
+        if (badge) badge.textContent = count + ' open position' + (count !== 1 ? 's' : '');
+      });
+    });
+
+    // Role click
+    document.querySelectorAll('.role-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const title = item.querySelector('.role-title').textContent;
+        alert('Apply for: ' + title + '\n\nYahan apna actual job link lagayen!');
+      });
+    });
+  </script>
+</body>
+
+</html>
