@@ -1,0 +1,28 @@
+{
+  "name": "swift-launch",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "About.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tdmservices/swift-launch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tdmservices/swift-launch/issues"
+  },
+  "homepage": "https://github.com/tdmservices/swift-launch#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "nodemailer": "^8.0.8",
+    "resend": "^6.12.3"
+  }
+}

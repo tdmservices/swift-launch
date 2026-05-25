@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Appointment Booking</title>
+    <!-- Tailwind CSS CDN for modern and fast styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for beautiful icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Poppins) for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f7ff;
+        }
+
+        /* Custom smooth transition for popup */
+        .modal-transition {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body
+    class="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-tr from-blue-50 via-white to-sky-100">
+
+    <!-- MAIN PAGE CONTENT (Main Website Demo) -->
+    <div class="text-center max-w-lg p-8 bg-white rounded-3xl shadow-xl border border-blue-100/50 backdrop-blur-sm">
+        <div
+            class="w-20 h-20 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner">
+            <i class="fa-regular fa-calendar-check text-4xl"></i>
+        </div>
+        <h1 class="text-3xl font-bold text-slate-800 mb-3">Apna Appointment Fix Karein</h1>
+        <p class="text-slate-500 mb-8 leading-relaxed text-sm sm:text-base">
+            Humse judna ab aur bhi aasan ho gaya hai. Neeche diye gaye button par click karke apni details fill karein
+            ya direct WhatsApp par baat karein.
+        </p>
+
+        <!-- Triggers to open popup -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button id="openModalBtn"
+                class="px-8 py-4 bg-blue-600 text-white font-medium rounded-2xl shadow-lg shadow-blue-200 hover:bg-blue-700 hover:shadow-blue-300 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2">
+                <i class="fa-regular fa-calendar-plus text-lg"></i>
+                Book Appointment
+            </button>
+
+            <a href="https://web.whatsapp.com/" target="_blank"
+                class="px-8 py-4 bg-emerald-500 text-white font-medium rounded-2xl shadow-lg shadow-emerald-100 hover:bg-emerald-600 hover:shadow-emerald-200 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                Direct WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- APPOINTMENT POPUP MODAL (Light Blue & White Theme) -->
+    <div id="appointmentModal"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm opacity-0 pointer-events-none modal-transition">
+
+        <!-- Modal Card -->
+        <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl border border-blue-100 overflow-hidden transform scale-95 modal-transition duration-300"
+            id="modalCard">
+
+            <!-- Modal Header (Light Blue Background) -->
+            <div class="bg-gradient-to-r from-blue-500 to-sky-400 p-6 text-white relative">
+                <button id="closeModalBtn"
+                    class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 hover:bg-white/30 rounded-full text-white transition-all">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-xl">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold">Appointment Form</h2>
+                        <p class="text-blue-100 text-xs mt-0.5">Kripya apni details bharein</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Body (Form - Light Blue & White Theme) -->
+            <form id="appointmentForm" class="p-6 space-y-4 max-h-[75vh] overflow-y-auto">
+
+                <!-- Name Field -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                        for="fullName">Pura Naam</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
+                            <i class="fa-regular fa-user"></i>
+                        </span>
+                        <input type="text" id="fullName" required placeholder="Aapka Naam"
+                            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl outline-none text-sm text-slate-700 transition-all">
+                    </div>
+                </div>
+
+                <!-- Email Field (New Important Field) -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                        for="emailId">Email ID</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
+                            <i class="fa-regular fa-envelope"></i>
+                        </span>
+                        <input type="email" id="emailId" required placeholder="example@email.com"
+                            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl outline-none text-sm text-slate-700 transition-all">
+                    </div>
+                </div>
+
+                <!-- Phone Field -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                        for="phoneNumber">Mobile Number</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
+                            <i class="fa-solid fa-phone text-xs"></i>
+                        </span>
+                        <input type="tel" id="phoneNumber" required placeholder="Phone Number"
+                            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl outline-none text-sm text-slate-700 transition-all">
+                    </div>
+                </div>
+
+                <!-- Service / Purpose Dropdown (New Important Field) -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                        for="serviceType">Kis Liye Appointment Chahiye?</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
+                            <i class="fa-solid fa-briefcase text-xs"></i>
+                        </span>
+                        <select id="serviceType" required
+                            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl outline-none text-sm text-slate-500 transition-all appearance-none cursor-pointer">
+                            <option value="" disabled selected>Service Select Karein</option>
+                            <option value="General Consultation">General Consultation</option>
+                            <option value="Technical Support">Technical Support</option>
+                            <option value="Business Inquiry">Business Inquiry</option>
+                            <option value="Other Service">Kuch Aur / Other</option>
+                        </select>
+                        <span
+                            class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Date & Time Grid -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                            for="appDate">Tarikh (Date)</label>
+                        <input type="date" id="appDate" required
+                            class="w-full px-3.5 py-3 bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl outline-none text-sm text-slate-700 transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                            for="appTime">Samay (Time)</label>
+                        <input type="time" id="appTime" required
+                            class="w-full px-3.5 py-3 bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 rounded-xl outline-none text-sm text-slate-700 transition-all">
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full py-3.5 bg-blue-600 text-white font-medium rounded-xl shadow-lg shadow-blue-100 hover:bg-blue-700 transition-all duration-200 mt-2 flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    Confirm Appointment
+                </button>
+
+                <!-- Divider -->
+                <div class="relative flex py-2 items-center">
+                    <div class="flex-grow border-t border-slate-100"></div>
+                    <span class="flex-shrink mx-4 text-xs text-slate-400 font-medium">YA FIR</span>
+                    <div class="flex-grow border-t border-slate-100"></div>
+                </div>
+
+                <!-- WhatsApp Quick Link -->
+                <a href="https://web.whatsapp.com/" target="_blank"
+                    class="w-full py-3 border border-emerald-200 hover:bg-emerald-50 text-emerald-600 font-medium rounded-xl transition-all duration-200 flex items-center justify-center gap-2 text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg text-emerald-500"></i>
+                    WhatsApp par baat karein
+                </a>
+            </form>
+        </div>
+    </div>
+
+    <!-- CUSTOM SUCCESS NOTIFICATION (To replace native alert) -->
+    <div id="successToast"
+        class="fixed bottom-5 right-5 z-50 bg-white border-l-4 border-emerald-500 shadow-2xl p-4 rounded-xl max-w-sm flex items-start gap-3 translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div
+            class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <h4 class="font-bold text-slate-800 text-sm">Appointment Sent!</h4>
+            <p class="text-xs text-slate-500 mt-0.5">Aapki details safe submit ho chuki hain. Hum aapse jald hi contact
+                karenge.</p>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const appointmentModal = document.getElementById('appointmentModal');
+        const modalCard = document.getElementById('modalCard');
+        const appointmentForm = document.getElementById('appointmentForm');
+        const successToast = document.getElementById('successToast');
+
+        // Open Modal Function with Animation
+        function openModal() {
+            appointmentModal.classList.remove('opacity-0', 'pointer-events-none');
+            appointmentModal.classList.add('opacity-100');
+            modalCard.classList.remove('scale-95');
+            modalCard.classList.add('scale-100');
+        }
+
+        // Close Modal Function
+        function closeModal() {
+            appointmentModal.classList.remove('opacity-100');
+            appointmentModal.classList.add('opacity-0', 'pointer-events-none');
+            modalCard.classList.remove('scale-100');
+            modalCard.classList.add('scale-95');
+        }
+
+        // Event Listeners for Open/Close
+        openModalBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Close modal if user clicks outside the modal card
+        appointmentModal.addEventListener('click', (e) => {
+            if (e.target === appointmentModal) {
+                closeModal();
+            }
+        });
+
+        // Form Submit Handler
+        appointmentForm.addEventListener('submit', async (e) => {
+
+            e.preventDefault();
+
+            // Collect Form Values
+            const name = document.getElementById('fullName').value;
+            const email = document.getElementById('emailId').value;
+            const phone = document.getElementById('phoneNumber').value;
+            const service = document.getElementById('serviceType').value;
+            const date = document.getElementById('appDate').value;
+            const time = document.getElementById('appTime').value;
+
+            // Backend data
+            const formData = {
+                name,
+                email,
+                phone,
+                subject: service,
+                message: `
+            Appointment Date: ${date}
+            Appointment Time: ${time}
+        `
+            };
+
+            try {
+
+                // 🔥 LOCAL TEST
+                // const API_ENDPOINT = "http://localhost:5000/send-email";
+
+                // 🔥 LIVE BACKEND
+                const API_ENDPOINT = "https://your-backend.onrender.com/send-email";
+
+                const response = await fetch(API_ENDPOINT, {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                console.log(data);
+
+                if (response.ok) {
+
+                    closeModal();
+
+                    appointmentForm.reset();
+
+                    // Show Success Toast
+                    successToast.classList.remove(
+                        'translate-y-20',
+                        'opacity-0',
+                        'pointer-events-none'
+                    );
+
+                    successToast.classList.add(
+                        'translate-y-0',
+                        'opacity-100'
+                    );
+
+                    // Hide Toast
+                    setTimeout(() => {
+
+                        successToast.classList.remove(
+                            'translate-y-0',
+                            'opacity-100'
+                        );
+
+                        successToast.classList.add(
+                            'translate-y-20',
+                            'opacity-0',
+                            'pointer-events-none'
+                        );
+
+                    }, 4000);
+
+                } else {
+
+                    alert("❌ Failed to send appointment");
+
+                }
+
+            } catch (error) {
+
+                console.log(error);
+
+                alert("❌ Server Error");
+
+            }
+        });
+
+        // Set default date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('appDate').min = today;
+        document.getElementById('appDate').value = today;
+    </script>
+</body>
+
+</html>
