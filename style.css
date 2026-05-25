@@ -36,6 +36,10 @@
   .navbar.scrolled .nav-links a {
     color: black;
   }
+  
+  .navbar.scrolled .heading {
+    color: white;
+  }
 
   /* Active link */
   .navbar.scrolled .nav-links a.active {
