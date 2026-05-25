@@ -7,61 +7,63 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({
-  origin: "*"
-}));
-
+app.use(cors());
 app.use(express.json());
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.get("/", (req, res) => {
-  res.send("Backend running 🚀");
+  res.send("Server is working 🔥");
 });
 
 app.post("/send-email", async (req, res) => {
-
   try {
-
-    console.log("📩 Request received:", req.body);
-
     const { name, email, phone, subject, message } = req.body;
 
-    const data = await resend.emails.send({
-
+    // EMAIL TO YOU
+    const adminEmail = await resend.emails.send({
       from: "onboarding@resend.dev",
-
-      to: "your-email@gmail.com",
-
-      subject: `New Form: ${subject}`,
-
+      to: "YOUR_GMAIL@gmail.com",
+      subject: subject,
       html: `
-        <h2>New Form Submission</h2>
-
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Phone:</b> ${phone}</p>
-        <p><b>Message:</b> ${message}</p>
+        <h2>New Appointment</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Message:</strong></p>
+        <pre>${message}</pre>
       `,
     });
 
-    console.log("✅ Email sent:", data);
-
-    res.json({
-      success: true
+    // CONFIRMATION EMAIL TO CUSTOMER
+    const customerEmail = await resend.emails.send({
+      from: "onboarding@resend.dev",
+      to: email,
+      subject: "Appointment Confirmation ✅",
+      html: `
+        <h2>Hello ${name},</h2>
+        <p>Your appointment request has been received successfully.</p>
+        <p>Our team will contact you soon.</p>
+        <br>
+        <p>Thank you ❤️</p>
+      `,
     });
 
+    res.status(200).json({
+      success: true,
+      adminEmail,
+      customerEmail,
+    });
   } catch (error) {
-
-    console.log("❌ ERROR:", error);
+    console.error(error);
 
     res.status(500).json({
       success: false,
-      error: error.message
+      message: error.message,
     });
   }
 });
 
-app.listen(5000, () => {
-  console.log("✅ Server running on http://localhost:5000");
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
 });

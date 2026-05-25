@@ -1,5 +1,5 @@
 {
-  "name": "swift-launch",
+  "name": "appointment-booking",
   "version": "1.0.0",
   "type": "module",
   "main": "server.js",
@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.6",
+    "cors": "^2.8.5",
     "dotenv": "^17.4.2",
-    "express": "^5.2.1",
+    "express": "^5.1.0",
     "resend": "^6.12.3"
   }
 }

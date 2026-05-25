@@ -10,30 +10,36 @@
     <!-- FontAwesome 6 Free CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts: Poppins for premium look -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         * {
             font-family: 'Poppins', sans-serif;
         }
+
         /* smooth modal transitions */
         .modal-transition {
             transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
+
         /* custom scrollbar */
         .custom-scroll::-webkit-scrollbar {
             width: 4px;
         }
+
         .custom-scroll::-webkit-scrollbar-track {
             background: #eef2ff;
             border-radius: 10px;
         }
+
         .custom-scroll::-webkit-scrollbar-thumb {
             background: #94a3b8;
             border-radius: 10px;
         }
+
         /* loading spinner animation */
         .spinner {
-            border: 2px solid rgba(255,255,255,0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             border-top: 2px solid white;
             width: 18px;
@@ -41,10 +47,17 @@
             animation: spin 0.8s linear infinite;
             display: inline-block;
         }
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
+
         .btn-loading {
             opacity: 0.8;
             pointer-events: none;
@@ -56,37 +69,50 @@
 
     <!-- MAIN LANDING SECTION (Demo website front) -->
     <div class="w-full max-w-2xl mx-auto">
-        <div class="text-center bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-10 border border-white/50 transition-all duration-300 hover:shadow-blue-100/50">
-            <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-indigo-500 text-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-200">
+        <div
+            class="text-center bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-10 border border-white/50 transition-all duration-300 hover:shadow-blue-100/50">
+            <div
+                class="w-24 h-24 bg-gradient-to-br from-blue-500 to-indigo-500 text-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-200">
                 <i class="fa-regular fa-calendar-check text-5xl"></i>
             </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-800 tracking-tight">Book Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">Appointment</span></h1>
-            <p class="text-slate-500 mt-4 max-w-md mx-auto text-base">Professional service booking system. Fill the form & we’ll get back to you within 2 hours via email or WhatsApp.</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-800 tracking-tight">Book Your <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">Appointment</span>
+            </h1>
+            <p class="text-slate-500 mt-4 max-w-md mx-auto text-base">Professional service booking system. Fill the form
+                & we’ll get back to you within 2 hours via email or WhatsApp.</p>
             <div class="flex flex-col sm:flex-row gap-5 justify-center mt-8">
-                <button id="openModalBtn" class="group px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-2xl shadow-xl shadow-blue-200 transition-all duration-200 flex items-center justify-center gap-3 transform hover:-translate-y-1">
+                <button id="openModalBtn"
+                    class="group px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-2xl shadow-xl shadow-blue-200 transition-all duration-200 flex items-center justify-center gap-3 transform hover:-translate-y-1">
                     <i class="fa-regular fa-calendar-plus text-xl group-hover:scale-110 transition"></i>
                     Book Appointment
                 </button>
-                <a href="https://web.whatsapp.com/" target="_blank" class="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-2xl shadow-xl shadow-emerald-100 transition-all duration-200 flex items-center justify-center gap-3 transform hover:-translate-y-1">
+                <a href="https://web.whatsapp.com/" target="_blank"
+                    class="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-2xl shadow-xl shadow-emerald-100 transition-all duration-200 flex items-center justify-center gap-3 transform hover:-translate-y-1">
                     <i class="fa-brands fa-whatsapp text-2xl"></i>
                     Direct WhatsApp
                 </a>
             </div>
-            <p class="text-xs text-slate-400 mt-6 flex items-center justify-center gap-1"><i class="fa-regular fa-envelope"></i> Email confirmation | <i class="fa-regular fa-clock"></i> 24/7 support</p>
+            <p class="text-xs text-slate-400 mt-6 flex items-center justify-center gap-1"><i
+                    class="fa-regular fa-envelope"></i> Email confirmation | <i class="fa-regular fa-clock"></i> 24/7
+                support</p>
         </div>
     </div>
 
     <!-- APPOINTMENT MODAL (Premium Light Blue & White Theme) -->
-    <div id="appointmentModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm opacity-0 pointer-events-none modal-transition">
+    <div id="appointmentModal"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm opacity-0 pointer-events-none modal-transition">
         <!-- Modal Card Container -->
-        <div id="modalCard" class="bg-white w-full max-w-md rounded-3xl shadow-2xl border border-blue-100 overflow-hidden transform scale-95 modal-transition">
+        <div id="modalCard"
+            class="bg-white w-full max-w-md rounded-3xl shadow-2xl border border-blue-100 overflow-hidden transform scale-95 modal-transition">
             <!-- Header: Gradient Blue -->
             <div class="bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-5 text-white relative">
-                <button id="closeModalBtn" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all duration-200 text-white">
+                <button id="closeModalBtn"
+                    class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all duration-200 text-white">
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-white/25 rounded-2xl flex items-center justify-center text-xl shadow-inner">
+                    <div
+                        class="w-12 h-12 bg-white/25 rounded-2xl flex items-center justify-center text-xl shadow-inner">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </div>
                     <div>
@@ -100,70 +126,89 @@
             <form id="appointmentForm" class="p-6 space-y-5 max-h-[70vh] overflow-y-auto custom-scroll">
                 <!-- Full Name -->
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5" for="fullName">
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                        for="fullName">
                         <i class="fa-regular fa-user mr-1"></i> Pura Naam
                     </label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400"><i class="fa-regular fa-user"></i></span>
-                        <input type="text" id="fullName" required placeholder="Aapka poora naam" class="w-full pl-10 pr-4 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 rounded-xl outline-none text-slate-700 transition-all">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400"><i
+                                class="fa-regular fa-user"></i></span>
+                        <input type="text" id="fullName" required placeholder="Aapka poora naam"
+                            class="w-full pl-10 pr-4 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 rounded-xl outline-none text-slate-700 transition-all">
                     </div>
                 </div>
 
                 <!-- Email ID (Critical for Resend) -->
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5" for="emailId">
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                        for="emailId">
                         <i class="fa-regular fa-envelope mr-1"></i> Email ID (Confirmation Milegi)
                     </label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400"><i class="fa-regular fa-envelope"></i></span>
-                        <input type="email" id="emailId" required placeholder="customer@example.com" class="w-full pl-10 pr-4 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 rounded-xl outline-none text-slate-700">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400"><i
+                                class="fa-regular fa-envelope"></i></span>
+                        <input type="email" id="emailId" required placeholder="customer@example.com"
+                            class="w-full pl-10 pr-4 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 rounded-xl outline-none text-slate-700">
                     </div>
-                    <p class="text-[11px] text-slate-400 mt-1"><i class="fa-regular fa-bell"></i> Appointment details will be sent on this email</p>
+                    <p class="text-[11px] text-slate-400 mt-1"><i class="fa-regular fa-bell"></i> Appointment details
+                        will be sent on this email</p>
                 </div>
 
                 <!-- Phone Number -->
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5" for="phoneNumber">
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                        for="phoneNumber">
                         <i class="fa-solid fa-phone mr-1"></i> Mobile Number
                     </label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400"><i class="fa-solid fa-phone text-xs"></i></span>
-                        <input type="tel" id="phoneNumber" required placeholder="+91 XXXXXXXXXX" class="w-full pl-10 pr-4 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl outline-none">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400"><i
+                                class="fa-solid fa-phone text-xs"></i></span>
+                        <input type="tel" id="phoneNumber" required placeholder="+91 XXXXXXXXXX"
+                            class="w-full pl-10 pr-4 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl outline-none">
                     </div>
                 </div>
 
                 <!-- Service Dropdown -->
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5" for="serviceType">
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                        for="serviceType">
                         <i class="fa-solid fa-briefcase mr-1"></i> Kis Liye Appointment?
                     </label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400"><i class="fa-solid fa-list"></i></span>
-                        <select id="serviceType" required class="w-full pl-10 pr-8 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl appearance-none cursor-pointer text-slate-700">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400"><i
+                                class="fa-solid fa-list"></i></span>
+                        <select id="serviceType" required
+                            class="w-full pl-10 pr-8 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl appearance-none cursor-pointer text-slate-700">
                             <option value="" disabled selected>Select service</option>
                             <option value="General Consultation">General Consultation</option>
                             <option value="Technical Support">Technical Support</option>
                             <option value="Business Inquiry">Business Inquiry</option>
                             <option value="Other Service">Kuch Aur / Other</option>
                         </select>
-                        <span class="absolute inset-y-0 right-3 flex items-center text-slate-400 pointer-events-none"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                        <span class="absolute inset-y-0 right-3 flex items-center text-slate-400 pointer-events-none"><i
+                                class="fa-solid fa-chevron-down text-xs"></i></span>
                     </div>
                 </div>
 
                 <!-- Date & Time grid -->
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5" for="appDate">Tarikh 📅</label>
-                        <input type="date" id="appDate" required class="w-full px-3 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl text-sm">
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                            for="appDate">Tarikh 📅</label>
+                        <input type="date" id="appDate" required
+                            class="w-full px-3 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl text-sm">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5" for="appTime">Samay ⏰</label>
-                        <input type="time" id="appTime" required class="w-full px-3 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl text-sm">
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                            for="appTime">Samay ⏰</label>
+                        <input type="time" id="appTime" required
+                            class="w-full px-3 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl text-sm">
                     </div>
                 </div>
 
                 <!-- Submit Button with loading state -->
-                <button type="submit" id="submitBtn" class="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-200 hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 mt-2">
+                <button type="submit" id="submitBtn"
+                    class="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-200 hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 mt-2">
                     <i class="fa-regular fa-paper-plane"></i>
                     <span>Confirm Appointment</span>
                 </button>
@@ -175,7 +220,8 @@
                     <div class="flex-grow border-t border-slate-200"></div>
                 </div>
 
-                <a href="https://web.whatsapp.com/" target="_blank" class="w-full py-3 border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-medium rounded-xl transition-all duration-200 flex items-center justify-center gap-2 text-sm">
+                <a href="https://web.whatsapp.com/" target="_blank"
+                    class="w-full py-3 border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-medium rounded-xl transition-all duration-200 flex items-center justify-center gap-2 text-sm">
                     <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
                     WhatsApp par baat karein (Instant)
                 </a>
@@ -184,265 +230,69 @@
     </div>
 
     <!-- SUCCESS TOAST (Premium sliding notification) -->
-    <div id="successToast" class="fixed bottom-6 right-6 z-50 max-w-sm bg-white border-l-[5px] border-emerald-500 rounded-2xl shadow-2xl p-4 flex items-start gap-3 translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
-        <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
+    <div id="successToast"
+        class="fixed bottom-6 right-6 z-50 max-w-sm bg-white border-l-[5px] border-emerald-500 rounded-2xl shadow-2xl p-4 flex items-start gap-3 translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div
+            class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
             <i class="fa-solid fa-check-double text-base"></i>
         </div>
         <div>
             <h3 class="font-bold text-slate-800 text-sm">Appointment Confirmed! ✅</h3>
-            <p class="text-xs text-slate-500 mt-0.5">Aapki details humein mil gayi. Confirmation email bhej di gayi hai (Resend). Team jald contact karegi.</p>
+            <p class="text-xs text-slate-500 mt-0.5">Aapki details humein mil gayi. Confirmation email bhej di gayi hai
+                (Resend). Team jald contact karegi.</p>
         </div>
-        <button id="toastCloseBtn" class="ml-auto text-slate-300 hover:text-slate-500"><i class="fa-solid fa-xmark"></i></button>
+        <button id="toastCloseBtn" class="ml-auto text-slate-300 hover:text-slate-500"><i
+                class="fa-solid fa-xmark"></i></button>
     </div>
 
     <!-- BACKEND INTEGRATION WITH RESEND (Works Live & Locally) -->
     <script>
-        // DOM Elements
-        const modal = document.getElementById('appointmentModal');
-        const modalCardEl = document.getElementById('modalCard');
-        const openBtn = document.getElementById('openModalBtn');
-        const closeBtn = document.getElementById('closeModalBtn');
-        const form = document.getElementById('appointmentForm');
-        const submitButton = document.getElementById('submitBtn');
-        const toast = document.getElementById('successToast');
-        const toastClose = document.getElementById('toastCloseBtn');
+        import { Resend } from "resend";
 
-        // Date restrictions: set minimum today + default value
-        const dateInput = document.getElementById('appDate');
-        const todayDate = new Date().toISOString().split('T')[0];
-        if(dateInput) {
-            dateInput.min = todayDate;
-            dateInput.value = todayDate;
-        }
-        // default time suggestion: 10:00 AM if empty
-        const timeInput = document.getElementById('appTime');
-        if(timeInput && !timeInput.value) {
-            timeInput.value = "10:00";
-        }
+        const resend = new Resend(process.env.RESEND_API_KEY);
 
-        // Modal Helpers
-        function openModal() {
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            modal.classList.add('opacity-100');
-            modalCardEl.classList.remove('scale-95');
-            modalCardEl.classList.add('scale-100');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal() {
-            modal.classList.remove('opacity-100');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modalCardEl.classList.remove('scale-100');
-            modalCardEl.classList.add('scale-95');
-            document.body.style.overflow = 'auto';
-        }
-        openBtn.addEventListener('click', openModal);
-        closeBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            if(e.target === modal) closeModal();
-        });
-
-        // Show Toast function with auto-close
-        function showSuccessToast() {
-            toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-            toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-            }, 5500);
-        }
-        if(toastClose) {
-            toastClose.addEventListener('click', () => {
-                toast.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-            });
-        }
-
-        // Helper: Update button loading state
-        function setLoading(isLoading, originalText = "Confirm Appointment") {
-            if(isLoading) {
-                submitButton.classList.add('btn-loading');
-                submitButton.disabled = true;
-                submitButton.innerHTML = `<span class="spinner mr-2"></span> Sending...`;
-            } else {
-                submitButton.classList.remove('btn-loading');
-                submitButton.disabled = false;
-                submitButton.innerHTML = `<i class="fa-regular fa-paper-plane"></i> <span>${originalText}</span>`;
-            }
-        }
-
-        /**
-         * 🔥 RESEND BACKEND INTEGRATION (FULLY WORKING)
-         * 
-         * IMPORTANT: The backend endpoint below must be replaced with your actual Resend API endpoint.
-         * For local testing, you can run a simple Node.js server or use serverless function.
-         * 
-         * If you already have a live backend (Node/Express) with Resend SDK, update API_ENDPOINT.
-         * The demo is prepared to connect to a live server. I have configured full payload.
-         * 
-         * In case you want a ready-to-use demo backend simulation, I am providing a safe mock that will
-         * actually send email via a demo Resend endpoint? Instead, the live code expects your backend.
-         * 
-         * BUT here's the production-ready approach: I'll create a fetch to your backend running on Render/Vercel.
-         * If you DO NOT have a backend yet, I'll add a secondary "test mode" but we'll implement real request.
-         * 
-         * Because you said "backend laga hai resend ki help se", you must have an API route like:
-         * https://your-api.onrender.com/send-email or any endpoint that accepts POST { name, email, phone, subject, message }
-         * 
-         * I am keeping the endpoint dynamic. Replace with your LIVE Resend-powered endpoint.
-         * 
-         * For production, you need to set correct URL. I'm storing a variable "API_ENDPOINT".
-         * 
-         * ALSO: Since we want to avoid CORS issues, the live backend must have CORS enabled.
-         * 
-         * --- UPDATE HERE WITH YOUR ACTUAL BACKEND URL ---
-         */
-        // 🔽🔽🔽 CHANGE THIS TO YOUR LIVE RESEND BACKEND URL 🔽🔽🔽
-        const API_ENDPOINT = "https://your-backend.onrender.com/send-email";
-        // ⬆️⬆️⬆️ Replace with your actual backend URL that uses Resend NPM package ⬆️⬆️⬆️
-        
-        // If you want to test locally using a mock that actually sends via Resend (Demo purpose only), 
-        // You can uncomment a mock but we'll build robust fallback note: The user must provide actual backend.
-        // For NOW, the script will try to post to real endpoint. 
-        // But to ensure your website works even if endpoint not live yet? I'll also provide a "demo mode" instruction in console.
-        // But since you told "real data ki baat kar raha ho website pehle se live hai", the form must POST to live backend.
-        
-        // Form Submit Handler with robust validation
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            // Gather form values
-            const name = document.getElementById('fullName').value.trim();
-            const email = document.getElementById('emailId').value.trim();
-            const phone = document.getElementById('phoneNumber').value.trim();
-            const service = document.getElementById('serviceType').value;
-            const date = document.getElementById('appDate').value;
-            const time = document.getElementById('appTime').value;
-
-            // Basic frontend validations
-            if(!name || !email || !phone || !service || !date || !time) {
-                alert("कृपया सभी आवश्यक फ़ील्ड भरें (Name, Email, Phone, Service, Date & Time)");
-                return;
-            }
-            const emailRegex = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
-            if(!emailRegex.test(email)) {
-                alert("कृपया सही Email ID डालें (valid email)");
-                return;
-            }
-            if(phone.length < 8 || phone.length > 15) {
-                alert("Phone number must be between 8 to 15 digits.");
-                return;
+        export default async function handler(req, res) {
+            if (req.method !== "POST") {
+                return res.status(405).json({ message: "Only POST allowed" });
             }
 
-            // prepare payload (Resend-friendly format)
-            const appointmentDetails = `
-            📅 Appointment Date: ${date}
-            ⏰ Time: ${time}
-            🧑‍💼 Service: ${service}
-            📞 Phone: ${phone}
-            `;
-
-            const payload = {
-                name: name,
-                email: email,          // customer email
-                phone: phone,
-                subject: `New Appointment Request: ${service}`,
-                message: `Hello Team, ${name} requested an appointment.\n\nDetails:\n${appointmentDetails}\n\nClient Email: ${email}\nClient Phone: ${phone}`
-            };
-
-            // Set loading state
-            setLoading(true, "Confirm Appointment");
-            
             try {
-                // Attempt to send data to Resend backend endpoint
-                const response = await fetch(API_ENDPOINT, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload)
+                const { name, email, phone, subject, message } = req.body;
+
+                // ADMIN EMAIL
+                await resend.emails.send({
+                    from: "onboarding@resend.dev",
+                    to: "YOUR_GMAIL@gmail.com",
+                    subject,
+                    html: `
+        <h2>New Appointment</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <pre>${message}</pre>
+      `,
                 });
 
-                const result = await response.json().catch(() => ({}));
-                
-                if(response.ok) {
-                    // Success: close modal, reset form, show toast & also simulate email sent
-                    closeModal();
-                    form.reset();
-                    // Reset date and time defaults after reset
-                    if(dateInput) dateInput.value = todayDate;
-                    if(timeInput) timeInput.value = "10:00";
-                    // reset service dropdown default
-                    const serviceSelect = document.getElementById('serviceType');
-                    if(serviceSelect) serviceSelect.selectedIndex = 0;
-                    
-                    // Show premium success toast
-                    showSuccessToast();
-                    
-                    // Additional console information: real data delivered to backend using Resend
-                    console.log("✅ Appointment delivered via Resend backend:", result);
-                } else {
-                    // If backend responds with error (but request made)
-                    let errorMsg = result.message || "Backend error. Please try again.";
-                    alert(`❌ Appointment failed: ${errorMsg}\nPlease contact support or try WhatsApp.`);
-                }
+                // CUSTOMER EMAIL
+                await resend.emails.send({
+                    from: "onboarding@resend.dev",
+                    to: email,
+                    subject: "Appointment Confirmed ✅",
+                    html: `
+        <h2>Hello ${name}</h2>
+        <p>Your appointment is confirmed.</p>
+        <p>We will contact you soon.</p>
+      `,
+                });
+
+                return res.status(200).json({ success: true });
+
             } catch (error) {
-                console.error("Network / Server Error:", error);
-                // Enhanced user friendly message: suggest fallback
-                alert("⚠️ Network issue or backend unreachable. Please check your internet or try again later.\n\nIf issue persists, reach us via WhatsApp.");
-            } finally {
-                setLoading(false, "Confirm Appointment");
+                return res.status(500).json({ error: error.message });
             }
-        });
-
-        // This script ensures that if the backend endpoint is the placeholder, we show a console warning.
-        // Also provide a backup design: but the user must replace it with actual server.
-        // Additional friendly instructions in console:
-        if(API_ENDPOINT === "https://your-backend.onrender.com/send-email") {
-            console.warn("⚠️ [Resend Backend] You are using the demo placeholder endpoint. Please update 'API_ENDPOINT' variable with your actual Resend API backend URL (Node/Express). Example: https://yourapp.onrender.com/send-email");
-        } else {
-            console.log("✅ Backend endpoint configured. Ready to send real email via Resend.");
         }
-        
-        // Additional realtime validation for email field to ensure data correctness
-        const emailField = document.getElementById('emailId');
-        if(emailField) {
-            emailField.addEventListener('blur', function() {
-                const val = this.value.trim();
-                if(val && !val.includes('@')) {
-                    this.style.borderColor = '#f97316';
-                } else {
-                    this.style.borderColor = '#cbd5e1';
-                }
-            });
-        }
-
-        // Edge case: keyboard ESC closes modal
-        window.addEventListener('keydown', (e) => {
-            if(e.key === 'Escape' && modal.classList.contains('opacity-100')) {
-                closeModal();
-            }
-        });
-        
-        // Ensure all interactive elements are fully working on live website.
-        // Also handle any dynamic styling
-        const style = document.createElement('style');
-        style.textContent = `
-            input:focus, select:focus {
-                box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
-                border-color: #3b82f6;
-            }
-            button:active {
-                transform: scale(0.98);
-            }
-        `;
-        document.head.appendChild(style);
     </script>
-    <!-- Additional note: Backend must have Resend SDK and route /send-email which sends email to your Gmail.
-         Example backend code: 
-         app.post('/send-email', async (req,res) => { 
-            const { name, email, subject, message } = req.body; 
-            await resend.emails.send({ from: 'onboarding@resend.dev', to: 'YOUR_GMAIL@gmail.com', subject, html: `<p>${message}</p>` });
-            res.json({success:true});
-         });
-    -->
+
 </body>
 
 </html>
