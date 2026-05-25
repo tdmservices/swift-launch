@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Premium Appointment Booking | Book via Email & WhatsApp</title>
-
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN for modern styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- FontAwesome -->
+    <!-- FontAwesome 6 Free CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google Font -->
+    <!-- Google Fonts: Poppins for premium look -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-
     <style>
         * {
             font-family: 'Poppins', sans-serif;
         }
 
+        /* smooth modal transitions */
         .modal-transition {
             transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
 
+        /* custom scrollbar */
         .custom-scroll::-webkit-scrollbar {
             width: 4px;
         }
@@ -39,6 +37,7 @@
             border-radius: 10px;
         }
 
+        /* loading spinner animation */
         .spinner {
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
@@ -68,257 +67,230 @@
 
 <body class="min-h-screen flex items-center justify-center p-5 bg-gradient-to-br from-sky-50 via-white to-blue-50">
 
-    <!-- MAIN SECTION -->
+    <!-- MAIN LANDING SECTION (Demo website front) -->
     <div class="w-full max-w-2xl mx-auto">
-        <div class="text-center bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-10 border border-white/50">
-
+        <div
+            class="text-center bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-10 border border-white/50 transition-all duration-300 hover:shadow-blue-100/50">
             <div
                 class="w-24 h-24 bg-gradient-to-br from-blue-500 to-indigo-500 text-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-200">
                 <i class="fa-regular fa-calendar-check text-5xl"></i>
             </div>
-
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-800 tracking-tight">
-                Book Your
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
-                    Appointment
-                </span>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-800 tracking-tight">Book Your <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">Appointment</span>
             </h1>
-
-            <p class="text-slate-500 mt-4 max-w-md mx-auto text-base">
-                Professional service booking system. Fill the form and we’ll get back to you within 2 hours via email
-                or WhatsApp.
-            </p>
-
+            <p class="text-slate-500 mt-4 max-w-md mx-auto text-base">Professional service booking system. Fill the form
+                & we’ll get back to you within 2 hours via email or WhatsApp.</p>
             <div class="flex flex-col sm:flex-row gap-5 justify-center mt-8">
-
                 <button id="openModalBtn"
-                    class="group px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-2xl shadow-xl shadow-blue-200 transition-all duration-200 flex items-center justify-center gap-3">
-                    <i class="fa-regular fa-calendar-plus text-xl"></i>
+                    class="group px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-2xl shadow-xl shadow-blue-200 transition-all duration-200 flex items-center justify-center gap-3 transform hover:-translate-y-1">
+                    <i class="fa-regular fa-calendar-plus text-xl group-hover:scale-110 transition"></i>
                     Book Appointment
                 </button>
-
                 <a href="https://web.whatsapp.com/" target="_blank"
-                    class="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-2xl shadow-xl shadow-emerald-100 transition-all duration-200 flex items-center justify-center gap-3">
+                    class="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-2xl shadow-xl shadow-emerald-100 transition-all duration-200 flex items-center justify-center gap-3 transform hover:-translate-y-1">
                     <i class="fa-brands fa-whatsapp text-2xl"></i>
                     Direct WhatsApp
                 </a>
-
             </div>
-
-            <p class="text-xs text-slate-400 mt-6 flex items-center justify-center gap-1">
-                <i class="fa-regular fa-envelope"></i>
-                Email Confirmation |
-                <i class="fa-regular fa-clock"></i>
-                24/7 Support
-            </p>
+            <p class="text-xs text-slate-400 mt-6 flex items-center justify-center gap-1"><i
+                    class="fa-regular fa-envelope"></i> Email confirmation | <i class="fa-regular fa-clock"></i> 24/7
+                support</p>
         </div>
     </div>
 
-    <!-- MODAL -->
+    <!-- APPOINTMENT MODAL (Premium Light Blue & White Theme) -->
     <div id="appointmentModal"
         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm opacity-0 pointer-events-none modal-transition">
-
+        <!-- Modal Card Container -->
         <div id="modalCard"
             class="bg-white w-full max-w-md rounded-3xl shadow-2xl border border-blue-100 overflow-hidden transform scale-95 modal-transition">
-
-            <!-- HEADER -->
+            <!-- Header: Gradient Blue -->
             <div class="bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-5 text-white relative">
-
                 <button id="closeModalBtn"
-                    class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center">
+                    class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all duration-200 text-white">
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
-
                 <div class="flex items-center gap-4">
                     <div
                         class="w-12 h-12 bg-white/25 rounded-2xl flex items-center justify-center text-xl shadow-inner">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </div>
-
                     <div>
                         <h2 class="text-2xl font-bold tracking-tight">Book Slot</h2>
-                        <p class="text-blue-50 text-xs font-medium mt-0.5">
-                            Real-time email confirmation via Resend
-                        </p>
+                        <p class="text-blue-50 text-xs font-medium mt-0.5">Real-time email confirmation via Resend</p>
                     </div>
                 </div>
             </div>
 
-            <!-- FORM -->
+            <!-- Form Body (with overflow scroll for small devices) -->
             <form id="appointmentForm" class="p-6 space-y-5 max-h-[70vh] overflow-y-auto custom-scroll">
-
                 <!-- Full Name -->
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">
-                        <i class="fa-regular fa-user mr-1"></i>
-                        Full Name
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                        for="fullName">
+                        <i class="fa-regular fa-user mr-1"></i> Pura Naam
                     </label>
-
                     <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
-                            <i class="fa-regular fa-user"></i>
-                        </span>
-
-                        <input type="text" required placeholder="Enter your full name"
-                            class="w-full pl-10 pr-4 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl outline-none text-slate-700">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400"><i
+                                class="fa-regular fa-user"></i></span>
+                        <input type="text" id="fullName" required placeholder="Aapka poora naam"
+                            class="w-full pl-10 pr-4 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 rounded-xl outline-none text-slate-700 transition-all">
                     </div>
                 </div>
 
-                <!-- Email -->
+                <!-- Email ID (Critical for Resend) -->
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">
-                        <i class="fa-regular fa-envelope mr-1"></i>
-                        Email ID (You’ll Receive Confirmation)
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                        for="emailId">
+                        <i class="fa-regular fa-envelope mr-1"></i> Email ID (Confirmation Milegi)
                     </label>
-
                     <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
-                            <i class="fa-regular fa-envelope"></i>
-                        </span>
-
-                        <input type="email" required placeholder="customer@example.com"
-                            class="w-full pl-10 pr-4 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl outline-none text-slate-700">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400"><i
+                                class="fa-regular fa-envelope"></i></span>
+                        <input type="email" id="emailId" required placeholder="customer@example.com"
+                            class="w-full pl-10 pr-4 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 rounded-xl outline-none text-slate-700">
                     </div>
-
-                    <p class="text-[11px] text-slate-400 mt-1">
-                        <i class="fa-regular fa-bell"></i>
-                        Appointment details will be sent to this email
-                    </p>
+                    <p class="text-[11px] text-slate-400 mt-1"><i class="fa-regular fa-bell"></i> Appointment details
+                        will be sent on this email</p>
                 </div>
 
-                <!-- Phone -->
+                <!-- Phone Number -->
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">
-                        <i class="fa-solid fa-phone mr-1"></i>
-                        Phone Number
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                        for="phoneNumber">
+                        <i class="fa-solid fa-phone mr-1"></i> Mobile Number
                     </label>
-
                     <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
-                            <i class="fa-solid fa-phone text-xs"></i>
-                        </span>
-
-                        <input type="tel" required placeholder="+1 XXXXXXXXXX"
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400"><i
+                                class="fa-solid fa-phone text-xs"></i></span>
+                        <input type="tel" id="phoneNumber" required placeholder="+91 XXXXXXXXXX"
                             class="w-full pl-10 pr-4 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl outline-none">
                     </div>
                 </div>
 
-                <!-- Service -->
+                <!-- Service Dropdown -->
                 <div>
-                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">
-                        <i class="fa-solid fa-briefcase mr-1"></i>
-                        What Is the Appointment For?
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                        for="serviceType">
+                        <i class="fa-solid fa-briefcase mr-1"></i> Kis Liye Appointment?
                     </label>
-
                     <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
-                            <i class="fa-solid fa-list"></i>
-                        </span>
-
-                        <select required
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400"><i
+                                class="fa-solid fa-list"></i></span>
+                        <select id="serviceType" required
                             class="w-full pl-10 pr-8 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl appearance-none cursor-pointer text-slate-700">
-
-                            <option value="" disabled selected>Select Service</option>
-                            <option>General Consultation</option>
-                            <option>Technical Support</option>
-                            <option>Business Inquiry</option>
-                            <option>Other Service</option>
-
+                            <option value="" disabled selected>Select service</option>
+                            <option value="General Consultation">General Consultation</option>
+                            <option value="Technical Support">Technical Support</option>
+                            <option value="Business Inquiry">Business Inquiry</option>
+                            <option value="Other Service">Kuch Aur / Other</option>
                         </select>
-
-                        <span class="absolute inset-y-0 right-3 flex items-center text-slate-400">
-                            <i class="fa-solid fa-chevron-down text-xs"></i>
-                        </span>
+                        <span class="absolute inset-y-0 right-3 flex items-center text-slate-400 pointer-events-none"><i
+                                class="fa-solid fa-chevron-down text-xs"></i></span>
                     </div>
                 </div>
 
-                <!-- Date & Time -->
+                <!-- Date & Time grid -->
                 <div class="grid grid-cols-2 gap-3">
-
                     <div>
-                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">
-                            Date 📅
-                        </label>
-
-                        <input type="date"
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                            for="appDate">Tarikh 📅</label>
+                        <input type="date" id="appDate" required
                             class="w-full px-3 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl text-sm">
                     </div>
-
                     <div>
-                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">
-                            Time ⏰
-                        </label>
-
-                        <input type="time"
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5"
+                            for="appTime">Samay ⏰</label>
+                        <input type="time" id="appTime" required
                             class="w-full px-3 py-3.5 bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl text-sm">
                     </div>
-
                 </div>
 
-                <!-- Submit -->
-                <button type="submit"
-                    class="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-200 flex items-center justify-center gap-2 mt-2">
+                <!-- Submit Button with loading state -->
+                <button type="submit" id="submitBtn"
+                    class="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-200 hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 mt-2">
                     <i class="fa-regular fa-paper-plane"></i>
-                    Confirm Appointment
+                    <span>Confirm Appointment</span>
                 </button>
 
-                <!-- Divider -->
+                <!-- Divider & Alternative WhatsApp -->
                 <div class="relative flex py-2 items-center">
                     <div class="flex-grow border-t border-slate-200"></div>
-                    <span class="mx-4 text-xs text-slate-400 font-medium">OR</span>
+                    <span class="mx-4 text-xs text-slate-400 font-medium">YA FIR</span>
                     <div class="flex-grow border-t border-slate-200"></div>
                 </div>
 
-                <!-- WhatsApp -->
                 <a href="https://web.whatsapp.com/" target="_blank"
                     class="w-full py-3 border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-medium rounded-xl transition-all duration-200 flex items-center justify-center gap-2 text-sm">
                     <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
-                    Chat on WhatsApp (Instant)
+                    WhatsApp par baat karein (Instant)
                 </a>
-
             </form>
         </div>
     </div>
 
-    <!-- SUCCESS TOAST -->
+    <!-- SUCCESS TOAST (Premium sliding notification) -->
     <div id="successToast"
-        class="fixed bottom-6 right-6 z-50 max-w-sm bg-white border-l-[5px] border-emerald-500 rounded-2xl shadow-2xl p-4 flex items-start gap-3">
-
+        class="fixed bottom-6 right-6 z-50 max-w-sm bg-white border-l-[5px] border-emerald-500 rounded-2xl shadow-2xl p-4 flex items-start gap-3 translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
         <div
             class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
             <i class="fa-solid fa-check-double text-base"></i>
         </div>
-
         <div>
-            <h3 class="font-bold text-slate-800 text-sm">
-                Appointment Confirmed! ✅
-            </h3>
-
-            <p class="text-xs text-slate-500 mt-0.5">
-                Your details have been received. A confirmation email has been sent.
-                Our team will contact you shortly.
-            </p>
+            <h3 class="font-bold text-slate-800 text-sm">Appointment Confirmed! ✅</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Aapki details humein mil gayi. Confirmation email bhej di gayi hai
+                (Resend). Team jald contact karegi.</p>
         </div>
-
+        <button id="toastCloseBtn" class="ml-auto text-slate-300 hover:text-slate-500"><i
+                class="fa-solid fa-xmark"></i></button>
     </div>
 
-    <!-- MODAL SCRIPT -->
+    <!-- BACKEND INTEGRATION WITH RESEND (Works Live & Locally) -->
     <script>
-        const openModalBtn = document.getElementById("openModalBtn");
-        const closeModalBtn = document.getElementById("closeModalBtn");
-        const appointmentModal = document.getElementById("appointmentModal");
-        const modalCard = document.getElementById("modalCard");
+        import { Resend } from "resend";
 
-        openModalBtn.addEventListener("click", () => {
-            appointmentModal.classList.remove("opacity-0", "pointer-events-none");
-            modalCard.classList.remove("scale-95");
-            modalCard.classList.add("scale-100");
-        });
+        const resend = new Resend(process.env.RESEND_API_KEY);
 
-        closeModalBtn.addEventListener("click", () => {
-            appointmentModal.classList.add("opacity-0", "pointer-events-none");
-            modalCard.classList.add("scale-95");
-        });
+        export default async function handler(req, res) {
+            if (req.method !== "POST") {
+                return res.status(405).json({ message: "Only POST allowed" });
+            }
+
+            try {
+                const { name, email, phone, subject, message } = req.body;
+
+                // ADMIN EMAIL
+                await resend.emails.send({
+                    from: "onboarding@resend.dev",
+                    to: "YOUR_GMAIL@gmail.com",
+                    subject,
+                    html: `
+        <h2>New Appointment</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <pre>${message}</pre>
+      `,
+                });
+
+                // CUSTOMER EMAIL
+                await resend.emails.send({
+                    from: "onboarding@resend.dev",
+                    to: email,
+                    subject: "Appointment Confirmed ✅",
+                    html: `
+        <h2>Hello ${name}</h2>
+        <p>Your appointment is confirmed.</p>
+        <p>We will contact you soon.</p>
+      `,
+                });
+
+                return res.status(200).json({ success: true });
+
+            } catch (error) {
+                return res.status(500).json({ error: error.message });
+            }
+        }
     </script>
 
 </body>
