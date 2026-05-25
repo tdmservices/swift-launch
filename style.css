@@ -79,6 +79,13 @@
     font-weight: 500;
     transition: 0.2s;
   }
+  .heading {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.2s;
+  }
 
   .nav-links a:hover {
     color: #08A1DD;
