@@ -1526,7 +1526,7 @@ h5.services {
 
 /* SECTION SEVEN SECTION SEVEN SECTION SEVEN SECTION SEVEN  */
 
-.features-section {
+#features-section {
   padding: 0px 20px;
   text-align: center;
   position: relative;
