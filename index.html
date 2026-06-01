@@ -46,7 +46,7 @@
         <a href="./portfolio.html">Portfolio</a>
         <a href="./blogs.html">Blogs</a>
         <a href="Contact.html">Contact</a>
-        <a href="interactive_popup_form.html" class="login-btn">
+        <a href="#" class="login-btn" id="openPopup">
           <span class="heading"></span>
           Login
         </a>
@@ -1155,7 +1155,24 @@
     </div>
 
 
+    <!-- Popup Form -->
+    <div class="popup-overlay" id="popupOverlay">
+      <div class="popup-form">
+        <span class="close-popup" id="closePopup">&times;</span>
 
+        <h2>Get Started</h2>
+
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <input type="tel" placeholder="Phone Number" required>
+          <input type="text" placeholder="Company Name">
+          <textarea placeholder="Your Message" rows="4"></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
     <script src="home.js"></script>
 </body>
 

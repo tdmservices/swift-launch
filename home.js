@@ -353,7 +353,21 @@ window.addEventListener("scroll", () => {
   }
 });
 
-loginBtn.addEventListener('click', (e) => {
+const openPopup = document.getElementById("openPopup");
+const closePopup = document.getElementById("closePopup");
+const popupOverlay = document.getElementById("popupOverlay");
+
+openPopup.addEventListener("click", function (e) {
   e.preventDefault();
-  showPopup();
+  popupOverlay.style.display = "flex";
+});
+
+closePopup.addEventListener("click", function () {
+  popupOverlay.style.display = "none";
+});
+
+popupOverlay.addEventListener("click", function (e) {
+  if (e.target === popupOverlay) {
+    popupOverlay.style.display = "none";
+  }
 });
