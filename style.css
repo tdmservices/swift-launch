@@ -36,7 +36,7 @@
   .navbar.scrolled .nav-links a {
     color: black;
   }
-  
+
   .navbar.scrolled .heading {
     color: white;
   }
@@ -79,6 +79,7 @@
     font-weight: 500;
     transition: 0.2s;
   }
+
   .heading {
     text-decoration: none;
     color: white;
@@ -89,7 +90,7 @@
 
   .nav-links a:hover {
     color: #08A1DD;
-   
+
   }
 
   .nav-links a.active {
@@ -110,7 +111,7 @@
 
   .login-btn:hover {
     background: #08A1DD;
-    color: white;
+    color: white !important;
   }
 
   .menu-toggle {
