@@ -355,6 +355,7 @@ window.addEventListener("scroll", () => {
 
 
 const popupTriggers = document.querySelectorAll(".popup-trigger");
+const buttonten = document.querySelectorAll(".button-ten");
 const closePopup = document.getElementById("closePopup");
 const popupOverlay = document.getElementById("popupOverlay");
 
