@@ -175,3 +175,18 @@ document.querySelectorAll(
 ).forEach((el) => {
   observer.observe(el);
 });
+
+const btn = document.getElementById("viewMoreBtn");
+const moreServices = document.getElementById("moreServices");
+
+btn.addEventListener("click", function () {
+
+  if (moreServices.style.display === "grid") {
+    moreServices.style.display = "none";
+    btn.textContent = "View All Services";
+  } else {
+    moreServices.style.display = "grid";
+    btn.textContent = "Show Less";
+  }
+
+});
