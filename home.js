@@ -353,13 +353,16 @@ window.addEventListener("scroll", () => {
   }
 });
 
-const openPopup = document.getElementById("openPopup");
+
+const popupTriggers = document.querySelectorAll(".popup-trigger");
 const closePopup = document.getElementById("closePopup");
 const popupOverlay = document.getElementById("popupOverlay");
 
-openPopup.addEventListener("click", function (e) {
-  e.preventDefault();
-  popupOverlay.style.display = "flex";
+popupTriggers.forEach(trigger => {
+  trigger.addEventListener("click", function (e) {
+    e.preventDefault();
+    popupOverlay.style.display = "flex";
+  });
 });
 
 closePopup.addEventListener("click", function () {
