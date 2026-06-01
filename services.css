@@ -1247,7 +1247,7 @@ h5.services {
 .service-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
+  gap: 40px;
   max-width: 1160px;
   margin: 0 auto;
 }
@@ -1257,7 +1257,7 @@ h5.services {
 /* ============================= */
 
 .service-card {
-      width: 107%;
+  width: 107%;
   background: #F6F5F2;
   border-radius: 20px;
   overflow: hidden;
@@ -1340,9 +1340,8 @@ h5.services {
 
 .service-icon {
   position: absolute;
-    bottom: 7px;
-    right: 0px;
-
+  bottom: 22px;
+  right: 16px;
   background: #fff;
   color: #01328E;
   border-radius: 50%;
