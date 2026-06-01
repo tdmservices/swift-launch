@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Popup Contact Form</title>
+    
+    <!-- CSS Section -->
+    <style>
+        /* Base Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Main Page Button to open Form */
+        .main-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .main-container h1 {
+            color: #1e3a8a; /* Deep Blue */
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .main-container p {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .open-btn {
+            background-color: #2563eb; /* Primary Blue */
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .open-btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -2px rgba(37, 99, 235, 0.3);
+        }
+
+        .open-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Modal Backdrop (Background blur/darkness) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            
+            /* Hidden by default with smooth transitions */
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 15px;
+        }
+
+        /* Trigger active state for Overlay */
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Modal Content Card (White and Blue Theme) */
+        .modal-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Initial state for pop animation */
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        /* Trigger pop state */
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        /* Modal Header (Blue Theme) */
+        .modal-header {
+            background-color: #2563eb;
+            color: #ffffff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .close-btn-cross {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            line-height: 1;
+        }
+
+        .close-btn-cross:hover {
+            opacity: 0.8;
+        }
+
+        /* Form Styling */
+        .modal-form {
+            padding: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        /* Double Column Grid for Email & Phone on big screens */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 480px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        .form-group label span {
+            color: #ef4444; /* Required Red Star */
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 14px;
+            font-size: 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background-color: #f8fafc;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+            background-color: #ffffff;
+        }
+
+        textarea.form-control {
+            resize: none;
+            height: 90px;
+        }
+
+        /* Status Alert Message */
+        .status-alert {
+            display: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .status-alert.success {
+            display: block;
+            background-color: #f0fdf4;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        .status-alert.error {
+            display: block;
+            background-color: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        /* Action Buttons Area */
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-cancel {
+            background-color: #f1f5f9;
+            color: #475569;
+        }
+
+        .btn-cancel:hover {
+            background-color: #e2e8f0;
+        }
+
+        .btn-submit {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+
+        .btn-submit:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Content Background Area -->
+    <div class="main-container">
+       
+        <button id="openModalBtn" class="open-btn">Kholiye (Open Popup)</button>
+    </div>
+
+    <!-- Modal Backdrop Layout -->
+    <div id="modalOverlay" class="modal-overlay">
+        
+        <!-- Main Form Card -->
+        <div class="modal-card">
+            
+            <!-- Header section -->
+            <div class="modal-header">
+                <h2>Form</h2>
+                <button id="closeModalBtnCross" class="close-btn-cross">&times;</button>
+            </div>
+
+            <!-- Form section -->
+            <form id="popupForm" class="modal-form">
+                
+                <!-- Status notification message -->
+                <div id="statusAlert" class="status-alert"></div>
+
+                <!-- Name Input Row -->
+                <div class="form-group">
+                    <label for="fullName">Name<span>*</span></label>
+                    <input type="text" id="fullName" class="form-control" placeholder="your name" required>
+                </div>
+
+                <!-- Email & Phone Dual Column Grid Row -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email address <span>*</span></label>
+                        <input type="email" id="email" class="form-control" placeholder="example@mail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone number <span>*</span></label>
+                        <input type="tel" id="phone" class="form-control" placeholder="your phone number" required>
+                    </div>
+                </div>
+
+                <!-- Company Name Row -->
+                <div class="form-group">
+                    <label for="company">Company name <span>*</span></label>
+                    <input type="text" id="company" class="form-control" placeholder="company name">
+                </div>
+
+                <!-- Message Box Row -->
+                <div class="form-group">
+                    <label for="message"> Your Message <span>*</span></label>
+                    <textarea id="message" class="form-control" placeholder="your message..." required></textarea>
+                </div>
+
+                <!-- Actions Save/Cancel buttons -->
+                <div class="form-actions">
+                    <button type="button" id="closeModalBtnCancel" class="btn btn-cancel">Cancel</button>
+                    <button type="submit" class="btn btn-submit">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- JS Section -->
+    <script>
+        // DOM Elements
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtnCross = document.getElementById('closeModalBtnCross');
+        const closeModalBtnCancel = document.getElementById('closeModalBtnCancel');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const popupForm = document.getElementById('popupForm');
+        const statusAlert = document.getElementById('statusAlert');
+
+        // Function: Modal open karna
+        function showPopup() {
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Screen scroll stop karne ke liye
+        }
+
+        // Function: Modal close karna
+        function hidePopup() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Screen scroll wapas chalu karne ke liye
+            
+            // 300ms baad form elements clear aur class standard karna transitions smooth banane ke liye
+            setTimeout(() => {
+                popupForm.reset();
+                statusAlert.className = 'status-alert';
+                statusAlert.textContent = '';
+            }, 300);
+        }
+
+        // Event listeners bind
+        openModalBtn.addEventListener('click', showPopup);
+        closeModalBtnCross.addEventListener('click', hidePopup);
+        closeModalBtnCancel.addEventListener('click', hidePopup);
+
+        // Overlay backdrop click par popup band karna
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                hidePopup();
+            }
+        });
+
+        // Form Submit hone par control karna
+        popupForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Browser page reload stop karna
+
+            // Input values fetch karna
+            const nameVal = document.getElementById('fullName').value.trim();
+            const emailVal = document.getElementById('email').value.trim();
+            const phoneVal = document.getElementById('phone').value.trim();
+            const companyVal = document.getElementById('company').value.trim();
+            const messageVal = document.getElementById('message').value.trim();
+
+            // Form data verification aur dynamic success response
+            if (nameVal && emailVal && phoneVal && messageVal) {
+                // Success styling setup
+                statusAlert.className = 'status-alert success';
+                statusAlert.textContent = `Aapka response safely submit ho gaya hai! Thank you, ${nameVal}.`;
+
+                // Sare input boxes clear karna
+                popupForm.reset();
+
+                // 2.5 seconds baad safe automatic close animation
+                setTimeout(() => {
+                    hidePopup();
+                }, 2500);
+
+            } else {
+                // Agar verification fail hota hai (standard requirements cover isko safe rakhti hain)
+                statusAlert.className = 'status-alert error';
+                statusAlert.textContent = 'Kripya zaroori fields ko dhyan se bharein.';
+            }
+        });
+    </script>
+</body>
+</html>
