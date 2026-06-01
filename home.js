@@ -352,3 +352,8 @@ window.addEventListener("scroll", () => {
     }, 200);
   }
 });
+
+loginBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  showPopup();
+});
