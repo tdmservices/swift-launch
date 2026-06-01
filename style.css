@@ -88,8 +88,8 @@
   }
 
   .nav-links a:hover {
-    color: white;
-    background-color: #08A1DD;
+    color: #08A1DD;
+   
   }
 
   .nav-links a.active {
