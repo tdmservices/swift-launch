@@ -179,14 +179,10 @@ document.querySelectorAll(
 const btn = document.getElementById("viewMoreBtn");
 const moreServices = document.getElementById("moreServices");
 
-btn.addEventListener("click", function () {
+btn.addEventListener("click", () => {
+  moreServices.classList.toggle("active");
 
-  if (moreServices.style.display === "grid") {
-    moreServices.style.display = "none";
-    btn.textContent = "View All Services";
-  } else {
-    moreServices.style.display = "grid";
-    btn.textContent = "Show Less";
-  }
-
+  btn.textContent = moreServices.classList.contains("active")
+    ? "Show Less"
+    : "View All Services";
 });
