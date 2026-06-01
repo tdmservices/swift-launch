@@ -210,6 +210,7 @@ menuToggle.addEventListener("click", () => {
 
 const popupTriggers = document.querySelectorAll(".popup-trigger");
 const buttonten = document.querySelectorAll(".button-ten");
+const btnprimary = document.querySelectorAll(".btn-primary");
 const closePopup = document.getElementById("closePopup");
 const popupOverlay = document.getElementById("popupOverlay");
 
