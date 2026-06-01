@@ -207,3 +207,25 @@ const navLinks = document.getElementById("navLinks");
 menuToggle.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
+
+const popupTriggers = document.querySelectorAll(".popup-trigger");
+const buttonten = document.querySelectorAll(".button-ten");
+const closePopup = document.getElementById("closePopup");
+const popupOverlay = document.getElementById("popupOverlay");
+
+popupTriggers.forEach(trigger => {
+  trigger.addEventListener("click", function (e) {
+    e.preventDefault();
+    popupOverlay.style.display = "flex";
+  });
+});
+
+closePopup.addEventListener("click", function () {
+  popupOverlay.style.display = "none";
+});
+
+popupOverlay.addEventListener("click", function (e) {
+  if (e.target === popupOverlay) {
+    popupOverlay.style.display = "none";
+  }
+});
