@@ -44,6 +44,7 @@
     animation: slideLeft 0.9s ease forwards;
     animation-delay: 0.2s;
     margin-top: 15px;
+    font-weight: 400;
 }
 
 /* RIGHT SIDE */
