@@ -1198,11 +1198,71 @@
         <a href="../portfolio.html">Portfolio</a>
         <a href="../blogs.html">Blogs</a>
         <a href="/Contact.html">Contact</a>
-        <button class="login-btn">Login</button>
+        <a href="#" class="login-btn" id="openLogin">Login</a>
       </div>
 
     </div>
   </nav>
+  <div class="auth-popup" id="authPopup">
+    <div class="auth-box">
+
+      <span class="close-popup" id="closeAuthPopup">&times;</span>
+
+      <div class="auth-header">
+        <h2>Hello!</h2>
+        <p>Welcome Back</p>
+      </div>
+
+      <!-- Login Form -->
+      <div id="loginForm">
+        <h3>Login</h3>
+
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+
+        <a href="#" class="forgot-link">Forgot Password?</a>
+
+        <button class="auth-btn">Login</button>
+
+        <div class="divider">
+          <span>Or login with</span>
+        </div>
+
+        <div class="social-login">
+          <button>Google</button>
+          <button>Apple</button>
+        </div>
+
+        <p class="switch-form">
+          Don't have an account?
+          <a href="#" id="showSignup">Sign Up</a>
+        </p>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signupForm" style="display:none;">
+        <h3>Sign Up</h3>
+
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Confirm Password">
+
+        <button class="auth-btn">Create Account</button>
+
+        <div class="social-login">
+          <button>Google</button>
+          <button>Apple</button>
+        </div>
+
+        <p class="switch-form">
+          Already have an account?
+          <a href="#" id="showLogin">Login</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
   <section class="hero">
     <div class="hero-container">
       <div class="hero-text">
@@ -1215,6 +1275,34 @@
       </div>
     </div>
   </section>
+  <div id="popupOverlay">
+
+    <div class="about-popup">
+
+
+
+      <div class="popup-left">
+        <img src="/favicon svg.svg" alt="">
+        <div class="clouds"></div>
+      </div>
+
+      <div class="popup-right">
+
+        <h2>Free Consultation</h2>
+
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email Address">
+        <input type="tel" placeholder="Phone Number">
+        <input type="text" placeholder="Company Name">
+        <textarea placeholder="Your Message"></textarea>
+
+        <button class="submit" type="submit">Send Message</button>
+
+      </div>
+
+    </div>
+
+  </div>
   <!-- SECTION TWO -->
   <section class="image-section">
     <div class="image-container">
