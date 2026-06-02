@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  margin-top: 50px;
+  margin-top: 0px;
   animation: fadeUp 0.9s ease forwards;
 }
 
@@ -156,8 +156,8 @@
 
 .image-section {
   width: 100%;
-  padding: 16px 20px 0;
-  margin-top: -40px;
+  padding: 0px 20px 0;
+  margin-top: -47px;
   /* halka sa upar shift */
   background: #fff;
   box-sizing: border-box;
@@ -238,7 +238,7 @@
   text-decoration: none;
   font-size: 12px;
   width: fit-content;
-  margin-top: 87px;
+  margin-top: 60px;
 }
 
 /* SECTION */
@@ -631,8 +631,7 @@
 
 /* SECTION */
 .faq-section {
-  padding: 0px 20px;
-  margin-top: 102px;
+  padding: 70px 0px;
 }
 
 /* CONTAINER */
@@ -818,4 +817,3 @@
     max-width: 250px;
   }
 }
-
