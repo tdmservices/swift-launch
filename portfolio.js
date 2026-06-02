@@ -261,3 +261,38 @@ if (showLogin) {
     loginForm.style.display = "block";
   });
 }
+
+
+document.addEventListener("click", function (e) {
+
+    if (
+        e.target.closest(".popup-trigger") ||
+        e.target.closest(".button-ten") ||
+        e.target.closest(".btn-primary") ||
+        e.target.closest(".btn-secondary") ||
+        e.target.closest(".primary-btn") ||
+        e.target.closest(".arrow-btn") ||
+        e.target.closest(".consult-btn") ||
+        e.target.closest(".button-two")
+    ) {
+        e.preventDefault();
+
+        const popupOverlay = document.getElementById("popupOverlay");
+
+        if (popupOverlay) {
+            popupOverlay.style.display = "flex";
+        }
+    }
+
+    // Close Popup
+    if (e.target.closest("#closePopup")) {
+        document.getElementById("popupOverlay").style.display = "none";
+    }
+
+    // Click Outside
+    const popupOverlay = document.getElementById("popupOverlay");
+
+    if (e.target === popupOverlay) {
+        popupOverlay.style.display = "none";
+    }
+});
