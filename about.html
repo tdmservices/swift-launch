@@ -836,31 +836,30 @@
             </div>
         </div>
 
-        <div class="about-popup">
+        <div id="popupOverlay">
 
-            <div class="popup-left">
+            <div class="about-popup">
 
-                <img src="images/rocket.png" alt="Rocket">
+                <span id="closePopup">&times;</span>
 
-                <div class="clouds"></div>
+                <div class="popup-left">
+                    <img src="rocket.png" alt="">
+                    <div class="clouds"></div>
+                </div>
 
-            </div>
+                <div class="popup-right">
 
-            <div class="popup-right">
+                    <h2>Free Consultation</h2>
 
-                <h2>Get In Touch</h2>
-
-                <form>
                     <input type="text" placeholder="Full Name">
                     <input type="email" placeholder="Email Address">
                     <input type="tel" placeholder="Phone Number">
                     <input type="text" placeholder="Company Name">
                     <textarea placeholder="Your Message"></textarea>
 
-                    <button type="submit">
-                        Send Message
-                    </button>
-                </form>
+                    <button type="submit">Send Message</button>
+
+                </div>
 
             </div>
 
