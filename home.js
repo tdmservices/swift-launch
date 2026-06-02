@@ -354,55 +354,86 @@ window.addEventListener("scroll", () => {
 });
 
 
-const popupTriggers = document.querySelectorAll(".popup-trigger");
-const openPopup = document.querySelectorAll("#openPopup");
-const buttonten = document.querySelectorAll(".button-ten");
-const closePopup = document.getElementById("closePopup");
-const popupOverlay = document.getElementById("popupOverlay");
+// =========================
+// OLD POPUP
+// =========================
 
-popupTriggers.forEach(trigger => {
+const popupOverlay = document.getElementById("popupOverlay");
+const closePopupBtn = document.getElementById("closePopup");
+
+document.querySelectorAll(".popup-trigger").forEach(trigger => {
   trigger.addEventListener("click", function (e) {
     e.preventDefault();
-    popupOverlay.style.display = "flex";
+    if (popupOverlay) {
+      popupOverlay.style.display = "flex";
+    }
   });
 });
 
-closePopup.addEventListener("click", function () {
-  popupOverlay.style.display = "none";
-});
-
-popupOverlay.addEventListener("click", function (e) {
-  if (e.target === popupOverlay) {
+if (closePopupBtn) {
+  closePopupBtn.addEventListener("click", function () {
     popupOverlay.style.display = "none";
-  }
-});
+  });
+}
+
+if (popupOverlay) {
+  popupOverlay.addEventListener("click", function (e) {
+    if (e.target === popupOverlay) {
+      popupOverlay.style.display = "none";
+    }
+  });
+}
 
 
-const popup = document.getElementById("authPopup");
+// =========================
+// LOGIN / SIGNUP POPUP
+// =========================
 
-document.getElementById("openLogin").onclick = function (e) {
-  e.preventDefault();
-  popup.style.display = "flex";
-};
+const authPopup = document.getElementById("authPopup");
+const openLogin = document.getElementById("openLogin");
+const closeAuthPopup = document.getElementById("closeAuthPopup");
 
-document.getElementById("closePopup").onclick = function () {
-  popup.style.display = "none";
-};
+const loginForm = document.getElementById("loginForm");
+const signupForm = document.getElementById("signupForm");
 
-window.onclick = function (e) {
-  if (e.target === popup) {
-    popup.style.display = "none";
-  }
-};
+const showSignup = document.getElementById("showSignup");
+const showLogin = document.getElementById("showLogin");
 
-document.getElementById("showSignup").onclick = function (e) {
-  e.preventDefault();
-  document.getElementById("loginForm").style.display = "none";
-  document.getElementById("signupForm").style.display = "block";
-};
+if (openLogin) {
+  openLogin.addEventListener("click", function (e) {
+    e.preventDefault();
+    authPopup.style.display = "flex";
+  });
+}
 
-document.getElementById("showLogin").onclick = function (e) {
-  e.preventDefault();
-  document.getElementById("signupForm").style.display = "none";
-  document.getElementById("loginForm").style.display = "block";
-};
+if (closeAuthPopup) {
+  closeAuthPopup.addEventListener("click", function () {
+    authPopup.style.display = "none";
+  });
+}
+
+if (authPopup) {
+  authPopup.addEventListener("click", function (e) {
+    if (e.target === authPopup) {
+      authPopup.style.display = "none";
+    }
+  });
+}
+
+if (showSignup) {
+  showSignup.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    loginForm.style.display = "none";
+    signupForm.style.display = "block";
+  });
+}
+
+if (showLogin) {
+  showLogin.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    signupForm.style.display = "none";
+    loginForm.style.display = "block";
+  });
+}
