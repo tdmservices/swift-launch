@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    margin-top: 50px;
+    margin-top: 0px;
     animation: fadeUp 0.9s ease forwards;
 }
 
@@ -199,8 +199,8 @@
 
 .image-section {
     width: 100%;
-    padding: 16px 20px 0;
-    margin-top: -40px;
+    padding: 0px 20px 0;
+    margin-top: -50px;
     background: #fff;
     box-sizing: border-box;
 }
@@ -338,7 +338,7 @@
 /* ===== OUR BLOGS SECTION ===== */
 .our-blogs {
     background: #fff;
-    padding: 48px 0 28px 0;
+    padding: 70px 0 28px 0;
 }
 
 .section-title {
@@ -622,7 +622,7 @@
 /* ===== SECTION EIGHT - FAQ ===== */
 
 .faq-section {
-    padding: 60px 20px;
+ padding: 0px 0px;
 }
 
 .faq-container {
