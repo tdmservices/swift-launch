@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .auth-popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+        }
+
+        .auth-box {
+            width: 420px;
+            max-width: 95%;
+            background: #fff;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .auth-header {
+            background: #01328E;
+            color: #fff;
+            padding: 40px 30px;
+        }
+
+        .auth-header h2 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        .auth-header p {
+            margin-top: 10px;
+        }
+
+        #loginForm,
+        #signupForm {
+            padding: 30px;
+        }
+
+        #loginForm h3,
+        #signupForm h3 {
+            color: #01328E;
+            margin-bottom: 20px;
+        }
+
+        .auth-box input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: none;
+            background: #f2f2f2;
+            border-radius: 30px;
+            box-sizing: border-box;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 30px;
+            background: #01328E;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-login button {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .close-popup {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .forgot-link {
+            display: block;
+            text-align: right;
+            margin-bottom: 15px;
+            color: #01328E;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-popup" id="authPopup">
+        <div class="auth-box">
+
+            <span class="close-popup" id="closeAuthPopup">&times;</span>
+
+            <div class="auth-header">
+                <h2>Hello!</h2>
+                <p>Welcome Back</p>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm">
+                <h3>Login</h3>
+
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+
+                <a href="#" class="forgot-link">Forgot Password?</a>
+
+                <button class="auth-btn">Login</button>
+
+                <div class="divider">
+                    <span>Or login with</span>
+                </div>
+
+                <div class="social-login">
+                    <button>Google</button>
+                    <button>Apple</button>
+                </div>
+
+                <p class="switch-form">
+                    Don't have an account?
+                    <a href="#" id="showSignup">Sign Up</a>
+                </p>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signupForm" style="display:none;">
+                <h3>Sign Up</h3>
+
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Confirm Password">
+
+                <button class="auth-btn">Create Account</button>
+
+                <div class="social-login">
+                    <button>Google</button>
+                    <button>Apple</button>
+                </div>
+
+                <p class="switch-form">
+                    Already have an account?
+                    <a href="#" id="showLogin">Login</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <script>
+
+        const authPopup = document.getElementById("authPopup");
+        const openLogin = document.getElementById("openLogin");
+        const closeAuthPopup = document.getElementById("closeAuthPopup");
+
+        const loginForm = document.getElementById("loginForm");
+        const signupForm = document.getElementById("signupForm");
+
+        const showSignup = document.getElementById("showSignup");
+        const showLogin = document.getElementById("showLogin");
+
+        if (openLogin) {
+            openLogin.addEventListener("click", function (e) {
+                e.preventDefault();
+                authPopup.style.display = "flex";
+            });
+        }
+
+        if (closeAuthPopup) {
+            closeAuthPopup.addEventListener("click", function () {
+                authPopup.style.display = "none";
+            });
+        }
+
+        if (authPopup) {
+            authPopup.addEventListener("click", function (e) {
+                if (e.target === authPopup) {
+                    authPopup.style.display = "none";
+                }
+            });
+        }
+
+        if (showSignup) {
+            showSignup.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                loginForm.style.display = "none";
+                signupForm.style.display = "block";
+            });
+        }
+
+        if (showLogin) {
+            showLogin.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                signupForm.style.display = "none";
+                loginForm.style.display = "block";
+            });
+        }
+    </script>
+</body>
+
+</html>
