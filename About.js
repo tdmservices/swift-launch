@@ -208,25 +208,36 @@ menuToggle.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
-const popupTriggers = document.querySelectorAll(".popup-trigger");
-const buttonten = document.querySelectorAll(".button-ten");
-const btnprimary = document.querySelectorAll(".btn-primary");
-const closePopup = document.getElementById("closePopup");
 const popupOverlay = document.getElementById("popupOverlay");
+const closePopupBtn = document.getElementById("closePopup");
 
-popupTriggers.forEach(trigger => {
-  trigger.addEventListener("click", function (e) {
+document.addEventListener("click", function (e) {
+
+  if (
+    e.target.closest(".popup-trigger") ||
+    e.target.closest(".button-ten") ||
+    e.target.closest(".btn-primary") ||
+    e.target.closest(".btn-secondary")
+  ) {
     e.preventDefault();
-    popupOverlay.style.display = "flex";
-  });
-});
 
-closePopup.addEventListener("click", function () {
-  popupOverlay.style.display = "none";
-});
-
-popupOverlay.addEventListener("click", function (e) {
-  if (e.target === popupOverlay) {
-    popupOverlay.style.display = "none";
+    if (popupOverlay) {
+      popupOverlay.style.display = "flex";
+    }
   }
+
 });
+
+if (closePopupBtn) {
+  closePopupBtn.addEventListener("click", function () {
+    popupOverlay.style.display = "none";
+  });
+}
+
+if (popupOverlay) {
+  popupOverlay.addEventListener("click", function (e) {
+    if (e.target === popupOverlay) {
+      popupOverlay.style.display = "none";
+    }
+  });
+}
