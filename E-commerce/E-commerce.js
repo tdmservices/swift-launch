@@ -114,13 +114,15 @@ document.addEventListener("click", function (e) {
 
     if (
         e.target.closest(".popup-trigger") ||
-        e.target.closest(".button-ten") ||
+        e.target.closest(".call-btn") ||
         e.target.closest(".btn-primary") ||
         e.target.closest(".btn-secondary") ||
-        e.target.closest(".primary-btn") ||
+        e.target.closest(".work-call-btn") ||
         e.target.closest(".arrow-btn") ||
-        e.target.closest(".consult-btn") ||
-        e.target.closest(".button-two")
+        e.target.closest(".schedule-btn") ||
+        e.target.closest(".work-arrow-btn") ||
+        e.target.closest(".transparent-btn") ||
+        e.target.closest(".circle-btn")
     ) {
         e.preventDefault();
 
