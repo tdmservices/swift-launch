@@ -1213,21 +1213,34 @@
         <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
       </div>
     </div>
-    <div id="popupOverlay" style="display:none;">
-      <div class="popup-box">
+    <div id="popupOverlay">
+      <div class="contact-popup">
 
         <span id="closePopup">&times;</span>
 
-        <h2>Contact Us</h2>
+        <h2>Get In Touch</h2>
+
+        <p class="popup-subtitle">
+          Fill out the form below and our team will contact you shortly.
+        </p>
 
         <form>
-          <input type="text" placeholder="Name" required>
-          <input type="email" placeholder="Email" required>
-          <input type="tel" placeholder="Phone Number" required>
-          <input type="text" placeholder="Company Name">
-          <textarea placeholder="Your Message"></textarea>
 
-          <button type="submit">Submit</button>
+          <div class="form-row">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+          </div>
+
+          <input type="tel" placeholder="Phone Number" required>
+
+          <input type="text" placeholder="Company Name">
+
+          <textarea placeholder="Your Message..."></textarea>
+
+          <button type="submit" class="send-btn">
+            SEND MESSAGE
+          </button>
+
         </form>
 
       </div>
