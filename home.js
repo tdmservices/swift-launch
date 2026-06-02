@@ -378,3 +378,156 @@ popupOverlay.addEventListener("click", function (e) {
 });
 
 
+/* Lucide icons set ko initialize karein */
+lucide.createIcons();
+
+/* DOM cache storage variable */
+const authModal = document.getElementById('authModal');
+const loginBtn = document.getElementById('loginBtn');
+const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const loginSection = document.getElementById('loginSection');
+const signupSection = document.getElementById('signupSection');
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+/* Google aur Apple modals ke DOM objects */
+const googleModal = document.getElementById('googleModal');
+const appleModal = document.getElementById('appleModal');
+const googleCustomInput = document.getElementById('googleCustomInput');
+const googleCustomEmail = document.getElementById('googleCustomEmail');
+const appleIdInput = document.getElementById('appleIdInput');
+
+/* ---------------- Toast Notification Manager ---------------- */
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toastMessage').innerText = message;
+  toast.classList.add('active');
+
+  setTimeout(() => {
+    dismissToast();
+  }, 4000);
+}
+
+function dismissToast() {
+  const toast = document.getElementById('toast');
+  toast.classList.remove('active');
+}
+
+function showMockMessage(msg) {
+  showToast(msg);
+}
+
+/* ---------------- Primary Modal Controls (Open/Close) ---------------- */
+function openAuthModal(section = 'login') {
+  authModal.classList.add('active');
+  toggleSection(section);
+}
+
+function closeAuthModal() {
+  authModal.classList.remove('active');
+}
+
+/* Tab Switch mechanism */
+function toggleSection(section) {
+  if (section === 'login') {
+    loginSection.classList.remove('hidden');
+    signupSection.classList.add('hidden');
+  } else {
+    loginSection.classList.add('hidden');
+    signupSection.classList.remove('hidden');
+  }
+}
+
+/* ---------------- Google Popup Controls ---------------- */
+function openGoogleModal() {
+  closeAuthModal(); /* Login overlay band karein */
+  googleCustomInput.classList.add('hidden');
+  googleModal.classList.add('active');
+}
+
+function closeGoogleModal() {
+  googleModal.classList.remove('active');
+}
+
+function selectGoogleAccount(email, name) {
+  closeGoogleModal();
+  showToast(`Successfully logged in as ${name} (${email})!`);
+}
+
+function toggleGoogleCustomInput() {
+  googleCustomInput.classList.toggle('hidden');
+}
+
+function submitCustomGoogle() {
+  const email = googleCustomEmail.value.trim();
+  if (email) {
+    closeGoogleModal();
+    showToast(`Successfully logged in as ${email} via Google!`);
+    googleCustomEmail.value = '';
+  } else {
+    showToast('Please enter a valid Google account email.');
+  }
+}
+
+/* ---------------- Apple ID Modal Controls ---------------- */
+function openAppleModal() {
+  closeAuthModal(); /* Login overlay band karein */
+  appleModal.classList.add('active');
+}
+
+function closeAppleModal() {
+  appleModal.classList.remove('active');
+}
+
+function handleAppleSubmit(e) {
+  e.preventDefault();
+  const appleId = appleIdInput.value.trim();
+  closeAppleModal();
+  showToast(`Successfully verified Apple ID: ${appleId}!`);
+  appleIdInput.value = '';
+}
+
+/* ---------------- Event Listeners ---------------- */
+
+/* Login trigger action listeners */
+loginBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  openAuthModal('login');
+});
+
+mobileLoginBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  mobileMenu.classList.add('hidden');
+  openAuthModal('login');
+});
+
+closeModalBtn.addEventListener('click', closeAuthModal);
+
+/* Modal cards ke bahar background clicks handle karna close action ke liye */
+authModal.addEventListener('click', (e) => {
+  if (e.target === authModal) closeAuthModal();
+});
+googleModal.addEventListener('click', (e) => {
+  if (e.target === googleModal) closeGoogleModal();
+});
+appleModal.addEventListener('click', (e) => {
+  if (e.target === appleModal) closeAppleModal();
+});
+
+/* Submit Actions */
+function handleAuthSubmit(event, type) {
+  event.preventDefault();
+  if (type === 'login') {
+    showToast('Successfully signed in to BlueLand!');
+  } else {
+    showToast('Your new account was successfully created!');
+  }
+  closeAuthModal();
+  event.target.reset();
+}
+
+/* Responsive Mobile navigation list toggle */
+mobileMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
