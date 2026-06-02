@@ -2040,17 +2040,35 @@
 
 #popupOverlay {
     display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    padding: 20px;
+}
+
+.about-popup {
+    width: 1050px;
+    max-width: 95%;
+    min-height: 650px;
+    display: flex;
+    border-radius: 30px;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
 }
 
 .popup-left {
     width: 45%;
     background: linear-gradient(180deg, #0A4DCC 0%, #0066FF 100%);
     position: relative;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 600px;
+    overflow: hidden;
 }
 
 .popup-left img {
@@ -2129,13 +2147,75 @@
     bottom: 20px;
 }
 
-.about-popup {
-    width: 1000px;
-    max-width: 95%;
+.popup-right {
+    width: 55%;
+    background: linear-gradient(135deg,
+            #ffffff 0%,
+            #f4f8ff 50%,
+            #eaf2ff 100%);
+    padding: 50px;
+    position: relative;
+}
+
+.popup-right::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(0, 102, 255, 0.05);
+    top: -120px;
+    right: -120px;
+}
+
+.popup-right::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(0, 102, 255, 0.08);
+    bottom: -80px;
+    left: -80px;
+}
+
+.popup-right::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(0, 102, 255, 0.05);
+    top: -120px;
+    right: -120px;
+}
+
+.popup-right::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(0, 102, 255, 0.08);
+    bottom: -80px;
+    left: -80px;
+}
+
+.popup-right input,
+.popup-right textarea {
+    width: 100%;
     background: #fff;
-    border-radius: 25px;
-    overflow: hidden;
-    display: flex;
+    border: 1px solid #dbe6ff;
+    border-radius: 12px;
+    padding: 15px 18px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.popup-right textarea {
+    height: 140px;
+    resize: none;
 }
 
 @media (max-width: 768px) {
