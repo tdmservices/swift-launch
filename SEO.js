@@ -108,3 +108,91 @@ tl.add(() => {
 
     typeWriter();
 });
+
+
+document.addEventListener("click", function (e) {
+
+    if (
+        e.target.closest(".popup-trigger") ||
+        e.target.closest(".call-btn") ||
+        e.target.closest(".btn-primary") ||
+        e.target.closest(".btn-secondary") ||
+        e.target.closest(".work-call-btn") ||
+        e.target.closest(".arrow-btn") ||
+        e.target.closest(".schedule-btn") ||
+        e.target.closest(".work-arrow-btn") ||
+        e.target.closest(".transparent-btn") ||
+        e.target.closest(".circle-btn")
+    ) {
+        e.preventDefault();
+
+        const popupOverlay = document.getElementById("popupOverlay");
+
+        if (popupOverlay) {
+            popupOverlay.style.display = "flex";
+        }
+    }
+
+    // Close Popup
+    if (e.target.closest("#closePopup")) {
+        document.getElementById("popupOverlay").style.display = "none";
+    }
+
+    // Click Outside
+    const popupOverlay = document.getElementById("popupOverlay");
+
+    if (e.target === popupOverlay) {
+        popupOverlay.style.display = "none";
+    }
+});
+
+
+
+const authPopup = document.getElementById("authPopup");
+const openLogin = document.getElementById("openLogin");
+const closeAuthPopup = document.getElementById("closeAuthPopup");
+
+const loginForm = document.getElementById("loginForm");
+const signupForm = document.getElementById("signupForm");
+
+const showSignup = document.getElementById("showSignup");
+const showLogin = document.getElementById("showLogin");
+
+if (openLogin) {
+  openLogin.addEventListener("click", function (e) {
+    e.preventDefault();
+    authPopup.style.display = "flex";
+  });
+}
+
+if (closeAuthPopup) {
+  closeAuthPopup.addEventListener("click", function () {
+    authPopup.style.display = "none";
+  });
+}
+
+if (authPopup) {
+  authPopup.addEventListener("click", function (e) {
+    if (e.target === authPopup) {
+      authPopup.style.display = "none";
+    }
+  });
+}
+
+if (showSignup) {
+  showSignup.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    loginForm.style.display = "none";
+    signupForm.style.display = "block";
+  });
+}
+
+if (showLogin) {
+  showLogin.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    signupForm.style.display = "none";
+    loginForm.style.display = "block";
+  });
+}
