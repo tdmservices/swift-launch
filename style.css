@@ -214,7 +214,112 @@
     }
   }
 
+  .auth-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+  }
 
+  .auth-box {
+    width: 420px;
+    max-width: 95%;
+    background: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .auth-header {
+    background: #0d7b81;
+    color: #fff;
+    padding: 40px 30px;
+  }
+
+  .auth-header h2 {
+    margin: 0;
+    font-size: 40px;
+  }
+
+  .auth-header p {
+    margin-top: 10px;
+  }
+
+  #loginForm,
+  #signupForm {
+    padding: 30px;
+  }
+
+  #loginForm h3,
+  #signupForm h3 {
+    color: #0d7b81;
+    margin-bottom: 20px;
+  }
+
+  .auth-box input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: none;
+    background: #f2f2f2;
+    border-radius: 30px;
+    box-sizing: border-box;
+  }
+
+  .auth-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    background: #0d7b81;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .divider {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .social-login {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-login button {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .switch-form {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .close-popup {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .forgot-link {
+    display: block;
+    text-align: right;
+    margin-bottom: 15px;
+    color: #0d7b81;
+    text-decoration: none;
+  }
 
   /* ===== HERO ===== */
   .hero {
@@ -3158,847 +3263,3 @@
       flex-wrap: wrap;
     }
   }
-
-  /* Popup Overlay */
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
-
-  /* Popup Box */
-  .popup-form {
-    background: #ffffff;
-    width: 90%;
-    max-width: 450px;
-    padding: 30px;
-    border-radius: 15px;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    animation: popupShow 0.3s ease;
-  }
-
-  .popup-form h2 {
-    text-align: center;
-    color: #0066ff;
-    margin-bottom: 20px;
-  }
-
-  .popup-form input,
-  .popup-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    font-size: 14px;
-  }
-
-  .popup-form input:focus,
-  .popup-form textarea:focus {
-    border-color: #0066ff;
-  }
-
-  .popup-form button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: #0066ff;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  .popup-form button:hover {
-    background: #0052cc;
-  }
-
-  /* Close Button */
-  .close-popup {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 28px;
-    cursor: pointer;
-    color: #333;
-  }
-
-  @keyframes popupShow {
-    from {
-      transform: scale(0.8);
-      opacity: 0;
-    }
-
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  
-    .hidden {
-      display: none !important;
-    }
-  
-    /* ================= 4. MAIN MODAL (LOGIN & SIGNUP POPUP) ================= */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(15, 23, 42, 0.4);
-      backdrop-filter: blur(4px);
-      z-index: 50;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal-card {
-      background-color: #ffffff;
-      border-radius: 32px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      width: 100%;
-      max-width: 400px;
-      overflow: hidden;
-      border: 1px solid #f1f5f9;
-      position: relative;
-      min-height: 660px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transform: scale(0.95);
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .modal-overlay.active .modal-card {
-      transform: scale(1);
-    }
-
-    /* Absolut Close Button */
-    .close-btn {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      color: rgba(255, 255, 255, 0.8);
-      background-color: rgba(255, 255, 255, 0.1);
-      border: none;
-      padding: 8px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 30;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .close-btn:hover {
-      color: #ffffff;
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Curvy Header design inside Modal matching uploaded image */
-    .modal-header-curve {
-      position: relative;
-      background: linear-gradient(135deg, #1d639f, #123f66);
-      padding: 56px 32px 32px 32px;
-      border-radius: 0 0 40px 40px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-
-    .shape-bubble-1 {
-      position: absolute;
-      top: -30px;
-      left: -20px;
-      width: 96px;
-      height: 96px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      filter: blur(16px);
-    }
-
-    .shape-bubble-2 {
-      position: absolute;
-      bottom: -20px;
-      right: -10px;
-      width: 144px;
-      height: 144px;
-      background-color: rgba(96, 165, 250, 0.2);
-      border-radius: 50%;
-    }
-
-    .shape-leaf-bubble {
-      position: absolute;
-      top: -20px;
-      left: -10px;
-      width: 112px;
-      height: 112px;
-      background-color: rgba(45, 127, 178, 0.4);
-      border-radius: 0 0 60px 0;
-      opacity: 0.8;
-    }
-
-    /* Plant Pot Vector in Pure CSS (Recreated precisely) */
-    .plant-vector-container {
-      position: absolute;
-      right: 32px;
-      bottom: -15px;
-      width: 96px;
-      height: 128px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .leaves-group {
-      position: relative;
-      width: 48px;
-      height: 80px;
-      margin-bottom: -10px;
-    }
-
-    .leaf-left {
-      position: absolute;
-      left: -4px;
-      bottom: 4px;
-      width: 24px;
-      height: 56px;
-      background-color: #34d399;
-      border-radius: 100% 0 100% 0; /* Leaf curvy layout */
-      transform: rotate(-12deg);
-      transform-origin: bottom right;
-    }
-
-    .leaf-right {
-      position: absolute;
-      right: -4px;
-      bottom: 4px;
-      width: 24px;
-      height: 64px;
-      background-color: #6ee7b7;
-      border-radius: 0 100% 0 100%;
-      transform: rotate(12deg);
-      transform-origin: bottom left;
-    }
-
-    .plant-pot {
-      width: 48px;
-      height: 40px;
-      background-color: #ffffff;
-      border-radius: 0 0 12px 12px;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-      position: relative;
-    }
-
-    .plant-pot-rim {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 6px;
-      background-color: #f1f5f9;
-      border-radius: 2px 2px 0 0;
-    }
-
-    .header-text-container {
-      position: relative;
-      z-index: 10;
-      color: #ffffff;
-    }
-
-    .header-title {
-      font-size: 36px;
-      font-weight: 800;
-      line-height: 1;
-    }
-
-    .header-subtitle {
-      font-size: 14px;
-      color: #dbeafe;
-      font-weight: 500;
-      margin-top: 4px;
-    }
-
-    /* Modal Form area styling */
-    .modal-content-area {
-      padding: 32px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .section-headline {
-      font-size: 24px;
-      font-weight: 700;
-      color: #123f66;
-      margin-bottom: 24px;
-    }
-
-    .input-form {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    /* Pill-shaped modern Input Bar styling matching image */
-    .custom-input-wrapper {
-      position: relative;
-    }
-
-    .input-icon-left {
-      position: absolute;
-      top: 50%;
-      left: 16px;
-      transform: translateY(-50%);
-      color: #94a3b8;
-      display: flex;
-      align-items: center;
-    }
-
-    .pill-input {
-      width: 100%;
-      padding: 12px 16px 12px 44px;
-      background-color: #f3f8fc;
-      border: 1px solid transparent;
-      border-radius: 50px;
-      font-size: 14px;
-      color: #334155;
-      outline: none;
-    }
-
-    .pill-input:focus {
-      border-color: #93c5fd;
-      background-color: #ffffff;
-      box-shadow: 0 0 0 4px #dbeafe;
-    }
-
-    .pill-input::placeholder {
-      color: #94a3b8;
-    }
-
-    .forgot-link-div {
-      text-align: right;
-    }
-
-    .forgot-link {
-      font-size: 12px;
-      color: #5282a5;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .forgot-link:hover {
-      color: #2563eb;
-    }
-
-    /* Submit Button (Pill Blue) */
-    .pill-submit-btn {
-      width: 100%;
-      background-color: #1c5d95;
-      color: #ffffff;
-      font-weight: 600;
-      padding: 14px 16px;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      font-size: 14px;
-      margin-top: 16px;
-    }
-
-    .pill-submit-btn:hover {
-      background-color: #123f66;
-      box-shadow: 0 4px 12px rgba(28, 93, 149, 0.3);
-    }
-
-    /* ================= 5. DIVIDERS & SOCIAL SIGN-IN BUTTONS ================= */
-    .divider-container {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 24px 0 16px 0;
-    }
-
-    .divider-line {
-      width: 100%;
-      border-top: 1px solid #f1f5f9;
-    }
-
-    .divider-text {
-      position: absolute;
-      background-color: #ffffff;
-      padding: 0 12px;
-      font-size: 10px;
-      color: #94a3b8;
-      text-transform: uppercase;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-    }
-
-    .social-btn-grid {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-    }
-
-    .social-box-btn {
-      width: 48px;
-      height: 40px;
-      background-color: #ffffff;
-      border: 1px solid #f1f5f9;
-      border-radius: 12px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    }
-
-    .social-box-btn:hover {
-      border-color: #cbd5e1;
-      transform: scale(1.05);
-    }
-
-    .facebook-color {
-      color: #1877f2;
-    }
-
-    /* Switch Option Link */
-    .switch-view-text {
-      text-align: center;
-      font-size: 12px;
-      color: #94a3b8;
-      margin-top: 24px;
-    }
-
-    .switch-trigger-btn {
-      background: none;
-      border: none;
-      color: #1c5d95;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .switch-trigger-btn:hover {
-      text-decoration: underline;
-      color: #123f66;
-    }
-
-    /* Back to Login link style inside Sign Up Curve Header */
-    .back-login-btn {
-      position: relative;
-      z-index: 10;
-      background: none;
-      border: none;
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
-
-    .back-login-btn:hover {
-      color: #bfdbfe;
-    }
-
-    /* ================= 6. GOOGLE SIGN-IN POPUP (OAuth Replica) ================= */
-    .google-modal-overlay {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(15, 23, 42, 0.5);
-      backdrop-filter: blur(4px);
-      z-index: 50;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .google-modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .google-modal-card {
-      background-color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-      width: 100%;
-      max-width: 384px;
-      padding: 24px;
-      border: 1px solid #f1f5f9;
-      position: relative;
-    }
-
-    .google-card-header {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .google-svg-logo {
-      width: 32px;
-      height: 32px;
-      margin: 0 auto 8px auto;
-    }
-
-    .google-card-title {
-      font-size: 20px;
-      font-weight: 500;
-      color: #1e293b;
-    }
-
-    .google-card-subtitle {
-      font-size: 12px;
-      color: #64748b;
-      margin-top: 4px;
-    }
-
-    .google-card-subtitle span {
-      font-weight: 600;
-      color: #2563eb;
-    }
-
-    /* Accounts selection layout */
-    .google-account-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .google-account-row {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      background: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      text-align: left;
-    }
-
-    .google-account-row:hover {
-      background-color: #f8fafc;
-    }
-
-    .account-info-box {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .account-avatar-blue {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: #dbeafe;
-      color: #2563eb;
-      font-weight: bold;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .account-avatar-pink {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: #fce7f3;
-      color: #db2777;
-      font-weight: bold;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .account-details-p1 {
-      font-size: 14px;
-      font-weight: 600;
-      color: #334155;
-    }
-
-    .account-details-p2 {
-      font-size: 12px;
-      color: #64748b;
-    }
-
-    .use-another-row {
-      width: 100%;
-      padding: 12px;
-      border: 1px dashed #cbd5e1;
-      border-radius: 8px;
-      background: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .use-another-row:hover {
-      background-color: #f8fafc;
-    }
-
-    .plus-avatar-box {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: #f1f5f9;
-      color: #64748b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .use-another-text {
-      font-size: 14px;
-      font-weight: 500;
-      color: #2563eb;
-    }
-
-    .google-disclaimer {
-      font-size: 11px;
-      color: #94a3b8;
-      line-height: 1.5;
-      text-align: center;
-    }
-
-    /* Custom Google form input styling */
-    .google-input-field {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      font-size: 14px;
-      margin-bottom: 12px;
-      outline: none;
-    }
-
-    .google-input-field:focus {
-      border-color: #2563eb;
-    }
-
-    .google-continue-btn {
-      width: 100%;
-      background-color: #2563eb;
-      color: #ffffff;
-      padding: 10px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      margin-bottom: 16px;
-    }
-
-    /* ================= 7. APPLE SIGN-IN POPUP (Apple Replica) ================= */
-    .apple-modal-overlay {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(4px);
-      z-index: 50;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .apple-modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .apple-modal-card {
-      background-color: #000000;
-      color: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-      width: 100%;
-      max-width: 384px;
-      padding: 32px;
-      border: 1px solid #27272a;
-      position: relative;
-    }
-
-    .apple-close-btn {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      color: #a1a1aa;
-      background-color: #18181b;
-      border: none;
-      padding: 6px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .apple-close-btn:hover {
-      color: #ffffff;
-    }
-
-    .apple-svg-logo {
-      width: 40px;
-      height: 40px;
-      fill: #ffffff;
-      margin: 0 auto 12px auto;
-    }
-
-    .apple-card-title {
-      font-size: 20px;
-      font-weight: 600;
-      text-align: center;
-      letter-spacing: -0.025em;
-    }
-
-    .apple-card-subtitle {
-      font-size: 12px;
-      color: #a1a1aa;
-      text-align: center;
-      margin-top: 4px;
-      margin-bottom: 24px;
-    }
-
-    .apple-card-subtitle span {
-      color: #ffffff;
-    }
-
-    .apple-form {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .apple-input-bar {
-      width: 100%;
-      padding: 12px 16px;
-      background-color: #18181b;
-      border: 1px solid #27272a;
-      border-radius: 8px;
-      color: #ffffff;
-      font-size: 14px;
-      outline: none;
-    }
-
-    .apple-input-bar:focus {
-      border-color: #52525b;
-    }
-
-    .apple-utilities-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      color: #a1a1aa;
-    }
-
-    .apple-utilities-row a {
-      color: #a1a1aa;
-      text-decoration: none;
-    }
-
-    .apple-utilities-row a:hover {
-      text-decoration: underline;
-      color: #ffffff;
-    }
-
-    .apple-submit-btn {
-      width: 100%;
-      background-color: #ffffff;
-      color: #000000;
-      font-weight: 600;
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      font-size: 14px;
-      margin-top: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .apple-submit-btn:hover {
-      background-color: #e4e4e7;
-    }
-
-    .apple-disclaimer {
-      font-size: 10px;
-      color: #52525b;
-      text-align: center;
-      margin-top: 24px;
-      line-height: 1.5;
-    }
-
-    /* ================= 8. TOAST SYSTEM STYLES ================= */
-    .toast-box {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #0f172a;
-      color: #ffffff;
-      padding: 12px 20px;
-      border-radius: 12px;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .toast-box.active {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .toast-close {
-      background: none;
-      border: none;
-      color: #94a3b8;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-
-    .toast-close:hover {
-      color: #ffffff;
-    }
-

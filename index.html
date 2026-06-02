@@ -46,16 +46,74 @@
         <a href="./portfolio.html">Portfolio</a>
         <a href="./blogs.html">Blogs</a>
         <a href="Contact.html">Contact</a>
-         <a id="loginBtn" class="login-btn">
-           Login
-         </a>
+        <a href="#" class="login-btn" id="openLogin">Login</a>
 
       </div>
 
     </div>
   </nav>
 
+  <!-- Login Popup -->
+  <div class="auth-popup" id="authPopup">
+    <div class="auth-box">
 
+      <span class="close-popup" id="closePopup">&times;</span>
+
+      <div class="auth-header">
+        <h2>Hello!</h2>
+        <p>Welcome Back</p>
+      </div>
+
+      <!-- Login Form -->
+      <div id="loginForm">
+        <h3>Login</h3>
+
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+
+        <a href="#" class="forgot-link">Forgot Password?</a>
+
+        <button class="auth-btn">Login</button>
+
+        <div class="divider">
+          <span>Or login with</span>
+        </div>
+
+        <div class="social-login">
+          <button>Google</button>
+          <button>Apple</button>
+        </div>
+
+        <p class="switch-form">
+          Don't have an account?
+          <a href="#" id="showSignup">Sign Up</a>
+        </p>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signupForm" style="display:none;">
+        <h3>Sign Up</h3>
+
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Confirm Password">
+
+        <button class="auth-btn">Create Account</button>
+
+        <div class="social-login">
+          <button>Google</button>
+          <button>Apple</button>
+        </div>
+
+        <p class="switch-form">
+          Already have an account?
+          <a href="#" id="showLogin">Login</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -1156,316 +1214,6 @@
       </div>
     </div>
 
-
-    <!-- Popup Form -->
-    <div class="popup-overlay" id="popupOverlay">
-      <div class="popup-form">
-        <span class="close-popup" id="closePopup">&times;</span>
-
-        <h2>Get Started</h2>
-
-        <form>
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Email Address" required>
-          <input type="tel" placeholder="Phone Number" required>
-          <input type="text" placeholder="Company Name">
-          <textarea placeholder="Your Message" rows="4"></textarea>
-
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </div>
-
-
-    <!-- ================= 1. MAIN POPUP MODAL (PLANTLAND BLUE THEME) ================= -->
-    <div id="authModal" class="modal-overlay">
-      <div id="modalCard" class="modal-card">
-
-        <!-- Close absolute icon button -->
-        <button id="closeModalBtn" class="close-btn">
-          <i data-lucide="x"></i>
-        </button>
-
-        <!-- ----- SCREEN 1.A: LOGIN TAB SCREEN ----- -->
-        <div id="loginSection"
-          style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; flex-grow: 1;">
-          <!-- Beautiful top curve banner with pure CSS plant illustration -->
-          <div class="modal-header-curve">
-            <div class="shape-bubble-1"></div>
-            <div class="shape-bubble-2"></div>
-            <div class="shape-leaf-bubble"></div>
-
-            <!-- Re-constructed vectors of Plant pot from your image -->
-            <div class="plant-vector-container">
-              <div class="leaves-group">
-                <div class="leaf-left"></div>
-                <div class="leaf-right"></div>
-              </div>
-              <div class="plant-pot">
-                <div class="plant-pot-rim"></div>
-              </div>
-            </div>
-
-            <div class="header-text-container">
-              <h2 class="header-title">Hello!</h2>
-              <p class="header-subtitle">Welcome to blueland</p>
-            </div>
-          </div>
-
-          <!-- Input forms & social signins container -->
-          <div class="modal-content-area">
-            <div>
-              <h3 class="section-headline">Login</h3>
-
-              <form id="loginForm" onsubmit="handleAuthSubmit(event, 'login')" class="input-form">
-                <!-- Email Input (Pill shape) -->
-                <div class="custom-input-wrapper">
-                  <span class="input-icon-left"><i data-lucide="mail" style="width: 16px; height: 16px;"></i></span>
-                  <input type="email" required placeholder="Email" class="pill-input">
-                </div>
-
-                <!-- Password Input -->
-                <div class="custom-input-wrapper">
-                  <span class="input-icon-left"><i data-lucide="lock" style="width: 16px; height: 16px;"></i></span>
-                  <input type="password" required placeholder="Password" class="pill-input">
-                </div>
-
-                <!-- Forgot link option -->
-                <div class="forgot-link-div">
-                  <a href="#" onclick="showMockMessage('Password reset link successfully sent!')"
-                    class="forgot-link">Forgot Password</a>
-                </div>
-
-                <!-- Main submit -->
-                <button type="submit" class="pill-submit-btn">Login</button>
-              </form>
-
-              <!-- Social logins block matching picture exactly -->
-              <div class="divider-container">
-                <div class="divider-line"></div>
-                <span class="divider-text">Or login with</span>
-              </div>
-
-              <!-- Social boxes -->
-              <div class="social-btn-grid">
-                <!-- Facebook -->
-                <button onclick="showMockMessage('Connecting with Facebook...')" class="social-box-btn facebook-color">
-                  <svg style="width: 20px; height: 20px;" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
-                  </svg>
-                </button>
-
-                <!-- Google account chooser popup trigger -->
-                <button onclick="openGoogleModal()" class="social-box-btn">
-                  <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24">
-                    <path fill="#EA4335"
-                      d="M12.24 10.285V14.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.859-3.578-7.859-8s3.53-8 7.859-8c2.46 0 4.105 1.025 5.047 1.926l3.245-3.123C18.252 1.92 15.497 1 12.24 1 6.136 1 1.16 5.928 1.16 12s4.976 11 11.08 11c6.37 0 10.607-4.425 10.607-10.78 0-.724-.077-1.275-.175-1.635H12.24z" />
-                  </svg>
-                </button>
-
-                <!-- Apple ID verification pop-up trigger -->
-                <button onclick="openAppleModal()" class="social-box-btn">
-                  <svg style="width: 20px; height: 20px;" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.21.67-2.93 1.49-.62.69-1.16 1.84-1.01 2.96 1.12.09 2.27-.57 2.95-1.39z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <!-- Toggle switch to Sign Up -->
-            <div class="switch-view-text">
-              Don't have account?
-              <button onclick="toggleSection('signup')" class="switch-trigger-btn">Sign Up</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- ----- SCREEN 1.B: SIGNUP TAB SCREEN ----- -->
-        <div id="signupSection" class="hidden"
-          style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; flex-grow: 1;">
-
-          <!-- Curved Blue Top Header block with back-link navigation -->
-          <div class="modal-header-curve">
-            <div class="shape-bubble-1"></div>
-            <div class="shape-bubble-2"></div>
-            <div class="shape-leaf-bubble"></div>
-
-            <!-- Back to login link -->
-            <button onclick="toggleSection('login')" class="back-login-btn">
-              <i data-lucide="arrow-left" style="width: 14px; height: 14px;"></i> Back to login
-            </button>
-
-            <div class="header-text-container">
-              <h2 class="header-title" style="font-size: 30px;">Create</h2>
-              <p class="header-subtitle">Join us at blueland today</p>
-            </div>
-          </div>
-
-          <!-- 5 Input Fields as shown in the mockup screens -->
-          <div class="modal-content-area">
-            <div>
-              <h3 class="section-headline" style="margin-bottom: 16px;">Sign Up</h3>
-
-              <form id="signupForm" onsubmit="handleAuthSubmit(event, 'signup')" class="input-form" style="gap: 12px;">
-                <!-- Full Name -->
-                <div class="custom-input-wrapper">
-                  <span class="input-icon-left"><i data-lucide="user" style="width: 16px; height: 16px;"></i></span>
-                  <input type="text" required placeholder="Full Name" class="pill-input">
-                </div>
-
-                <!-- Email -->
-                <div class="custom-input-wrapper">
-                  <span class="input-icon-left"><i data-lucide="mail" style="width: 16px; height: 16px;"></i></span>
-                  <input type="email" required placeholder="Email" class="pill-input">
-                </div>
-
-                <!-- Password -->
-                <div class="custom-input-wrapper">
-                  <span class="input-icon-left"><i data-lucide="lock" style="width: 16px; height: 16px;"></i></span>
-                  <input type="password" required placeholder="Password" class="pill-input">
-                </div>
-
-                <!-- Confirm Password -->
-                <div class="custom-input-wrapper">
-                  <span class="input-icon-left"><i data-lucide="shield-check"
-                      style="width: 16px; height: 16px;"></i></span>
-                  <input type="password" required placeholder="Confirm Password" class="pill-input">
-                </div>
-
-                <!-- Phone -->
-                <div class="custom-input-wrapper">
-                  <span class="input-icon-left"><i data-lucide="phone" style="width: 16px; height: 16px;"></i></span>
-                  <input type="tel" required placeholder="Phone" class="pill-input">
-                </div>
-
-                <button type="submit" class="pill-submit-btn">Sign Up</button>
-              </form>
-            </div>
-
-            <div class="switch-view-text">
-              Already have an account?
-              <button onclick="toggleSection('login')" class="switch-trigger-btn">Login</button>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- ================= 2. DYNAMIC GOOGLE SIGN-IN MODAL POPUP ================= -->
-    <div id="googleModal" class="google-modal-overlay">
-      <div class="google-modal-card">
-
-        <!-- Close button -->
-        <button onclick="closeGoogleModal()" class="close-btn"
-          style="color: #64748b; background-color: #f1f5f9; padding: 6px; top: 12px; right: 12px;">
-          <i data-lucide="x" style="width: 14px; height: 14px;"></i>
-        </button>
-
-        <div class="google-card-header">
-          <!-- SVG Google Icon -->
-          <svg class="google-svg-logo" viewBox="0 0 24 24">
-            <path fill="#EA4335"
-              d="M12.24 10.285V14.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.859-3.578-7.859-8s3.53-8 7.859-8c2.46 0 4.105 1.025 5.047 1.926l3.245-3.123C18.252 1.92 15.497 1 12.24 1 6.136 1 1.16 5.928 1.16 12s4.976 11 11.08 11c6.37 0 10.607-4.425 10.607-10.78 0-.724-.077-1.275-.175-1.635H12.24z" />
-          </svg>
-          <h3 class="google-card-title google-font">Sign in with Google</h3>
-          <p class="google-card-subtitle">to continue to <span>BlueLand Portal</span></p>
-        </div>
-
-        <!-- Account Rows selection -->
-        <div class="google-account-list">
-          <!-- Option 1 -->
-          <button onclick="selectGoogleAccount('johndoe@gmail.com', 'John Doe')" class="google-account-row">
-            <div class="account-info-box">
-              <div class="account-avatar-blue">JD</div>
-              <div>
-                <p class="account-details-p1">John Doe</p>
-                <p class="account-details-p2">johndoe@gmail.com</p>
-              </div>
-            </div>
-            <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: #94a3b8;"></i>
-          </button>
-
-          <!-- Option 2 -->
-          <button onclick="selectGoogleAccount('sarah.smith@gmail.com', 'Sarah Smith')" class="google-account-row">
-            <div class="account-info-box">
-              <div class="account-avatar-pink">SS</div>
-              <div>
-                <p class="account-details-p1">Sarah Smith</p>
-                <p class="account-details-p2">sarah.smith@gmail.com</p>
-              </div>
-            </div>
-            <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: #94a3b8;"></i>
-          </button>
-
-          <!-- Dynamic Account Adder Link -->
-          <button onclick="toggleGoogleCustomInput()" class="use-another-row">
-            <div class="plus-avatar-box">
-              <i data-lucide="plus" style="width: 14px; height: 14px;"></i>
-            </div>
-            <span class="use-another-text">Use another account</span>
-          </button>
-        </div>
-
-        <!-- Hidden Input Form for Custom Gmail Account -->
-        <div id="googleCustomInput" class="hidden" style="margin-bottom: 24px;">
-          <input type="email" id="googleCustomEmail" placeholder="Enter your email" class="google-input-field">
-          <button onclick="submitCustomGoogle()" class="google-continue-btn">Continue</button>
-        </div>
-
-        <p class="google-disclaimer">
-          To continue, Google will share your name, email address, language preference, and profile picture with
-          BlueLand.
-        </p>
-      </div>
-    </div>
-
-
-    <!-- ================= 3. DYNAMIC APPLE ID SIGN-IN MODAL POPUP ================= -->
-    <div id="appleModal" class="apple-modal-overlay">
-      <div class="apple-modal-card">
-
-        <!-- Close Button -->
-        <button onclick="closeAppleModal()" class="apple-close-btn">
-          <i data-lucide="x" style="width: 14px; height: 14px;"></i>
-        </button>
-
-        <!-- SVG Apple Icon -->
-        <div class="apple-svg-logo-container" style="text-align: center;">
-          <svg class="apple-svg-logo" viewBox="0 0 24 24">
-            <path
-              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.21.67-2.93 1.49-.62.69-1.16 1.84-1.01 2.96 1.12.09 2.27-.57 2.95-1.39z" />
-          </svg>
-          <h3 class="apple-card-title">Sign in with Apple ID</h3>
-          <p class="apple-card-subtitle">Use your Apple ID to sign in to <span>BlueLand</span>.</p>
-        </div>
-
-        <!-- Credential Verification Form -->
-        <form onsubmit="handleAppleSubmit(event)" class="apple-form">
-          <input type="text" id="appleIdInput" required placeholder="Apple ID" class="apple-input-bar">
-          <input type="password" required placeholder="Password" class="apple-input-bar">
-
-          <div class="apple-utilities-row">
-            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-              <input type="checkbox" style="width: 14px; height: 14px;"> Keep me signed in
-            </label>
-            <a href="#">Forgot ID?</a>
-          </div>
-
-          <button type="submit" class="apple-submit-btn">
-            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i> Continue
-          </button>
-        </form>
-
-        <p class="apple-disclaimer">
-          Your Apple ID is the account you use for App Store, iCloud, iMessage, and more.
-        </p>
-      </div>
-    </div>
     <script src="home.js"></script>
 </body>
 
