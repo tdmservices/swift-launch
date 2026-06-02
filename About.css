@@ -2057,6 +2057,7 @@
     }
 }
 
+
 #popupOverlay {
     display: none;
     position: fixed;
@@ -2234,7 +2235,7 @@
     border-radius: 27px;
 }
 
-.submit :hover {
+.submit:hover {
     background-color: #08A1DD;
     color: white;
 }
