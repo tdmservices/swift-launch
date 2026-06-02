@@ -378,21 +378,25 @@ popupOverlay.addEventListener("click", function (e) {
 });
 
 
-const loginPopup = document.getElementById("loginPopup");
-const openPopup = document.getElementById("openLoginPopup");
-const closePopup = document.getElementById("closeLoginPopup");
+document.addEventListener("DOMContentLoaded", function () {
 
-openPopup.addEventListener("click", function (e) {
-  e.preventDefault();
-  loginPopup.classList.add("active");
-});
+  const openBtn = document.getElementById("openLoginPopup");
+  const popup = document.getElementById("loginPopup");
+  const closeBtn = document.getElementById("closeLoginPopup");
 
-closePopup.addEventListener("click", function () {
-  loginPopup.classList.remove("active");
-});
+  openBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    popup.classList.add("active");
+  });
 
-loginPopup.addEventListener("click", function (e) {
-  if (e.target === loginPopup) {
-    loginPopup.classList.remove("active");
-  }
+  closeBtn.addEventListener("click", function () {
+    popup.classList.remove("active");
+  });
+
+  popup.addEventListener("click", function (e) {
+    if (e.target === popup) {
+      popup.classList.remove("active");
+    }
+  });
+
 });

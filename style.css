@@ -214,108 +214,33 @@
     }
   }
 
-  /* Popup Overlay */
   .popup-overlay {
     position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+    display: none;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.3s;
-    z-index: 9999;
+    z-index: 99999;
   }
 
   .popup-overlay.active {
-    visibility: visible;
-    opacity: 1;
+    display: flex;
   }
 
-  /* Popup Box */
   .popup-box {
-    background: #fff;
-    width: 90%;
-    max-width: 420px;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  }
-
-  .popup-box h2 {
-    color: #0d6efd;
-    margin-bottom: 8px;
-  }
-
-  .popup-box p {
-    color: #666;
-    margin-bottom: 20px;
-  }
-
-  .popup-box input {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 12px;
-    border: 1px solid #dcdcdc;
-    border-radius: 10px;
-    font-size: 15px;
-    box-sizing: border-box;
-  }
-
-  .primary-btn {
-    width: 100%;
-    padding: 14px;
-    background: #0d6efd;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-
-  .primary-btn:hover {
-    background: #0056d2;
-  }
-
-  .divider {
-    margin: 15px 0;
-    color: #999;
-    font-size: 14px;
-  }
-
-  .apple-btn,
-  .signup-btn {
-    width: 100%;
-    padding: 14px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 15px;
-    margin-top: 10px;
-  }
-
-  .apple-btn {
     background: white;
-    border: 2px solid #0d6efd;
-    color: #0d6efd;
-  }
-
-  .signup-btn {
-    background: #0d6efd;
-    color: white;
-    border: none;
+    padding: 30px;
+    border-radius: 15px;
+    width: 350px;
   }
 
   .close-btn {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 28px;
     cursor: pointer;
-    color: #555;
+    font-size: 25px;
   }
 
   /* ===== HERO ===== */
