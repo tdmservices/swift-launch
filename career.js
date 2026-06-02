@@ -72,7 +72,7 @@ document.addEventListener("click", function (e) {
     if (
         e.target.closest(".popup-trigger") ||
         e.target.closest(".call-btn") ||
-        e.target.closest(".btn-primary") ||
+        e.target.closest(".btn-mind") ||
         e.target.closest(".btn-secondary") ||
         e.target.closest(".work-call-btn") ||
         e.target.closest(".arrow-btn") ||
