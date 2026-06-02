@@ -2078,22 +2078,9 @@
     max-width: 80%;
     position: relative;
     z-index: 5;
-    animation: rocketFloat 3s ease-in-out infinite;
+    margin-bottom: 169px;
 }
 
-@keyframes rocketFloat {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-}
 
 .popup-left::before {
     content: "";
@@ -2220,14 +2207,15 @@
     resize: none;
 }
 
-.submit{
+.submit {
     background-color: #01328E;
     color: white;
     padding: 5px 12px;
     border: none;
     border-radius: 27px;
 }
-.submit :hover{
+
+.submit :hover {
     background-color: #08A1DD;
     color: white;
 }
