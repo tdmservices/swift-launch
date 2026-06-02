@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    margin-top: 50px;
+    margin-top: 0px;
     animation: fadeUp 0.9s ease forwards;
 }
 
@@ -185,8 +185,8 @@
 
 .image-section {
     width: 100%;
-    padding: 16px 20px 0;
-    margin-top: -40px;
+    padding: 0px 20px 0;
+    margin-top: -55px;
     background: #fff;
     box-sizing: border-box;
 }
@@ -972,7 +972,8 @@
 /* ===== SECTION SEVEN - REVIEWS ===== */
 
 .review-section {
-    padding: 60px 20px;
+ padding: 0px 20px;
+
 }
 
 .review-container {
