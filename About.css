@@ -1612,7 +1612,26 @@
     line-height: 1;
 }
 
+.consultbtn {
+    margin-top: 35px;
+    width: fit-content;
+    background: #16359d;
+    color: white;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    line-height: 1;
+}
+
 .consult-btn:hover {
+    background-color: #08A1DD;
+}
+
+.consultbtn:hover {
     background-color: #08A1DD;
 }
 
