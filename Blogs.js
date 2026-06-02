@@ -119,3 +119,53 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+const authPopup = document.getElementById("authPopup");
+const openLogin = document.getElementById("openLogin");
+const closeAuthPopup = document.getElementById("closeAuthPopup");
+
+const loginForm = document.getElementById("loginForm");
+const signupForm = document.getElementById("signupForm");
+
+const showSignup = document.getElementById("showSignup");
+const showLogin = document.getElementById("showLogin");
+
+if (openLogin) {
+  openLogin.addEventListener("click", function (e) {
+    e.preventDefault();
+    authPopup.style.display = "flex";
+  });
+}
+
+if (closeAuthPopup) {
+  closeAuthPopup.addEventListener("click", function () {
+    authPopup.style.display = "none";
+  });
+}
+
+if (authPopup) {
+  authPopup.addEventListener("click", function (e) {
+    if (e.target === authPopup) {
+      authPopup.style.display = "none";
+    }
+  });
+}
+
+if (showSignup) {
+  showSignup.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    loginForm.style.display = "none";
+    signupForm.style.display = "block";
+  });
+}
+
+if (showLogin) {
+  showLogin.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    signupForm.style.display = "none";
+    loginForm.style.display = "block";
+  });
+}
