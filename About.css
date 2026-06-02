@@ -2220,6 +2220,18 @@
     resize: none;
 }
 
+.submit{
+    background-color: #01328E;
+    color: white;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 27px;
+}
+.submit :hover{
+    background-color: #08A1DD;
+    color: white;
+}
+
 @media (max-width: 768px) {
 
     .about-popup {
