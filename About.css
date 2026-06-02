@@ -2069,6 +2069,8 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    flex-shrink: 0;fi
+    margin: 0;
 }
 
 .popup-left img {
