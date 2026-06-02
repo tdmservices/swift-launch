@@ -376,3 +376,23 @@ popupOverlay.addEventListener("click", function (e) {
     popupOverlay.style.display = "none";
   }
 });
+
+
+const loginPopup = document.getElementById("loginPopup");
+const openPopup = document.getElementById("openLoginPopup");
+const closePopup = document.getElementById("closeLoginPopup");
+
+openPopup.addEventListener("click", function (e) {
+  e.preventDefault();
+  loginPopup.classList.add("active");
+});
+
+closePopup.addEventListener("click", function () {
+  loginPopup.classList.remove("active");
+});
+
+loginPopup.addEventListener("click", function (e) {
+  if (e.target === loginPopup) {
+    loginPopup.classList.remove("active");
+  }
+});

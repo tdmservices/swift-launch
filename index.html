@@ -46,7 +46,7 @@
         <a href="./portfolio.html">Portfolio</a>
         <a href="./blogs.html">Blogs</a>
         <a href="Contact.html">Contact</a>
-        <a href="#" class="login-btn" id="openPopup">
+        <a href="#" class="login-btn" id="openLoginPopup">
           <span class="heading"></span>
           Login
         </a>
@@ -54,6 +54,36 @@
 
     </div>
   </nav>
+  <!-- Login Popup -->
+  <div class="popup-overlay" id="loginPopup">
+    <div class="popup-box">
+      <span class="close-btn" id="closeLoginPopup">&times;</span>
+
+      <h2>Welcome Back</h2>
+      <p>Login to your account</p>
+
+      <form>
+        <input type="email" placeholder="Email Address" required>
+        <input type="password" placeholder="Password" required>
+
+        <button type="submit" class="primary-btn">
+          Login
+        </button>
+      </form>
+
+      <div class="divider">
+        <span>OR</span>
+      </div>
+
+      <button class="apple-btn">
+        🍎 Continue with Apple
+      </button>
+
+      <button class="signup-btn">
+        Create New Account
+      </button>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero">
