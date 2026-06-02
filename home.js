@@ -361,9 +361,10 @@ window.addEventListener("scroll", () => {
 const popupOverlay = document.getElementById("popupOverlay");
 const closePopupBtn = document.getElementById("closePopup");
 
-document.querySelectorAll(".popup-trigger").forEach(trigger => {
+document.querySelectorAll(".popup-trigger, .button-ten").forEach(trigger => {
   trigger.addEventListener("click", function (e) {
     e.preventDefault();
+
     if (popupOverlay) {
       popupOverlay.style.display = "flex";
     }
