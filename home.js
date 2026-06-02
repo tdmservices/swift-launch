@@ -361,14 +361,20 @@ window.addEventListener("scroll", () => {
 const popupOverlay = document.getElementById("popupOverlay");
 const closePopupBtn = document.getElementById("closePopup");
 
-document.querySelectorAll(".popup-trigger, .button-ten").forEach(trigger => {
-  trigger.addEventListener("click", function (e) {
+// Event Delegation
+document.addEventListener("click", function(e){
+
+  if (
+    e.target.closest(".popup-trigger") ||
+    e.target.closest(".button-ten")
+  ) {
     e.preventDefault();
 
     if (popupOverlay) {
       popupOverlay.style.display = "flex";
     }
-  });
+  }
+
 });
 
 if (closePopupBtn) {
