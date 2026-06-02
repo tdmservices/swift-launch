@@ -243,6 +243,34 @@
     font-size: 25px;
   }
 
+  .apple-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: 2px solid #0d6efd;
+    background: white;
+    color: #0d6efd;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .signup-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .divider {
+    text-align: center;
+    margin: 15px 0;
+    color: #777;
+  }
+
   /* ===== HERO ===== */
   .hero {
     position: relative;
