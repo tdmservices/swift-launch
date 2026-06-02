@@ -217,7 +217,8 @@ document.addEventListener("click", function (e) {
         e.target.closest(".btn-primary") ||
         e.target.closest(".btn-secondary") ||
         e.target.closest(".primary-btn") ||
-        e.target.closest(".arrow-btn")
+        e.target.closest(".arrow-btn") ||
+         e.target.closest(".consult-btn")
     ) {
         e.preventDefault();
 
