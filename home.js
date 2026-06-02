@@ -378,25 +378,3 @@ popupOverlay.addEventListener("click", function (e) {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-
-  const openBtn = document.getElementById("openLoginPopup");
-  const popup = document.getElementById("loginPopup");
-  const closeBtn = document.getElementById("closeLoginPopup");
-
-  openBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    popup.classList.add("active");
-  });
-
-  closeBtn.addEventListener("click", function () {
-    popup.classList.remove("active");
-  });
-
-  popup.addEventListener("click", function (e) {
-    if (e.target === popup) {
-      popup.classList.remove("active");
-    }
-  });
-
-});
