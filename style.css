@@ -979,42 +979,23 @@
 
   @media(max-width:900px) {
     .gridCardsArea {
-      max-width: 1270px;
-      margin: auto;
-      padding: 0px 20px;
-      display: flex;
-      gap: 24px;
-      flex-direction: column;
-    }
-
-    .gridCardsArea {
-      max-width: 773px;
-      margin: auto;
-      padding: 0px 20px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
+      max-width: 773px;
+      margin: auto;
+      padding: 0 20px;
     }
 
     .gridCardsActions {
-      width: 100%;
-      max-width: 1270px;
       margin: 30px auto 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
     }
   }
 
-  @media(max-width: 600px) {
+  @media(max-width:600px) {
     .gridCardsArea {
-      max-width: 1270px;
-      margin: auto;
-      padding: 0px 20px;
-      display: flex;
-      gap: 24px;
-      flex-direction: column;
+      grid-template-columns: 1fr;
+      display: grid;
     }
   }
 
@@ -1032,6 +1013,25 @@
       padding: 8px 0px;
       font-size: 12px;
 
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .gridCardBottom:hover {
+      background: #01328E;
+    }
+
+    .gridCardBottom:hover .gridCardHeading {
+      color: #fff;
+    }
+
+    .gridCardBottom:hover .gridCardLabel {
+      color: #fff;
+      border-color: #fff;
+    }
+
+    .gridCardsArea:hover .gridCardCenter {
+      background: #fff;
     }
   }
 
