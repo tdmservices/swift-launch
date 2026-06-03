@@ -947,9 +947,19 @@
       font-size: 17px;
       line-height: 1.3;
       margin-right: 22px;
-      color: white;
+      color: #01328E;
       font-weight: 400;
     }
+
+    .gridCard-Label {
+    display: inline-block;
+    color: #01328E;
+    padding: 8px 14px;
+    border-radius: 30px;
+    border: 1px solid #01328E;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
 
     .gridCardArrow {
       position: absolute;
