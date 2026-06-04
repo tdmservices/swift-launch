@@ -527,25 +527,27 @@
 
 /* Popup Overlay container */
 #popupOverlay {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999999;
-  padding: 20px;
-  opacity: 0;
-  pointer-events: none;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  background: rgba(2, 6, 23, 0.75);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: fixed;
+    inset: 0;
+    display: none;  /* ✅ Default hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: rgba(2, 6, 23, 0.75);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #popupOverlay.active {
-  opacity: 1;
-  pointer-events: auto;
+    display: flex;  /* ✅ display: none; hata ke display: flex; karo */
+    opacity: 1;
+    pointer-events: auto;
 }
+
 
 /* 3D Perspective Wrapper for Realistic Tilt */
 .tilt-wrapper {
