@@ -234,6 +234,7 @@ const openBtn = document.getElementById('openPopupBtn');
 // ✅ Yeh add karo
 document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .trust-btn').forEach(btn => {
   btn.addEventListener('click', () => {
+    overlay.style.display = 'flex'; // ✅ Yeh add karo
     overlay.classList.add('active');
     formContainer.style.display = 'flex';
     successScreen.style.display = 'none';
