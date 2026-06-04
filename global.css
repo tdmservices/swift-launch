@@ -464,7 +464,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-   width: 45px;
+    width: 45px;
     height: 28px;
 }
 
@@ -524,7 +524,6 @@
 .form-sub {
     color: var(--text-muted);
     font-size: 15px;
-    color: #08A1DD;
     font-weight: 500;
     margin-bottom: 30px;
 }
@@ -581,6 +580,12 @@
     font-weight: 500;
 }
 
+/* Jab mouse input par ho */
+input:hover,
+textarea:hover {
+    border-color: #00D2FF;
+}
+
 /* Custom Textarea styling */
 .popup-right textarea {
     height: 110px;
@@ -622,11 +627,7 @@
     transform: translateY(0);
 }
 
-/* Jab mouse input par ho */
-input:hover,
-textarea:hover {
-    border-color: #00D2FF;
-}
+
 
 /* Button glow transition effect */
 .submit::after {
