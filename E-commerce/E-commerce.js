@@ -116,13 +116,7 @@ const openBtn = document.getElementById('openPopupBtn');
 
 // ✅ Yeh add karo
 document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .call-btn, .schedule-btn, .work-call-btn, .transparent-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        overlay.classList.add('active');
-        formContainer.style.display = 'flex';
-        successScreen.style.display = 'none';
-        form.reset();
-        onCanvasResize();
-    });
+    btn.addEventListener('click', openPopup); // ✅ openPopup function use karo
 });
 const closeBtn = document.getElementById('closePopupBtn');
 const formContainer = document.getElementById('formContainer');
