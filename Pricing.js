@@ -113,77 +113,75 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-});
-  // ================= CONTACT POPUP =================
+})
+// ================= CONTACT POPUP =================
 
-  const overlay = document.getElementById('popupOverlay');
-  document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .trust-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      overlay.style.display = 'flex'; // ✅ Yeh add karo
-      overlay.classList.add('active');
-      formContainer.style.display = 'flex';
-      successScreen.style.display = 'none';
-      form.reset();
-      onCanvasResize();
-    });
-  });
-  const formContainer = document.getElementById('formContainer');
-  const successScreen = document.getElementById('successScreen');
-  const form = document.getElementById('consultationForm');
-  const card = document.getElementById('interactiveCard');
-
-  // Open function
-  function openPopup() {
-    if (!overlay) return;
-    overlay.style.display = 'flex';
+const overlay = document.getElementById('popupOverlay');
+document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .trust-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    overlay.style.display = 'flex'; // ✅ Yeh add karo
     overlay.classList.add('active');
     formContainer.style.display = 'flex';
     successScreen.style.display = 'none';
     form.reset();
     onCanvasResize();
-  }
-
-  // Close function
-  function closePopup() {
-    if (!overlay) return;
-    overlay.classList.remove('active');
-    overlay.style.display = 'none';
-    card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
-  }
-
-  // ✅ openBtn optional check ke saath
-  const openBtn = document.getElementById('openPopupBtn');
-  if (openBtn) openBtn.addEventListener('click', openPopup);
-
-  // ✅ Saare buttons
-  document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .trust-btn').forEach(btn => {
-    btn.addEventListener('click', openPopup);
   });
+});
+const formContainer = document.getElementById('formContainer');
+const successScreen = document.getElementById('successScreen');
+const form = document.getElementById('consultationForm');
+const card = document.getElementById('interactiveCard');
 
-  // ✅ Close button
-  if (closeBtn) closeBtn.addEventListener('click', closePopup);
+// Open function
+function openPopup() {
+  if (!overlay) return;
+  overlay.style.display = 'flex';
+  overlay.classList.add('active');
+  formContainer.style.display = 'flex';
+  successScreen.style.display = 'none';
+  form.reset();
+  onCanvasResize();
+}
 
-  // ✅ Outside click
-  if (overlay) {
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) closePopup();
-    });
-  }
+// Close function
+function closePopup() {
+  if (!overlay) return;
+  overlay.classList.remove('active');
+  overlay.style.display = 'none';
+  card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
+}
 
-  // Auto open - sirf home page par
-  window.addEventListener('load', () => {
-    initThreeEngine();
-    animateThree();
+// ✅ openBtn optional check ke saath
+const openBtn = document.getElementById('openPopupBtn');
+if (openBtn) openBtn.addEventListener('click', openPopup);
 
-    setTimeout(() => {
-      if (overlay) {
-        overlay.style.display = 'flex';
-        overlay.classList.add('active');
-        onCanvasResize();
-      }
-    }, 600);
+// ✅ Saare buttons
+document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .trust-btn').forEach(btn => {
+  btn.addEventListener('click', openPopup);
+});
+
+// ✅ Close button
+if (closeBtn) closeBtn.addEventListener('click', closePopup);
+
+// ✅ Outside click
+if (overlay) {
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closePopup();
   });
+}
 
+// Auto open - sirf home page par
+window.addEventListener('load', () => {
+  initThreeEngine();
+  animateThree();
+
+  setTimeout(() => {
+    if (overlay) {
+      overlay.style.display = 'flex';
+      overlay.classList.add('active');
+      onCanvasResize();
+    }
+  }, 600);
 });
 
 // ================= GSAP =================
