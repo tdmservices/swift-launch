@@ -115,26 +115,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ================= CONTACT POPUP =================
 
+  // ================= CONTACT POPUP =================
+
   const overlay = document.getElementById('popupOverlay');
-  // ✅ Yeh add karo
-  document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .trust-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      overlay.style.display = 'flex'; // ✅ Yeh add karo
-      overlay.classList.add('active');
-      formContainer.style.display = 'flex';
-      successScreen.style.display = 'none';
-      form.reset();
-      onCanvasResize();
-    });
-  });
   const closeBtn = document.getElementById('closePopupBtn');
   const formContainer = document.getElementById('formContainer');
   const successScreen = document.getElementById('successScreen');
   const form = document.getElementById('consultationForm');
   const card = document.getElementById('interactiveCard');
 
-  // Open function - ek jagah banao
+  // Open function
   function openPopup() {
+    if (!overlay) return;
     overlay.style.display = 'flex';
     overlay.classList.add('active');
     formContainer.style.display = 'flex';
@@ -143,39 +135,46 @@ document.addEventListener("DOMContentLoaded", () => {
     onCanvasResize();
   }
 
-  // Close function - ek jagah banao
+  // Close function
   function closePopup() {
+    if (!overlay) return;
     overlay.classList.remove('active');
     overlay.style.display = 'none';
     card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
   }
 
-  // ✅ Saare buttons ek jagah
-  openBtn.addEventListener('click', openPopup);
+  // ✅ openBtn optional check ke saath
+  const openBtn = document.getElementById('openPopupBtn');
+  if (openBtn) openBtn.addEventListener('click', openPopup);
 
+  // ✅ Saare buttons
   document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .trust-btn').forEach(btn => {
     btn.addEventListener('click', openPopup);
   });
 
-  closeBtn.addEventListener('click', closePopup);
+  // ✅ Close button
+  if (closeBtn) closeBtn.addEventListener('click', closePopup);
 
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closePopup();
-  });
+  // ✅ Outside click
+  if (overlay) {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closePopup();
+    });
+  }
 
-  // Auto open
+  // Auto open - sirf home page par
   window.addEventListener('load', () => {
     initThreeEngine();
     animateThree();
 
     setTimeout(() => {
-      overlay.style.display = 'flex'; // ✅ Yeh missing tha
-      overlay.classList.add('active');
-      onCanvasResize();
+      if (overlay) {
+        overlay.style.display = 'flex';
+        overlay.classList.add('active');
+        onCanvasResize();
+      }
     }, 600);
   });
-
-
 
 });
 
