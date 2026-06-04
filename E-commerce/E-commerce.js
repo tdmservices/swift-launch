@@ -115,7 +115,7 @@ const overlay = document.getElementById('popupOverlay');
 const openBtn = document.getElementById('openPopupBtn');
 
 // ✅ Yeh add karo
-document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary').forEach(btn => {
+document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .call-btn, .schedule-btn, .work-call-btn, .transparent-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         overlay.classList.add('active');
         formContainer.style.display = 'flex';
