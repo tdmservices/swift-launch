@@ -261,6 +261,7 @@
 
 
 
+
 #popupOverlay {
     display: none;
     position: fixed;
@@ -271,6 +272,13 @@
     align-items: center;
     z-index: 999999;
     padding: 20px;
+}
+
+.popup-form {
+    background: rgba(255, 255, 255, .7);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 20px;
 }
 
 .about-popup {
@@ -325,6 +333,18 @@
     border-radius: 50%;
     bottom: -80px;
     left: 7px;
+}
+
+.popup-left h3 {
+    color: #fff;
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+.popup-left p {
+    color: rgba(255, 255, 255, .8);
+    max-width: 280px;
+    text-align: center;
 }
 
 .clouds {
@@ -465,7 +485,7 @@
 .contact-section {
     background: var(--blue-light);
     padding: 50px 20px;
-   margin-top: 390px;
+    margin-top: 390px;
 }
 
 .contact-container {
