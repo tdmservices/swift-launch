@@ -209,38 +209,75 @@ menuToggle.addEventListener("click", () => {
 });
 
 
-document.addEventListener("click", function (e) {
+const overlay = document.getElementById('popupOverlay');
+const openBtn = document.getElementById('openPopupBtn');
+const closeBtn = document.getElementById('closePopupBtn');
+const formContainer = document.getElementById('formContainer');
+const successScreen = document.getElementById('successScreen');
+const form = document.getElementById('consultationForm');
 
-    if (
-        e.target.closest(".popup-trigger") ||
-        e.target.closest(".button-ten") ||
-        e.target.closest(".btn-primary") ||
-        e.target.closest(".btn-secondary") ||
-        e.target.closest(".primary-btn") ||
-        e.target.closest(".arrow-btn") ||
-        e.target.closest(".consult-btn") ||
-        e.target.closest(".button-two")
-    ) {
-        e.preventDefault();
+// Outer Slideshow Management
+const slides = document.querySelectorAll('.slide');
+let currentSlideIndex = 0;
 
-        const popupOverlay = document.getElementById("popupOverlay");
+function startSlideshow() {
+  setInterval(() => {
+    slides[currentSlideIndex].classList.remove('active');
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    slides[currentSlideIndex].classList.add('active');
+  }, 6000); // Har 6 seconds baad image changes with zoom animation
+}
 
-        if (popupOverlay) {
-            popupOverlay.style.display = "flex";
-        }
-    }
+// Action to Open Popup
+openBtn.addEventListener('click', () => {
+  // Hum active class add karenge jo smooth slide aur opacity animations trigger karegi
+  overlay.classList.add('active');
+  formContainer.style.display = 'flex';
+  successScreen.style.display = 'none';
+  form.reset();
+});
 
-    // Close Popup
-    if (e.target.closest("#closePopup")) {
-        document.getElementById("popupOverlay").style.display = "none";
-    }
+// Action to Close Popup
+closeBtn.addEventListener('click', () => {
+  overlay.classList.remove('active');
+});
 
-    // Click Outside
-    const popupOverlay = document.getElementById("popupOverlay");
+// Close when clicking outside of the popup container card
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay) {
+    overlay.classList.remove('active');
+  }
+});
 
-    if (e.target === popupOverlay) {
-        popupOverlay.style.display = "none";
-    }
+// Form Submission Logic
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  const btn = form.querySelector('.submit');
+  btn.innerHTML = 'Sending...';
+  btn.style.opacity = '0.7';
+  btn.style.pointerEvents = 'none';
+
+  // Server transition simulation (1.2 seconds)
+  setTimeout(() => {
+    formContainer.style.display = 'none';
+    successScreen.style.display = 'flex';
+
+    // Auto close after showing thank you screen
+    setTimeout(() => {
+      overlay.classList.remove('active');
+    }, 3500);
+  }, 1200);
+}
+
+// Initialize slideshow and auto load on page ready
+window.addEventListener('DOMContentLoaded', () => {
+  startSlideshow();
+
+  // Auto trigger overlay display
+  setTimeout(() => {
+    overlay.classList.add('active');
+  }, 500);
 });
 
 
