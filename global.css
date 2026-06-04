@@ -261,27 +261,7 @@
 
 
 
-/* Demo Trigger Button */
-.demo-trigger {
-    background: linear-gradient(180deg, #0A4DCC 0%, #0066FF 100%);
-    color: #fff;
-    border: none;
-    padding: 16px 32px;
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0, 102, 255, 0.3);
-    transition: var(--transition-smooth);
-    z-index: 10;
-}
-
-.demo-trigger:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(0, 102, 255, 0.45);
-}
-
-/* Popup Overlay (Poora screen background) */
+/* Popup Overlay container */
 #popupOverlay {
     position: fixed;
     inset: 0;
@@ -292,7 +272,10 @@
     padding: 20px;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s ease;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: rgba(2, 6, 23, 0.75);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #popupOverlay.active {
@@ -300,80 +283,45 @@
     pointer-events: auto;
 }
 
-/* Dynamic Zooming Outer Background Slideshow (Using Classic Street & Cityscape Photos) */
-.slideshow-container {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    overflow: hidden;
-    background: #090d16;
-}
-
-/* Dark Overlay filter for the outer background image */
-.slideshow-container::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(4px);
-    z-index: 2;
-}
-
-.slide {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center 30%;
-    opacity: 0;
-    z-index: 1;
-    transition: opacity 1.5s ease-in-out;
-    animation: zoomEffect 12s ease-in-out infinite alternate;
-}
-
-.slide.active {
-    opacity: 1;
-}
-
-@keyframes zoomEffect {
-    0% {
-        transform: scale(1);
-    }
-
-    100% {
-        transform: scale(1.15);
-    }
-}
-
-/* ABOUT POPUP MAIN CARD */
-.about-popup {
-    width: 1050px;
-    max-width: 100%;
-    min-height: 650px;
+/* 3D Perspective Wrapper for Realistic Tilt */
+.tilt-wrapper {
+    perspective: 2000px;
     display: flex;
-    border-radius: 32px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1080px;
+}
+
+/* MAIN POPUP CARD */
+.about-popup {
+    width: 100%;
+    min-height: 680px;
+    display: flex;
+    border-radius: 36px;
     overflow: hidden;
-    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200');
-    background-size: cover;
-    background-position: center;
+    background: #ffffff;
     position: relative;
-    z-index: 3;
-    box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: var(--card-shadow);
+    transform: rotateX(10deg) rotateY(-5deg) translateZ(-50px);
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    transform-style: preserve-3d;
 }
 
 #popupOverlay.active .about-popup {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0);
     opacity: 1;
 }
 
-/* CLOSE BUTTON */
+/* CLOSE BUTTON (✖) */
 .close-btn {
     position: absolute;
     top: 24px;
     right: 24px;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(4px);
+    background: rgba(241, 245, 249, 0.8);
+    backdrop-filter: blur(8px);
     border: 1px solid var(--border-color);
     width: 44px;
     height: 44px;
@@ -385,185 +333,187 @@
     z-index: 100;
     transition: var(--transition-smooth);
     color: var(--text-main);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .close-btn:hover {
-    background: #fff;
-    transform: rotate(90deg);
+    background: #ffffff;
+    transform: rotate(90deg) scale(1.05);
     color: var(--primary-blue);
-    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.15);
+    border-color: var(--primary-blue);
+    box-shadow: 0 4px 15px rgba(0, 82, 255, 0.15);
 }
 
-/* LEFT PANEL (Slides from Left on Open) */
+/* LEFT SIDE PANEL - Premium Blue 3D Visual World */
 .popup-left {
     width: 45%;
-    background: var(--bg-overlay-left);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    background: linear-gradient(160deg, #0A192F 0%, #001E62 100%);
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     overflow: hidden;
     flex-shrink: 0;
-    padding: 40px;
+    padding: 50px 40px;
     text-align: center;
     color: #ffffff;
-
-    /* Initial Animation State */
-    opacity: 0;
-    transform: translateX(-100px);
+    transform-style: preserve-3d;
 }
 
-/* Active State Animation triggers for Left Panel */
-#popupOverlay.active .popup-left {
-    animation: slideFromLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+/* Interactive Three.js Canvas Container */
+#three-d-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: auto;
+    cursor: grab;
 }
 
-@keyframes slideFromLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+#three-d-canvas:active {
+    cursor: grabbing;
 }
 
-/* Consultation Image Illustration container */
-.consultation-img-container {
-    width: 270px;
-    max-width: 85%;
+/* Content Overlay on Left Side */
+.left-content {
+    position: relative;
     z-index: 5;
-    margin-bottom: 25px;
-    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.25));
-    animation: floatIllustration 5s ease-in-out infinite;
+    pointer-events: none;
+    /* Allows click through to the canvas */
+    width: 100%;
+    transform: translateZ(40px);
+    /* 3D popout effect on tilt */
 }
 
-@keyframes floatIllustration {
+.logo-tag {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #00D2FF;
+    margin-bottom: 10px;
+    display: inline-block;
+    background: rgba(0, 210, 255, 0.1);
+    padding: 6px 16px;
+    border-radius: 50px;
+    border: 1.5px solid rgba(0, 210, 255, 0.2);
+}
+
+.left-content h3 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+    background: linear-gradient(135deg, #ffffff 60%, #93C5FD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.left-content p {
+    font-size: 14px;
+    color: #94A3B8;
+    line-height: 1.6;
+    font-weight: 500;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* Active online stats indicator at bottom */
+.left-footer {
+    position: relative;
+    z-index: 5;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    font-weight: 600;
+    color: #E2E8F0;
+    transform: translateZ(30px);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10B981;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #10B981;
+    animation: pulse-status 2s infinite;
+}
+
+@keyframes pulse-status {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: scale(1);
+        opacity: 1;
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: scale(1.3);
+        opacity: 0.5;
     }
 }
 
-.consultation-text {
-    position: relative;
-    z-index: 5;
-    max-width: 90%;
-}
-
-.consultation-text h3 {
-    font-size: 24px;
-    font-weight: 800;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
-    line-height: 1.2;
-}
-
-.consultation-text p {
-    font-size: 14px;
-    opacity: 0.9;
-    line-height: 1.5;
-    font-weight: 500;
-}
-
-/* Background Design elements */
-.popup-left::before {
-    content: "";
-    position: absolute;
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
-    border-radius: 50%;
-    top: -100px;
-    right: -100px;
-    pointer-events: none;
-}
-
-/* RIGHT PANEL (Slides from Right on Open) */
+/* RIGHT PANEL: Bright, Spacious, Clean White Form */
 .popup-right {
     width: 55%;
-    background: var(--bg-overlay-right);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 60px;
+    background: #ffffff;
+    padding: 60px 50px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     z-index: 2;
-
-    /* Initial Animation State */
-    opacity: 0;
-    transform: translateX(100px);
+    transform-style: preserve-3d;
 }
 
-/* Active State Animation triggers for Right Panel */
-#popupOverlay.active .popup-right {
-    animation: slideFromRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
-}
-
-@keyframes slideFromRight {
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Decorative Background circles on Form panel */
+/* Dynamic background design curves */
 .popup-right::before {
     content: "";
     position: absolute;
-    width: 350px;
-    height: 350px;
+    width: 400px;
+    height: 400px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 102, 255, 0.05) 0%, rgba(0, 102, 255, 0) 70%);
-    top: -100px;
-    right: -100px;
+    background: radial-gradient(circle, rgba(0, 82, 255, 0.03) 0%, rgba(0, 82, 255, 0) 70%);
+    top: -150px;
+    right: -150px;
     pointer-events: none;
 }
 
-/* CRITICAL FIX: Form Container vertical column alignment rules */
 #formContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    transform: translateZ(25px);
 }
 
-/* Form Heading Title */
 .popup-right h2 {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 800;
     color: var(--text-main);
-    margin-bottom: 30px;
-    letter-spacing: -0.5px;
-    position: relative;
-    z-index: 10;
+    margin-bottom: 8px;
+    letter-spacing: -0.8px;
 }
 
-/* Form Layout */
+.form-sub {
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+/* Form Controls Wrapper */
 .popup-form {
-    position: relative;
-    z-index: 10;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
     width: 100%;
 }
 
@@ -572,61 +522,61 @@
     width: 100%;
 }
 
-/* Premium Form Fields */
+/* Premium Input Fields Design */
 .popup-right input,
 .popup-right textarea {
     width: 100%;
-    background: rgba(255, 255, 255, 0.85);
+    background: #F8FAFC;
     border: 1.5px solid var(--border-color);
-    border-radius: 14px;
-    padding: 16px 20px;
+    border-radius: 16px;
+    padding: 16px 22px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-main);
     font-family: var(--font-family);
     outline: none;
     box-sizing: border-box;
     transition: var(--transition-smooth);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
 }
 
-/* Focus & Hover states with smooth transition */
+/* Dynamic Border Accent States */
 .popup-right input:hover,
 .popup-right textarea:hover {
-    border-color: #b2c8ff;
-    background: #ffffff;
+    border-color: #CBD5E1;
+    background: #F1F5F9;
 }
 
 .popup-right input:focus,
 .popup-right textarea:focus {
     border-color: var(--primary-blue);
     background: #ffffff;
-    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.12), 0 4px 10px rgba(0, 102, 255, 0.05);
+    box-shadow: 0 0 0 5px var(--glow-blue), 0 8px 16px rgba(0, 82, 255, 0.04);
 }
 
+/* Input Field Focus Floating Placeholder Mechanics */
 .popup-right input::placeholder,
 .popup-right textarea::placeholder {
-    color: var(--text-muted);
-    opacity: 0.8;
+    color: #94A3B8;
+    opacity: 1;
     font-weight: 500;
 }
 
-/* Message Box Height adjustment */
+/* Custom Textarea styling */
 .popup-right textarea {
-    height: 130px;
+    height: 110px;
     resize: none;
     line-height: 1.5;
 }
 
-/* Send Message button with Arrow/Paperplane Icon */
+/* Interactive submit button */
 .submit-container {
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .submit {
-    background-color: var(--btn-blue);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
     color: #ffffff;
-    padding: 14px 36px;
+    padding: 15px 40px;
     border: none;
     border-radius: 50px;
     font-size: 15px;
@@ -636,23 +586,38 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    box-shadow: 0 4px 15px rgba(1, 50, 142, 0.2);
+    gap: 12px;
+    box-shadow: 0 8px 24px rgba(0, 82, 255, 0.25);
     position: relative;
     overflow: hidden;
 }
 
 .submit:hover {
-    background-color: var(--btn-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(8, 161, 221, 0.35);
+    box-shadow: 0 12px 30px rgba(0, 82, 255, 0.4);
 }
 
 .submit:active {
     transform: translateY(0);
 }
 
-/* Success screen element (Hidden initially) */
+/* Button glow transition effect */
+.submit::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.submit:hover::after {
+    left: 100%;
+}
+
+/* SUCCESS STATE GRAPHIC (Hinglish integration) */
 .success-screen {
     display: none;
     text-align: center;
@@ -661,7 +626,7 @@
     justify-content: center;
     gap: 20px;
     height: 100%;
-    animation: fadeIn 0.4s ease;
+    animation: fadeIn 0.4s ease forwards;
     position: relative;
     z-index: 20;
 }
@@ -669,31 +634,31 @@
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: scale(0.95);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
     }
 }
 
 .success-icon {
     width: 80px;
     height: 80px;
-    background: #dcfce7;
+    background: #ECFDF5;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #15803d;
+    color: #10B981;
     font-size: 36px;
-    margin-bottom: 10px;
-    box-shadow: 0 10px 20px rgba(22, 163, 74, 0.15);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
+    border: 2px solid #A7F3D0;
 }
 
 .success-screen h3 {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 800;
     color: var(--text-main);
 }
@@ -702,38 +667,36 @@
     color: var(--text-muted);
     font-size: 16px;
     max-width: 320px;
-    line-height: 1.5;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
-/* RESPONSIVENESS for Smaller Displays */
+/* RESPONSIVENESS RULES for tablets & mobile phones */
 @media (max-width: 900px) {
     .about-popup {
         width: 650px;
         min-height: auto;
+        flex-direction: column;
     }
 
     .popup-left {
-        display: none;
-        /* Mobile/Tablet width constraints clean alignment */
+        width: 100%;
+        min-height: 250px;
+        padding: 30px;
+    }
+
+    #three-d-canvas {
+        height: 100%;
     }
 
     .popup-right {
         width: 100%;
-        padding: 50px 40px;
-        transform: translateX(0) !important;
-        animation: slideFromBottom 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+        padding: 40px 30px;
     }
 
-    @keyframes slideFromBottom {
-        0% {
-            opacity: 0;
-            transform: translateY(80px);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .left-footer {
+        display: none;
+        /* remove for vertical space save on mobiles */
     }
 }
 
@@ -743,21 +706,16 @@
     }
 
     .about-popup {
-        border-radius: 20px;
-    }
-
-    .popup-right {
-        padding: 35px 24px;
+        border-radius: 24px;
     }
 
     .popup-right h2 {
         font-size: 26px;
-        margin-bottom: 20px;
     }
 
     .popup-right input,
     .popup-right textarea {
-        padding: 14px 16px;
+        padding: 14px 18px;
         font-size: 14px;
     }
 
