@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
+});
   // ================= CONTACT POPUP =================
 
   const overlay = document.getElementById('popupOverlay');
