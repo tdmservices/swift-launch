@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../global.css">
     <!-- ...existing tags... -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 </head>
 
@@ -118,14 +119,13 @@
 
             <!-- RIGHT SIDE -->
             <div class="hero-buttons">
-                <button class="btn-primary" id="openPopupBtn">Free Consultation</button>
-                <button class="btn-secondary" id="openPopupBtn"><img src="ven-back.svg" alt=""></button>
+                <button class="btn-primary">Free Consultation</button>
+                <button class="btn-secondary"><img src="ven-back.svg" alt=""></button>
             </div>
 
         </div>
     </section>
 
-    <!-- POPUP OVERLAY LAYOUT -->
     <div id="popupOverlay">
 
         <!-- 3D Card tilt structure wrapper -->
@@ -150,12 +150,23 @@
                     <div class="left-content">
                         <span class="logo-tag">CONSULTING ELITE</span>
                         <h3>Let's Talk Business</h3>
-                        <p>Get expert design and strategy advice to support your startup and drive digital growth.</p>
+                        <p>Aapke startup aur digital growth ke liye expert design aur strategy advice paayein.</p>
                     </div>
 
+                    <!-- Updated Brand Logo & Name Section (Premium Geometric SVG Logo) -->
                     <div class="left-footer">
-                        <div class="status-dot"></div>
-                        <span>12 Specialists Active Now</span>
+                        <div class="brand-logo-icon">
+                            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                style="width: 100%; height: auto;">
+                                <!-- Elegant abstract tech hexagon nodes -->
+                                <polygon points="50,15 85,35 85,75 50,95 15,75 15,35" stroke="#00D2FF" stroke-width="8"
+                                    stroke-linejoin="round" />
+                                <polygon points="50,30 70,42 70,68 50,80 30,68 30,42" stroke="#ffffff" stroke-width="6"
+                                    stroke-linejoin="round" opacity="0.8" />
+                                <circle cx="50" cy="50" r="10" fill="#00D2FF" />
+                            </svg>
+                        </div>
+                        <span class="brand-name-text">Consult Elite</span>
                     </div>
                 </div>
 
