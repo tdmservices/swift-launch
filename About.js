@@ -209,8 +209,21 @@ menuToggle.addEventListener("click", () => {
 });
 
 
+
+
 const overlay = document.getElementById('popupOverlay');
 const openBtn = document.getElementById('openPopupBtn');
+
+// ✅ Yeh add karo
+document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary').forEach(btn => {
+  btn.addEventListener('click', () => {
+    overlay.classList.add('active');
+    formContainer.style.display = 'flex';
+    successScreen.style.display = 'none';
+    form.reset();
+    onCanvasResize();
+  });
+});
 const closeBtn = document.getElementById('closePopupBtn');
 const formContainer = document.getElementById('formContainer');
 const successScreen = document.getElementById('successScreen');
@@ -228,6 +241,7 @@ window.addEventListener('resize', () => {
     card.style.transform = 'none';
   }
 });
+
 
 document.addEventListener('mousemove', (e) => {
   if (isMobileDevice || !overlay.classList.contains('active')) return;
