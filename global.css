@@ -514,6 +514,7 @@
 
 .popup-right h2 {
     font-size: 34px;
+    color: #08A1DD;
     font-weight: 800;
     color: var(--text-main);
     margin-bottom: 8px;
@@ -523,6 +524,7 @@
 .form-sub {
     color: var(--text-muted);
     font-size: 15px;
+    color: #08A1DD;
     font-weight: 500;
     margin-bottom: 30px;
 }
@@ -592,7 +594,7 @@
 }
 
 .submit {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    background: #01328E;
     color: #ffffff;
     padding: 15px 40px;
     border: none;
@@ -613,10 +615,17 @@
 .submit:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 30px rgba(0, 82, 255, 0.4);
+    background-color: #08A1DD;
 }
 
 .submit:active {
     transform: translateY(0);
+}
+
+/* Jab mouse input par ho */
+input:hover,
+textarea:hover {
+    border-color: #00D2FF;
 }
 
 /* Button glow transition effect */
