@@ -115,8 +115,22 @@ const overlay = document.getElementById('popupOverlay');
 const openBtn = document.getElementById('openPopupBtn');
 
 // ✅ Yeh add karo
-document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .call-btn, .schedule-btn, .work-call-btn, .transparent-btn').forEach(btn => {
-    btn.addEventListener('click', openPopup); // ✅ openPopup function use karo
+document.querySelectorAll(
+    '.primary-btn, .btn-secondary, .btn-primary, .call-btn, .schedule-btn, .work-call-btn, .transparent-btn'
+).forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault(); // agar button link ke andar ho
+
+        overlay.classList.add('active');
+
+        if (formContainer) formContainer.style.display = 'flex';
+        if (successScreen) successScreen.style.display = 'none';
+        if (form) form.reset();
+
+        if (typeof onCanvasResize === 'function') {
+            onCanvasResize();
+        }
+    });
 });
 const closeBtn = document.getElementById('closePopupBtn');
 const formContainer = document.getElementById('formContainer');
