@@ -113,12 +113,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ================= CONTACT POPUP =================
 
   // ================= CONTACT POPUP =================
 
   const overlay = document.getElementById('popupOverlay');
-  const closeBtn = document.getElementById('closePopupBtn');
+  document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .trust-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      overlay.style.display = 'flex'; // ✅ Yeh add karo
+      overlay.classList.add('active');
+      formContainer.style.display = 'flex';
+      successScreen.style.display = 'none';
+      form.reset();
+      onCanvasResize();
+    });
+  });
   const formContainer = document.getElementById('formContainer');
   const successScreen = document.getElementById('successScreen');
   const form = document.getElementById('consultationForm');
