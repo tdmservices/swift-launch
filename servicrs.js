@@ -232,7 +232,7 @@ const overlay = document.getElementById('popupOverlay');
 const openBtn = document.getElementById('openPopupBtn');
 
 // ✅ Yeh add karo
-document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, trust-btn').forEach(btn => {
+document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .trust-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     overlay.classList.add('active');
     formContainer.style.display = 'flex';
