@@ -410,19 +410,31 @@ function animateThree() {
 // ==========================================
 // 3. EVENT LISTENERS AND TRANSITIONS CONTROL
 // ==========================================
-
 // Open button handler
 openBtn.addEventListener('click', () => {
+  overlay.style.display = 'flex'; // ✅ Yeh add karo
   overlay.classList.add('active');
   formContainer.style.display = 'flex';
   successScreen.style.display = 'none';
   form.reset();
-  onCanvasResize(); // Refresh canvas measurements
+  onCanvasResize();
 });
 
+// Baaki buttons ke liye bhi
+document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary').forEach(btn => {
+  btn.addEventListener('click', () => {
+    overlay.style.display = 'flex'; // ✅ Yeh bhi
+    overlay.classList.add('active');
+    formContainer.style.display = 'flex';
+    successScreen.style.display = 'none';
+    form.reset();
+    onCanvasResize();
+  });
+});
 // Close button handler
 closeBtn.addEventListener('click', () => {
   overlay.classList.remove('active');
+  overlay.style.display = 'none'; // ✅ Yeh add karo
   card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
 });
 
@@ -430,6 +442,7 @@ closeBtn.addEventListener('click', () => {
 overlay.addEventListener('click', (e) => {
   if (e.target === overlay) {
     overlay.classList.remove('active');
+    overlay.style.display = 'none'; // ✅ Yeh add karo
     card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
   }
 });
