@@ -22,6 +22,14 @@
     --text-dark: #000;
     --text-muted: #555;
     --white: #ffffff;
+
+    /* ✅ Yeh naye add karo */
+    --border-color: #E2E8F0;
+    --primary-blue: #08A1DD;
+    --glow-blue: rgba(8, 161, 221, 0.15);
+    --transition-smooth: all 0.3s ease;
+    --text-main: #1E293B;
+    --font-family: 'Inter', sans-serif;
 }
 
 /* ============================= */
@@ -580,11 +588,8 @@
     font-weight: 500;
 }
 
-/* Jab mouse input par ho */
-input:hover,
-textarea:hover {
-    border-color: #00D2FF;
-}
+
+
 
 /* Custom Textarea styling */
 .popup-right textarea {
