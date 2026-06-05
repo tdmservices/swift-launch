@@ -954,11 +954,9 @@
                 </p>
 
                 <div class="btn-group">
-                    <button class="button-ten">Contact Us</button>
-                    <button class="button-seven">
-
+                    <button class="button-ten" onclick="togglePopup(true)">Contact Us</button>
+                    <button class="button-seven" onclick="togglePopup(true)">
                         <img src="/img/Container.svg" alt="">
-
                     </button>
                 </div>
             </div>
@@ -1017,6 +1015,132 @@
                 <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+        <!-- Popup Overlay Wrapper -->
+        <div id="popupOverlay">
+
+            <!-- Floating Popup Wrapper with Custom Image Background -->
+            <div class="popup-container-wrap">
+
+                <!-- Close (X) Button -->
+                <span id="closePopup" onclick="togglePopup(false)">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                        stroke="currentColor" style="width: 18px; height: 18px;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </span>
+
+                <!-- LEFT SIDE: Transparent so the background image of wrapper shows through -->
+                <div class="left-branding-part">
+
+                    <!-- Logo -->
+                    <div class="left-logo-area">
+                        <div class="left-logo-icon">
+                            <img src="favicon svg.svg" alt="">
+                        </div>
+                        <span>SWIFT-LAUNCH</span>
+                    </div>
+
+                    <!-- Middle Titles -->
+                    <div class="left-middle-content">
+                        <h2>Get In Touch</h2>
+                        <p>We'd love to hear from you! Share your details and our team will contact you shortly.</p>
+                    </div>
+
+                    <!-- Email address on left bottom -->
+                    <div class="left-bottom-link">
+                        <a href="mailto:portfolio@contact.com">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2"
+                                stroke="currentColor" style="width: 18px; height: 18px; margin-right: 4px;">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            </svg>
+                            hello@swiftlaunch.co.uk
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: THE WHITE CARD WITH THE FORM (FLOATING ON BACKGROUND IMAGE) -->
+                <div class="right-form-white-card" id="rightWhiteCard">
+                    <div class="form-header">
+                        <h3>Send Us a Message</h3>
+                    </div>
+
+                    <form onsubmit="handleSend(event)">
+
+                        <!-- First Name & Last Name row -->
+                        <div class="form-row">
+                            <div class="input-wrapper">
+                                <label>your name</label>
+                                <input type="text" placeholder="Enter your first name" required>
+                            </div>
+                            <div class="input-wrapper">
+                                <label>Company name</label>
+                                <input type="text" placeholder="e.g. Execor" required>
+                            </div>
+                        </div>
+
+                        <!-- Email & Phone Number row -->
+                        <div class="form-row">
+                            <div class="input-wrapper">
+                                <label>Email address</label>
+                                <input type="email" placeholder="example@email.com" required>
+                            </div>
+                            <div class="input-wrapper">
+                                <label>Phone Number</label>
+                                <input type="tel" placeholder="+1 (555) 000-0000" required>
+                            </div>
+                        </div>
+
+                        <!-- Radio Options -->
+                        <div class="full-width-group">
+                            <label>Preferred Contact Method</label>
+                            <div class="communication-choices">
+                                <label class="radio-label">
+                                    <input type="radio" name="commMethod" value="Phone" required>
+                                    Phone
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="commMethod" value="Email" checked required>
+                                    Email
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Add Attachment simulation link -->
+                        <div class="attachment-area">
+                            <button type="button" class="attachment-btn" onclick="triggerFileSimulate()">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.2" stroke="currentColor" style="width: 18px; height: 18px;">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l4.5-4.5a4.5 4.5 0 01-1.243-1.077m5.38.33l1.076-1.077a4.5 4.5 0 00-6.364-6.364l-1.076 1.077M15.357 15.357l1.076-1.076a4.5 4.5 0 00-6.364-6.364l-1.076 1.076" />
+                                </svg>
+                                Upload File
+                            </button>
+                            <span id="attachedFileName"
+                                style="font-size: 12px; color: #64748b; font-weight: 600; margin-left: 4px;"></span>
+                        </div>
+
+                        <!-- Hidden Input for file selector simulation -->
+                        <input type="file" id="fileSelector" style="display: none;" onchange="handleFileChange(event)">
+
+                        <!-- Send Request Action button inside white card -->
+                        <button type="submit" class="send-btn">
+                            SEND MESSAGE
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor" style="width: 18px; height: 18px;">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6 12L3.269 3.125A59.769 59.769 0 0121.485 12 59.768 59.768 0 013.27 20.875L5.999 12Zm0 0h7.5" />
+                            </svg>
+                        </button>
+
+                    </form>
+                </div>
+
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
