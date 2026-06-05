@@ -2760,11 +2760,11 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #01328E;
+    background: #01328E;
     padding: 8px 18px;
     border-radius: 100px;
-    color: #f8fafc;
+    color: #08A1DD;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -2801,7 +2801,7 @@
   /* Form Typography */
   .contact-form h2 {
     margin: 0 0 12px 0;
-    color: #ffffff;
+    color: #01328E;
     /* Contrast white header for dark theme */
     font-size: 40px;
     font-weight: 800;
@@ -2865,7 +2865,7 @@
     /* Left indent for icons */
     border-radius: 12px;
     border: none;
-    background: #e5e5e5;
+    background: #efefef;
     color: #f8fafc;
     font-size: 14px;
     font-weight: 500;
@@ -2897,7 +2897,7 @@
 
   /* Premium Button Style matching Image 2 Gradient */
   .form-btn {
-    background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #d946ef 100%);
+    background: #01328E;
     color: white;
     padding: 16px 36px;
     border: none;
@@ -2945,7 +2945,9 @@
 
   .form-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px -5px rgba(217, 70, 239, 0.5);
+    box-shadow: 0 15px 30px -5px #01328E;
+    background-color: #08A1DD;
+    color: white;
   }
 
   .form-btn:active {
