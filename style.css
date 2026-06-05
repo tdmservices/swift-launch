@@ -3342,7 +3342,7 @@
     width: 980px;
     max-width: 100%;
     /* Office background image sathe dark gradient overlay lakhano ni readability vadharva mate */
-    background:  #01328E;
+    background: #01328E;
     background-size: cover;
     background-position: center;
     border-radius: 36px;
@@ -3652,6 +3652,13 @@
     color: #2563eb;
     margin: 0 auto 20px auto;
     border: 2px solid #bfdbfe;
+  }
+
+  .popup-left img {
+    width: 240px;
+    max-width: 80%;
+    position: relative;
+    z-index: 5;
   }
 
   /* Responsive mobile ni style */
