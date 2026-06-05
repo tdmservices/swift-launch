@@ -2692,6 +2692,10 @@
 
   /* SECTON 13 SECTON 13 SECTON 13 SECTON 13 SECTON 13 */
 
+  .contact-section{
+    display: flex;
+  }
+
   /* Ambient Glow behind the card */
   .ambient-glow {
     position: absolute;
