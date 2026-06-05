@@ -195,27 +195,81 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // SECTON 13 ANMATON SECTON 13 ANMATON SECTON 13 ANMATON
 
-document.addEventListener("DOMContentLoaded", () => {
 
-  const elements = document.querySelectorAll(
-    ".contact-form, .contact-image, .subscribe"
-  );
+  document.addEventListener("DOMContentLoaded", () => {
+      const inputs = document.querySelectorAll('.track-input');
+      const progressBar = document.getElementById('progressBar');
+      const progressPercent = document.getElementById('progressPercent');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
+      // Form progress tracker calculation
+      function updateProgress() {
+        const totalFields = inputs.length;
+        let filledFields = 0;
+        inputs.forEach(input => {
+          if (input.value.trim() !== "") {
+            filledFields++;
+          }
+        });
+        const percentage = Math.round((filledFields / totalFields) * 100);
+        progressBar.style.width = percentage + '%';
+        progressPercent.textContent = percentage + '% Complete';
       }
+
+      inputs.forEach(input => {
+        input.addEventListener('input', updateProgress);
+      });
+
+      // Consultation Form submission integration
+      const consultationForm = document.getElementById('consultationForm');
+      consultationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const toast = document.getElementById('successToast');
+        toast.style.display = 'flex';
+        
+        // Smooth scroll to toast at the top of the card
+        toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Auto-hide toast after 7 seconds
+        setTimeout(() => {
+          toast.style.display = 'none';
+        }, 7000);
+        
+        this.reset();
+        updateProgress(); // Reset progress bar to 0%
+      });
+
+      // Newsletter form submission
+      const subscribeForm = document.getElementById('subscribeForm');
+      const subscribeEmail = document.getElementById('subscribeEmail');
+      const newsletterToast = document.getElementById('newsletterToast');
+
+      subscribeForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        newsletterToast.classList.add('show-toast');
+        subscribeEmail.value = '';
+
+        setTimeout(() => {
+          newsletterToast.classList.remove('show-toast');
+        }, 4000);
+      });
+
+      // On-scroll slide and fade intersection animations
+      const elementsToAnimate = document.querySelectorAll(".animation-el");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      elementsToAnimate.forEach(el => observer.observe(el));
     });
-  }, {
-    threshold: 0.2
-  });
-
-  elements.forEach(el => observer.observe(el));
-
-});
 
 
+// SECTION 3 SECTION 3 SECTION 3 ANIMATION ANIMATION
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function () {
   // Select all cards
