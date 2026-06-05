@@ -2880,8 +2880,8 @@
 
   /* Focus visual states */
   .input-wrapper:focus-within {
-    border-color: #a855f7;
-    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.15);
+    border-color: #01328E;
+    box-shadow: #01328E;
     background-color: #111522;
   }
 
