@@ -854,10 +854,10 @@
 .bottom-tag .dot {
     width: 8px;
     height: 8px;
-    background-color: #d946ef;
+    background-color:#01328E ;
     border-radius: 50%;
     display: inline-block;
-    box-shadow: 0 0 12px #d946ef;
+    box-shadow: 0 0 12px #01328E;
     animation: pulse 1.5s infinite;
 }
 
