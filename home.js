@@ -496,50 +496,49 @@ if (showLogin) {
   });
 }
 
- // Toggle popup open & close handler
-    function togglePopup(show) {
-      const overlay = document.getElementById('popupOverlay');
+    // Open & Close function controller
+    function toggleSlPopup(show) {
+      const mask = document.getElementById('slPopupOverlayMask');
       if (show) {
-        overlay.classList.add('active');
+        mask.classList.add('sl-mask-visible');
       } else {
-        overlay.classList.remove('active');
+        mask.classList.remove('sl-mask-visible');
       }
     }
 
-    // Custom simulated attachment button trigger
-    function triggerFileSimulate() {
-      document.getElementById('fileSelector').click();
+    // File Selector stimulation handler
+    function triggerSlFileSelector() {
+      document.getElementById('slFileSelectorElement').click();
     }
 
-    // Display file name after attachment is uploaded
-    function handleFileChange(event) {
-      const file = event.target.files[0];
-      const attachedText = document.getElementById('attachedFileName');
+    // Display chosen filename in shield space
+    function handleSlFileSelection(e) {
+      const file = e.target.files[0];
+      const filenameLabel = document.getElementById('slAttachedFileName');
       if (file) {
-        attachedText.textContent = `(${file.name})`;
+        filenameLabel.textContent = `(${file.name})`;
       } else {
-        attachedText.textContent = '';
+        filenameLabel.textContent = '';
       }
     }
 
-    // Submit handler inside the white card
-    function handleSend(e) {
+    // Submit and build beautiful success view inside white shield card
+    function handleSlFormSubmit(e) {
       e.preventDefault();
-      const whiteCard = document.getElementById('rightWhiteCard');
+      const formShield = document.getElementById('slFormShieldContainer');
       
-      // Beautiful layered success layout inside the white card container
-      whiteCard.innerHTML = `
-        <div class="success-card-content">
-          <div class="success-badge-icon">
+      formShield.innerHTML = `
+        <div class="sl-form-success-shield">
+          <div class="sl-form-success-icon-badge">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width: 38px; height: 38px;">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
           </div>
           <h2 style="color: #1e3a8a; font-size: 28px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px;">THANKS!</h2>
           <p style="color: #64748b; font-size: 15px; line-height: 1.6; margin-bottom: 30px; font-weight: 500;">
-           Your message has been received. Our team will contact you shortly
+            Your message has been received. Our team will contact you shortly.
           </p>
-          <button onclick="location.reload()" class="send-btn" style="max-width: 200px; margin: 0 auto;">
+          <button onclick="location.reload()" class="sl-form-submit-action" style="max-width: 200px; margin: 0 auto;">
             Got It
           </button>
         </div>
