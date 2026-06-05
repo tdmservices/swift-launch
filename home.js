@@ -489,7 +489,7 @@ if (showLogin) {
            Your message has been received. Our team will contact you shortly
           </p>
           <button onclick="location.reload()" class="send-btn" style="max-width: 200px; margin: 0 auto;">
-            Saru Chhe
+            Got It
           </button>
         </div>
       `;
