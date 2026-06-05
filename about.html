@@ -954,8 +954,8 @@
                 </p>
 
                 <div class="btn-group">
-                    <button class="button-ten" onclick="togglePopup(true)">Contact Us</button>
-                    <button class="button-seven" onclick="togglePopup(true)">
+                    <button class="button-ten">Contact Us</button>
+                    <button class="button-seven">
                         <img src="/img/Container.svg" alt="">
                     </button>
                 </div>
@@ -1018,99 +1018,6 @@
             </div>
         </div>
 
-        <!-- Popup Overlay Wrapper -->
-        <!-- POPUP -->
-        <div id="popupOverlay">
-            <div class="popup-container-wrap">
-                <span id="closePopup" onclick="togglePopup(false)">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
-                        stroke="currentColor" style="width:18px;height:18px;">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
-                </span>
-                <div class="left-branding-part">
-                    <div class="left-logo-area">
-                        <div class="left-logo-icon">
-                            <img src="favicon svg.svg" alt="">
-                        </div>
-                        <span>SWIFT-LAUNCH</span>
-                    </div>
-                    <div class="left-middle-content">
-                        <h2>Get In Touch</h2>
-                        <p>We'd love to hear from you! Share your details and our team will contact you shortly.</p>
-                    </div>
-                    <div class="left-bottom-link">
-                        <a href="mailto:hello@swiftlaunch.co.uk">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2"
-                                stroke="currentColor" style="width:18px;height:18px;margin-right:4px;">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                            </svg>
-                            hello@swiftlaunch.co.uk
-                        </a>
-                    </div>
-                </div>
-                <div class="right-form-white-card" id="rightWhiteCard">
-                    <div class="form-header">
-                        <h3>Send Us a Message</h3>
-                    </div>
-                    <form onsubmit="handleSend(event)">
-                        <div class="form-row">
-                            <div class="input-wrapper">
-                                <label>Your name</label>
-                                <input type="text" placeholder="Enter your first name" required>
-                            </div>
-                            <div class="input-wrapper">
-                                <label>Company name</label>
-                                <input type="text" placeholder="e.g. Execor" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="input-wrapper">
-                                <label>Email address</label>
-                                <input type="email" placeholder="example@email.com" required>
-                            </div>
-                            <div class="input-wrapper">
-                                <label>Phone Number</label>
-                                <input type="tel" placeholder="+1 (555) 000-0000" required>
-                            </div>
-                        </div>
-                        <div class="full-width-group">
-                            <label>Preferred Contact Method</label>
-                            <div class="communication-choices">
-                                <label class="radio-label">
-                                    <input type="radio" name="commMethod" value="Phone" required> Phone
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="commMethod" value="Email" checked> Email
-                                </label>
-                            </div>
-                        </div>
-                        <div class="attachment-area">
-                            <button type="button" class="attachment-btn" onclick="triggerFileSimulate()">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2.2" stroke="currentColor" style="width:18px;height:18px;">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
-                                </svg>
-                                Upload File
-                            </button>
-                            <span id="attachedFileName"
-                                style="font-size:12px;color:#64748b;font-weight:600;margin-left:4px;"></span>
-                        </div>
-                        <input type="file" id="fileSelector" style="display:none;" onchange="handleFileChange(event)">
-                        <button type="submit" class="send-btn">
-                            SEND MESSAGE
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="currentColor" style="width:18px;height:18px;">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M6 12L3.269 3.125A59.769 59.769 0 0121.485 12 59.768 59.768 0 013.27 20.875L5.999 12Zm0 0h7.5" />
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
         <script src="About.js"></script>
