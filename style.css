@@ -2694,14 +2694,15 @@
 
 
   /* ===== ORIGINAL MAIN CONTAINER BACKGROUND & LAYOUT ===== */
-  .sl-contact-section {
+  .contact-section {
     background: #08A1DD;
+    /* Original solid sky blue background */
     padding: 50px 20px;
     margin-top: 390px;
     position: relative;
   }
 
-  .sl-contact-container {
+  .contact-container {
     max-width: 1100px;
     margin: auto;
     display: flex;
@@ -2711,9 +2712,10 @@
     z-index: 5;
   }
 
-  /* ===== DARK PREMIUM FORM CONTAINER ===== */
-  .sl-contact-form {
+  /* ===== DARK PREMIUM FORM CONTAINER (Image 2 Style) ===== */
+  .contact-form {
     background: white;
+    /* Sleek dark theme background matching image 2 */
     padding: 38px;
     border-radius: 20px;
     flex: 1;
@@ -2723,7 +2725,7 @@
   }
 
   /* Form Header Tracker Badges */
-  .sl-tracker-header {
+  .tracker-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2731,7 +2733,7 @@
     margin-bottom: 24px;
   }
 
-  .sl-tracker-pill {
+  .tracker-pill {
     background: #08A1DD;
     border: 1px solid #08A1DD;
     padding: 6px 14px;
@@ -2743,18 +2745,18 @@
     color: #01328E;
   }
 
-  .sl-tracker-pill.sl-progress-pct {
+  .tracker-pill.progress-pct {
     background: #08A1DD;
     border-color: #08A1DD;
     color: #01328E;
   }
 
   /* Swift Launch VIP Tag */
-  .sl-badge-container {
+  .badge-container {
     margin-bottom: 24px;
   }
 
-  .sl-bottom-tag {
+  .bottom-tag {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -2769,17 +2771,17 @@
     letter-spacing: 1.5px;
   }
 
-  .sl-bottom-tag .sl-dot {
+  .bottom-tag .dot {
     width: 8px;
     height: 8px;
     background-color: #d946ef;
     border-radius: 50%;
     display: inline-block;
     box-shadow: 0 0 12px #d946ef;
-    animation: slPulse 1.5s infinite;
+    animation: pulse 1.5s infinite;
   }
 
-  @keyframes slPulse {
+  @keyframes pulse {
     0% {
       transform: scale(1);
       opacity: 0.6;
@@ -2797,51 +2799,54 @@
   }
 
   /* Form Typography */
-  .sl-contact-form h2 {
+  .contact-form h2 {
     margin: 0 0 12px 0;
     color: #01328E;
+    /* Contrast white header for dark theme */
     font-size: 40px;
     font-weight: 800;
     letter-spacing: -0.02em;
   }
 
-  .sl-contact-form p {
+  .contact-form p {
     font-size: 14px;
     line-height: 1.6;
     color: #01328E;
+    /* Soft muted description */
     margin-bottom: 32px;
   }
 
   /* Inner Row Layout */
-  .sl-row {
+  .row {
     display: flex;
     gap: 18px;
     margin-bottom: 18px;
   }
 
-  .sl-field {
+  .field {
     flex: 1;
     display: flex;
     flex-direction: column;
   }
 
-  /* Inner Icon Inputs styling */
-  .sl-input-wrapper {
+  /* Inner Icon Inputs styling matched to Image 2 */
+  .input-wrapper {
     position: relative;
     display: flex;
     align-items: center;
     border-radius: 12px;
     background-color: #131826;
+    /* Dark inputs matching image 2 */
     border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
   }
 
-  .sl-input-wrapper:hover {
+  .input-wrapper:hover {
     border-color: rgba(255, 255, 255, 0.15);
     background-color: #161b2c;
   }
 
-  .sl-input-icon {
+  .input-icon {
     position: absolute;
     left: 18px;
     top: 15px;
@@ -2853,10 +2858,11 @@
   }
 
   /* Form Control Elements */
-  .sl-input-wrapper input,
-  .sl-input-wrapper textarea {
+  input,
+  textarea {
     width: 100%;
     padding: 16px 16px 16px 52px;
+    /* Left indent for icons */
     border-radius: 12px;
     border: none;
     background: aliceblue;
@@ -2865,31 +2871,31 @@
     outline: none;
   }
 
-  .sl-input-wrapper textarea {
+  textarea {
     height: 120px;
     resize: none;
     padding-top: 16px;
   }
 
   /* Focus visual states */
-  .sl-input-wrapper:focus-within {
+  .input-wrapper:focus-within {
     border-color: #01328E;
-    box-shadow: 0 0 0 2px rgba(1, 50, 142, 0.2);
+    box-shadow: #01328E;
     background-color: #111522;
   }
 
-  .sl-input-wrapper:focus-within .sl-input-icon {
+  .input-wrapper:focus-within .input-icon {
     color: #01328E;
   }
 
   /* Full Width Field */
-  .sl-full {
+  .full {
     margin-top: 4px;
     margin-bottom: 24px;
   }
 
-  /* Premium Button Style */
-  .sl-form-btn {
+  /* Premium Button Style matching Image 2 Gradient */
+  .form-btn {
     background: #01328E;
     color: white;
     padding: 16px 36px;
@@ -2905,11 +2911,12 @@
     gap: 10px;
     position: relative;
     overflow: hidden;
+    box-shadow: #01328E;
     transition: all 0.3s ease;
     width: auto;
   }
 
-  .sl-form-btn::after {
+  .form-btn::after {
     content: '';
     position: absolute;
     top: -50%;
@@ -2918,10 +2925,10 @@
     height: 200%;
     background: rgba(255, 255, 255, 0.2);
     transform: rotate(30deg);
-    animation: slShimmer 4s infinite linear;
+    animation: shimmer 4s infinite linear;
   }
 
-  @keyframes slShimmer {
+  @keyframes shimmer {
     0% {
       left: -150%;
     }
@@ -2935,19 +2942,19 @@
     }
   }
 
-  .sl-form-btn:hover {
+  .form-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 30px -5px #01328E;
     background-color: #08A1DD;
     color: white;
   }
 
-  .sl-form-btn:active {
+  .form-btn:active {
     transform: translateY(1px);
   }
 
   /* Success Toast inside card */
-  .sl-success-toast {
+  .success-toast {
     display: none;
     background: linear-gradient(90deg, #064e3b 0%, #022c22 100%);
     border: 1px solid #10b981;
@@ -2959,10 +2966,10 @@
     font-weight: 600;
     align-items: center;
     gap: 12px;
-    animation: slSlideDown 0.4s ease forwards;
+    animation: slideDown 0.4s ease forwards;
   }
 
-  @keyframes slSlideDown {
+  @keyframes slideDown {
     from {
       transform: translateY(-15px);
       opacity: 0;
