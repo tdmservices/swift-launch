@@ -529,7 +529,8 @@
 #popupOverlay {
   position: fixed;
   inset: 0;
-  display: flex;
+  display: none;
+  /* ✅ Default hidden */
   justify-content: center;
   align-items: center;
   z-index: 999999;
@@ -543,6 +544,8 @@
 }
 
 #popupOverlay.active {
+  display: flex;
+  /* ✅ display: none; hata ke display: flex; karo */
   opacity: 1;
   pointer-events: auto;
 }
