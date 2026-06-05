@@ -1896,3 +1896,475 @@ textarea {
         margin-bottom: 14px;
     }
 }
+
+
+  .sl-demo-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #090d16;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 20px;
+  }
+
+  .sl-headline-box {
+    text-align: center;
+    margin-bottom: 24px;
+    z-index: 1;
+  }
+
+  .sl-headline-box h1 {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+
+  .sl-headline-box p {
+    color: #64748b;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  /* Demo launch button */
+  .sl-trigger-action {
+    padding: 18px 36px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+  }
+
+  .sl-trigger-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.5);
+  }
+
+  /* --- UNIQUE PRESET POPUP DESIGN (SABHI CLASS NAMES BADLE HUE HAIN) --- */
+
+  /* Overlay background mask */
+  #slPopupOverlayMask {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 11, 20, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  #slPopupOverlayMask.sl-mask-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Main container wrap with background and dark gradient overlay */
+  .sl-modal-board {
+    width: 980px;
+    max-width: 100%;
+    background: #01328E;
+    /* Unified royal brand solid backup */
+    background-size: cover;
+    background-position: center;
+    border-radius: 36px;
+    overflow: hidden;
+    box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+    display: flex;
+    transform: translateY(40px) scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    padding: 40px;
+    gap: 40px;
+    align-items: stretch;
+    /* FIXED: Prevents vertical offset layout clipping */
+  }
+
+  /* Canvas Grid fallback design layer to ensure clean background visual */
+  .sl-modal-grid-decor {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+    z-index: 1;
+    opacity: 0.7;
+  }
+
+  #slPopupOverlayMask.sl-mask-visible .sl-modal-board {
+    transform: translateY(0) scale(1);
+  }
+
+  /* Close (X) button */
+  #slCloseAction {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #ffffff;
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    z-index: 20;
+  }
+
+  #slCloseAction:hover {
+    background: #08A1DD;
+    color: white;
+    border-color: #01328E;
+    transform: rotate(90deg);
+  }
+
+  /* Left side: branding pane */
+  .sl-sidebar-pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 380px;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    min-width: 0;
+    /* FIXED: Allows column to shrink on tablet screens without pushing card */
+  }
+
+  /* Top Logo branding block */
+  .sl-sidebar-logo-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .sl-sidebar-logo-icon-holder {
+    width: 38px;
+    height: 38px;
+    background: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .sl-sidebar-logo-icon-holder svg {
+    width: 22px;
+    height: 22px;
+    color: #1d4ed8;
+  }
+
+  .sl-sidebar-logo-block span {
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #ffffff;
+  }
+
+  /* Left side: Middle Typography content */
+  .sl-sidebar-body-text {
+    margin: 40px 0;
+  }
+
+  .sl-sidebar-body-text h2 {
+    font-size: 44px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -1.5px;
+    text-shadow: 0 2px 12px rgba(15, 23, 42, 0.5);
+  }
+
+  .sl-sidebar-body-text p {
+    font-size: 18px;
+    color: #e0f2fe;
+    font-weight: 500;
+    text-shadow: 0 1px 8px rgba(15, 23, 42, 0.4);
+  }
+
+  /* Left side bottom help email anchor */
+  .sl-sidebar-footer-link a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.95;
+    transition: opacity 0.2s;
+    text-shadow: 0 1px 5px rgba(15, 23, 42, 0.3);
+  }
+
+  .sl-sidebar-footer-link a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  /* Right side: Modern bright form card */
+  .sl-form-white-shield {
+    flex: 1.2;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 40px;
+    /* Adjusted slightly to preserve inner breathing space on all viewports */
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    color: #0f172a;
+    min-width: 0;
+    /* FIXED: Keeps flex structure contained inside the desktop card width */
+  }
+
+  .sl-form-shield-title {
+    margin-bottom: 24px;
+  }
+
+  .sl-form-shield-title h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1e3a8a;
+    letter-spacing: -0.5px;
+  }
+
+  /* Structured form rows */
+  .sl-form-grid-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 14px;
+    width: 100%;
+  }
+
+  .sl-field-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .sl-field-container label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+  }
+
+  /* Rounded stable form input structures */
+  .sl-form-white-shield input,
+  .sl-form-white-shield select,
+  .sl-form-white-shield textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 2px solid #e2e8f0;
+    background: #f8fafc;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0f172a;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
+  .sl-form-white-shield input::placeholder,
+  .sl-form-white-shield textarea::placeholder {
+    color: #94a3b8;
+  }
+
+  /* Interactive input focused states */
+  .sl-form-white-shield input:focus,
+  .sl-form-white-shield select:focus,
+  .sl-form-white-shield textarea:focus {
+    background: #ffffff;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  }
+
+  /* Layout rules for full block layouts */
+  .sl-full-block-container {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* Horizontal choices layout */
+  .sl-choices-wrapper {
+    display: flex;
+    gap: 20px;
+    margin-top: 4px;
+  }
+
+  .sl-choice-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #334155;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .sl-choice-label input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #2563eb;
+    cursor: pointer;
+  }
+
+  /* Custom File uploader design components */
+  .sl-uploader-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .sl-uploader-trigger-action {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+  }
+
+  .sl-uploader-trigger-action:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+
+  /* Premium submit/action button */
+  .sl-form-submit-action {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.2);
+    transition: all 0.25s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sl-form-submit-action:hover {
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
+    transform: translateY(-2px);
+    background-color: #08A1DD;
+  }
+
+  .sl-form-submit-action:active {
+    transform: translateY(1px);
+  }
+
+  /* Dynamic internal card success notification layout */
+  .sl-form-success-shield {
+    text-align: center;
+    padding: 30px 10px;
+  }
+
+  .sl-form-success-icon-badge {
+    width: 74px;
+    height: 74px;
+    background: #eff6ff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2563eb;
+    margin: 0 auto 20px auto;
+    border: 2px solid #bfdbfe;
+  }
+
+  /* Responsive adjustments for portable displays */
+  @media(max-width: 950px) {
+    .sl-modal-board {
+      flex-direction: column;
+      align-items: stretch;
+      /* FIXED: Forces responsive vertical flow cards to stretch properly */
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 30px 24px;
+      gap: 24px;
+      border-radius: 28px;
+    }
+
+    .sl-sidebar-pane {
+      align-items: center;
+      text-align: center;
+      min-height: auto;
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    .sl-sidebar-logo-block {
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .sl-sidebar-body-text {
+      margin: 15px 0;
+    }
+
+    .sl-sidebar-body-text h2 {
+      font-size: 32px;
+    }
+
+    .sl-sidebar-body-text p {
+      font-size: 15px;
+    }
+
+    .sl-form-white-shield {
+      width: 100%;
+      padding: 30px 20px;
+      border-radius: 20px;
+    }
+
+    #slCloseAction {
+      background: rgba(255, 255, 255, 0.3);
+      top: 15px;
+      right: 15px;
+    }
+  }
+
+  @media(max-width: 600px) {
+    .sl-form-grid-row {
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+  }
