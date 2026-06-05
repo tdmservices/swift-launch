@@ -2692,131 +2692,374 @@
 
   /* SECTON 13 SECTON 13 SECTON 13 SECTON 13 SECTON 13 */
 
-
-  .contact-section {
-    background: #08A1DD;
-    padding: 50px 20px;
-    margin-top: 390px;
+  /* Ambient Glow behind the card */
+  .ambient-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    filter: blur(140px);
+    opacity: 0.15;
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    animation: floatGlow 12s ease-in-out infinite alternate;
   }
 
-  .contact-container {
-    max-width: 1100px;
-    margin: auto;
+  @keyframes floatGlow {
+    0% {
+      transform: translate(-30px, -30px) scale(0.9);
+    }
+
+    100% {
+      transform: translate(30px, 30px) scale(1.1);
+    }
+  }
+
+  /* Glassmorphism Card Wrapper */
+  .contact-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 44px;
+    width: 100%;
+    max-width: 680px;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5),
+      0 0 50px 0px rgba(99, 102, 241, 0.05);
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+  }
+
+  /* Progress Tracker Bar at top */
+  .progress-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    box-shadow: 0 0 12px var(--primary);
+    transition: width 0.4s ease;
+  }
+
+  .progress-text {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
     display: flex;
-    align-items: stretch;
-    margin-top: -365px;
-
-
+    align-items: center;
+    justify-content: space-between;
   }
 
-  /* FORM CONTAINER */
-  .contact-form {
-    background: #f4f4f4;
-    padding: 30px;
+  .progress-text span {
+    color: var(--primary-focus);
+    background: rgba(99, 102, 241, 0.1);
+    padding: 4px 10px;
     border-radius: 20px;
-    flex: 1;
-    max-width: 100%;
+    border: 1px solid rgba(99, 102, 241, 0.2);
   }
 
-  /* TAG BUTTON */
-  .bottom-tag {
-    border: 1px solid #01328E;
-    background: transparent;
-    padding: 6px 14px;
-    border-radius: 20px;
-    color: #01328E;
-    font-size: 12px;
-  }
-
-  /* TITLE */
-  .contact-form h2 {
-    margin: 15px 0 10px;
-    color: #01328E;
-    font-size: 32px;
-  }
-
-  .contact-form p {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 20px;
-  }
-
-  /* ROW */
-  .row {
-    display: flex;
-    gap: 16px;
+  /* Tag Badge */
+  .badge-container {
     margin-bottom: 16px;
   }
 
-  /* FIELD WRAPPER */
+  .bottom-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px 16px;
+    border-radius: 100px;
+    color: var(--text-light);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .bottom-tag .dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px var(--secondary);
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+
+    50% {
+      transform: scale(1.3);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+  }
+
+  /* Typography */
+  .contact-card h2 {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--text-light);
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .contact-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 36px;
+  }
+
+  /* Rows */
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .contact-card {
+      padding: 28px 20px;
+    }
+
+    .contact-card h2 {
+      font-size: 30px;
+    }
+  }
+
+  /* Modern Floating Label & Inputs */
   .field {
-    flex: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
 
-  /* LABEL */
-  .field label {
-    font-size: 13px;
-    margin-bottom: 6px;
-    color: #000;
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: var(--radius-md);
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    transition: var(--transition);
   }
 
-  /* INPUT */
+  .input-wrapper:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(30, 41, 59, 0.7);
+  }
+
+  /* Custom Icon Styling */
+  .input-icon {
+    position: absolute;
+    left: 16px;
+    color: var(--text-muted);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    transition: var(--transition);
+    z-index: 5;
+  }
+
+  /* Real Form Input elements */
   input,
   textarea {
     width: 100%;
-    padding: 12px 14px;
-    border-radius: 10px;
+    padding: 24px 16px 8px 48px;
+    /* Extra spacing for labels and icons */
+    border-radius: var(--radius-md);
     border: none;
-    background: #eaeaea;
-    font-size: 14px;
+    background: transparent;
+    color: var(--text-light);
+    font-size: 15px;
+    font-weight: 500;
     outline: none;
+    transition: var(--transition);
+    z-index: 2;
   }
 
-  /* TEXTAREA */
   textarea {
-    height: 100px;
+    padding-top: 28px;
+    height: 130px;
     resize: none;
   }
 
-  /* FULL WIDTH FIELD */
-  .full {
-    margin-top: 5px;
+  /* Floating Label CSS rules */
+  .floating-label {
+    position: absolute;
+    left: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: var(--transition);
+    z-index: 1;
   }
 
-  /* BUTTON */
+  /* Adjust textarea floating label to top */
+  textarea~.floating-label {
+    top: 28px;
+    transform: none;
+  }
+
+  /* Focus & filled actions */
+  .input-wrapper:focus-within {
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 4px var(--primary-glow);
+    background-color: rgba(15, 23, 42, 0.8);
+  }
+
+  /* When Input has value or is focused, push label up */
+  input:focus~.floating-label,
+  input:not(:placeholder-shown)~.floating-label {
+    top: 8px;
+    transform: translateY(0);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--input-focus);
+    letter-spacing: 0.5px;
+  }
+
+  textarea:focus~.floating-label,
+  textarea:not(:placeholder-shown)~.floating-label {
+    top: 8px;
+    transform: translateY(0);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--input-focus);
+    letter-spacing: 0.5px;
+  }
+
+  /* Color of Icon change when Focused */
+  .input-wrapper:focus-within .input-icon {
+    color: var(--input-focus);
+    transform: scale(1.1);
+  }
+
+  .full-width {
+    margin-top: 4px;
+    margin-bottom: 32px;
+  }
+
+  /* Glow Shimmer Button */
   .form-btn {
-    background: #01328E;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: white;
-    padding: 12px 24px;
+    padding: 16px 36px;
     border: none;
-    border-radius: 30px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
     cursor: pointer;
-    margin-top: 20px;
-    font-weight: 500;
-    transition: 0.3s ease;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 30px -10px rgba(99, 102, 241, 0.5);
+  }
+
+  /* Shimmer reflection animation */
+  .form-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 30%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(30deg);
+    transition: var(--transition);
+    animation: shimmer 4s infinite linear;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -150%;
+    }
+
+    50% {
+      left: 150%;
+    }
+
+    100% {
+      left: 150%;
+    }
   }
 
   .form-btn:hover {
-    background: #08A1DD;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 20px 40px -10px rgba(217, 70, 239, 0.6),
+      0 0 0 5px rgba(99, 102, 241, 0.25);
   }
 
-  /* =========================
-   MOBILE RESPONSIVE
-========================= */
-  @media (max-width: 768px) {
+  .form-btn:active {
+    transform: translateY(1px);
+  }
 
-    .row {
-      flex-direction: column;
+  /* Premium Success Banner */
+  .success-toast {
+    display: none;
+    background: linear-gradient(90deg, #064e3b 0%, #022c22 100%);
+    border: 1px solid #10b981;
+    color: #a7f3d0;
+    padding: 18px;
+    border-radius: var(--radius-md);
+    margin-bottom: 28px;
+    font-size: 14px;
+    font-weight: 600;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
     }
 
-    .contact-form h2 {
-      font-size: 24px;
-    }
-
-    .form-btn {
-      width: 100%;
+    to {
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 
@@ -2880,24 +3123,13 @@
       gap: 20px;
     }
 
-    .contact-form {
-      width: 92%;
-    }
+
 
     .contact-image img {
       width: 100%;
     }
 
-    .row {
-      flex-direction: column;
-    }
 
-
-    .field label {
-      font-size: 13px;
-      margin-bottom: 6px;
-      color: #000;
-    }
   }
 
 
