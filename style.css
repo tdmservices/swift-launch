@@ -2734,21 +2734,21 @@
   }
 
   .tracker-pill {
-    background: rgba(99, 102, 241, 0.15);
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    background: #08A1DD;
+    border: 1px solid #08A1DD;
     padding: 6px 14px;
     border-radius: 100px;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #818cf8;
+    color: #01328E;
   }
 
   .tracker-pill.progress-pct {
-    background: rgba(168, 85, 247, 0.15);
-    border-color: rgba(168, 85, 247, 0.3);
-    color: #c084fc;
+    background: #08A1DD;
+    border-color: #08A1DD;
+    color: #01328E;
   }
 
   /* Swift Launch VIP Tag */
