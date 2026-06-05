@@ -195,25 +195,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // SECTON 13 ANMATON SECTON 13 ANMATON SECTON 13 ANMATON
 
-document.addEventListener("DOMContentLoaded", () => {
+ document.addEventListener("DOMContentLoaded", () => {
+      const inputs = document.querySelectorAll('.track-input');
+      const progressPercent = document.getElementById('progressPercent');
 
-  const elements = document.querySelectorAll(
-    ".contact-form, .contact-image, .subscribe"
-  );
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
+      // Form progress tracker calculation
+      function updateProgress() {
+        const totalFields = inputs.length;
+        let filledFields = 0;
+        inputs.forEach(input => {
+          if (input.value.trim() !== "") {
+            filledFields++;
+          }
+        });
+        const percentage = Math.round((filledFields / totalFields) * 100);
+        progressPercent.textContent = percentage + '% COMPLETE';
       }
+
+      inputs.forEach(input => {
+        input.addEventListener('input', updateProgress);
+      });
+
+      // Consultation Form submission
+      const consultationForm = document.getElementById('consultationForm');
+      consultationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const toast = document.getElementById('successToast');
+        toast.style.display = 'flex';
+        
+        // Smooth scroll to toast inside the dark card
+        toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Auto-hide toast after 7 seconds
+        setTimeout(() => {
+          toast.style.display = 'none';
+        }, 7000);
+        
+        this.reset();
+        updateProgress(); // Reset progress bar to 0%
+      });
+
+      // Simple alert-less subscription handler
+      const subscribeForm = document.getElementById('subscribeForm');
+      subscribeForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const emailInput = document.getElementById('subscribeEmail');
+        emailInput.value = 'Subscribed!';
+        emailInput.style.color = '#10b981';
+        emailInput.style.fontWeight = 'bold';
+        
+        setTimeout(() => {
+          emailInput.value = '';
+          emailInput.style.color = '';
+          emailInput.style.fontWeight = '';
+        }, 3000);
+      });
+
+      // Scroll observer for custom entrance animations
+      const animatedElements = document.querySelectorAll(".contact-form, .contact-image, .subscribe");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      animatedElements.forEach(el => observer.observe(el));
     });
-  }, {
-    threshold: 0.2
-  });
-
-  elements.forEach(el => observer.observe(el));
-
-});
 
 
 // Wait for DOM to load
