@@ -2714,7 +2714,7 @@
 
   /* ===== DARK PREMIUM FORM CONTAINER (Image 2 Style) ===== */
   .contact-form {
-    background: #111522;
+    background: white;
     /* Sleek dark theme background matching image 2 */
     padding: 38px;
     border-radius: 20px;
@@ -2811,7 +2811,7 @@
   .contact-form p {
     font-size: 14px;
     line-height: 1.6;
-    color: #94a3b8;
+    color: #01328E;
     /* Soft muted description */
     margin-bottom: 32px;
   }
@@ -2849,6 +2849,7 @@
   .input-icon {
     position: absolute;
     left: 18px;
+    top: 15px;
     color: #94a3b8;
     width: 20px;
     height: 20px;
@@ -2864,7 +2865,7 @@
     /* Left indent for icons */
     border-radius: 12px;
     border: none;
-    background: transparent;
+    background: #e5e5e5;
     color: #f8fafc;
     font-size: 14px;
     font-weight: 500;
