@@ -3626,9 +3626,9 @@
   }
 
   .send-btn:hover {
-    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
     box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
     transform: translateY(-2px);
+    background-color: #08A1DD;
   }
 
   .send-btn:active {
