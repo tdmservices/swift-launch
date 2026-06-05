@@ -484,9 +484,9 @@ if (showLogin) {
               <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
           </div>
-          <h2 style="color: #1e3a8a; font-size: 28px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px;">Abhar!</h2>
+          <h2 style="color: #1e3a8a; font-size: 28px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px;">THANKS!</h2>
           <p style="color: #64748b; font-size: 15px; line-height: 1.6; margin-bottom: 30px; font-weight: 500;">
-            Tmaro sandesh amane mali gayo chhe. Amari team bahu jald tamaro sampark karse.
+           Your message has been received. Our team will contact you shortly
           </p>
           <button onclick="location.reload()" class="send-btn" style="max-width: 200px; margin: 0 auto;">
             Saru Chhe
