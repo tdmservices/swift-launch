@@ -2912,7 +2912,7 @@
     gap: 10px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.4);
+    box-shadow: #01328E;
     transition: all 0.3s ease;
     width: auto;
   }
