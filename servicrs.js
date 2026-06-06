@@ -213,22 +213,7 @@ if (showLogin) {
     }
   });
 
-  // 3D Card tilt on mouse move
-  document.addEventListener('mousemove', (e) => {
-    if (isMobileDevice || !overlay.classList.contains('active') || !card) return;
-    const halfWidth = window.innerWidth / 2;
-    const halfHeight = window.innerHeight / 2;
-    const mouseX = (e.clientX - halfWidth) / halfWidth;
-    const mouseY = (e.clientY - halfHeight) / halfHeight;
-    const rotateX = -mouseY * 12;
-    const rotateY = mouseX * 12;
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
-  });
 
-  overlay.addEventListener('mouseleave', () => {
-    if (isMobileDevice || !card) return;
-    card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
-  });
 
   // THREE.JS SETUP
   let scene, camera, renderer, particleSystem, outerRing;
@@ -323,7 +308,31 @@ if (showLogin) {
     renderer.setSize(width, height);
   }
 
- 
+  const clock = new THREE.Clock();
+
+  function animateThree() {
+    requestAnimationFrame(animateThree);
+    if (!renderer || !scene || !camera) return;
+
+    const time = clock.getElapsedTime();
+
+    particleSystem.rotation.y = time * 0.04;
+    particleSystem.rotation.x = time * 0.01;
+    outerRing.rotation.z = -time * 0.03;
+
+    mouseX3D += (targetX3D - mouseX3D) * 0.05;
+    mouseY3D += (targetY3D - mouseY3D) * 0.05;
+
+    if (rocketContainer && !isMobileDevice) {
+      const hoverY = Math.sin(time * 1.5) * 12;
+      const tiltX = -mouseY3D * 18;
+      const tiltY = mouseX3D * 18;
+      rocketContainer.style.transform = `translate(-50%, calc(-50% + ${hoverY}px)) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(50px)`;
+    }
+
+    renderer.render(scene, camera);
+  }
+
   // Open/Close helpers
   function openOverlay() {
     overlay.style.display = 'flex';
