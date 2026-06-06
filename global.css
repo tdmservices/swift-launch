@@ -1114,7 +1114,7 @@ textarea {
 /* ROCKET SVG OVERLAY CONTAINER */
 #rocket-overlay-container {
     position: absolute;
-    top: 66%;
+    top: 58%;
     left: 50%;
     transform: translate(-50%, -50%) translateZ(60px);
     width: 250px;
