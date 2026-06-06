@@ -57,49 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
     elements.forEach(el => observer.observe(el));
 });
 
-// SECTION 11 - GSAP Animation
-if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-
-    let tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".transparent-section",
-            start: "top top",
-            end: "+=150%",
-            scrub: true,
-            pin: true,
-        }
-    });
-
-    // Step 1: Card move animation
-    tl.to(".transparent-card", {
-        y: 240,
-        ease: "none",
-    });
-
-    // Step 2: Typing animation
-    tl.add(() => {
-        const text = "You Stand";
-        const target = document.querySelector(".transparent-card h2 span");
-        
-        if (target) {
-            // reset text
-            target.innerHTML = "";
-            let i = 0;
-            
-            function typeWriter() {
-                if (i < text.length) {
-                    target.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 100);
-                }
-            }
-            
-            typeWriter();
-        }
-    });
-}
-
 // ==========================================
 // MAIN POPUP AND THREE.JS CONSOLIDATED CODE
 // ==========================================
