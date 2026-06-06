@@ -268,13 +268,34 @@
 }
 
 
+/* Demo Landing Page Styling */
+.demo-container {
+    text-align: center;
+    max-width: 600px;
+    padding: 40px 20px;
+    z-index: 5;
+}
 
+.demo-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #ffffff 40%, #93C5FD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
 
+.demo-subtitle {
+    font-size: 1.125rem;
+    color: #94A3B8;
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
 
-
-/* Demo Trigger Button - isko click karke test kar sakte hain */
+/* Demo Trigger Button */
 .demo-trigger {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #0036A3 100%);
     color: #fff;
     border: none;
     padding: 16px 36px;
@@ -285,11 +306,15 @@
     box-shadow: 0 10px 30px rgba(0, 82, 255, 0.35);
     transition: var(--transition-smooth);
     z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .demo-trigger:hover {
     transform: translateY(-3px) scale(1.03);
     box-shadow: 0 15px 35px rgba(0, 82, 255, 0.5);
+    background: linear-gradient(135deg, #1a66ff 0%, var(--primary-blue) 100%);
 }
 
 /* Popup Overlay container */
@@ -297,7 +322,6 @@
     position: fixed;
     inset: 0;
     display: none;
-    /* ✅ Default hidden */
     justify-content: center;
     align-items: center;
     z-index: 999999;
@@ -306,46 +330,45 @@
     pointer-events: none;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    background: rgba(2, 6, 23, 0.75);
+    background: rgba(2, 6, 23, 0.8);
     transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #popupOverlay.active {
     display: flex;
-    /* ✅ display: none; hata ke display: flex; karo */
     opacity: 1;
     pointer-events: auto;
 }
 
-/* 3D Perspective Wrapper for Realistic Tilt */
+/* 3D Perspective Wrapper */
 .tilt-wrapper {
     perspective: 2000px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 1080px;
+    max-width: 1040px;
 }
 
 /* MAIN POPUP CARD */
 .about-popup {
     width: 100%;
-    min-height: 680px;
+    min-height: 640px;
     display: flex;
-    border-radius: 36px;
+    border-radius: 32px;
     overflow: hidden;
     background: #ffffff;
     position: relative;
     box-shadow: var(--card-shadow);
-    transform: rotateX(10deg) rotateY(-5deg) translateZ(-50px);
+    transform: scale(0.95);
     opacity: 0;
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transform-style: preserve-3d;
 }
 
 #popupOverlay.active .about-popup {
-    transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+    transform: scale(1);
     opacity: 1;
 }
 
@@ -377,10 +400,10 @@
     box-shadow: 0 4px 15px rgba(0, 82, 255, 0.15);
 }
 
-/* LEFT SIDE PANEL - Premium Blue 3D Visual World */
+/* LEFT SIDE PANEL */
 .popup-left {
     width: 45%;
-    background: linear-gradient(160deg, #0A192F 0%, #001E62 100%);
+    background: linear-gradient(160deg, #0A192F 0%, #020c1b 100%);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -388,13 +411,14 @@
     align-items: center;
     overflow: hidden;
     flex-shrink: 0;
-    padding: 50px 40px;
+    padding: 50px 36px;
     text-align: center;
     color: #ffffff;
     transform-style: preserve-3d;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Interactive Three.js Canvas Container */
+/* Three.js Canvas holds live rendering */
 #three-d-canvas {
     position: absolute;
     inset: 0;
@@ -402,11 +426,30 @@
     height: 100%;
     z-index: 1;
     pointer-events: auto;
-    cursor: grab;
 }
 
-#three-d-canvas:active {
-    cursor: grabbing;
+/* ROCKET SVG OVERLAY CONTAINER */
+#rocket-overlay-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(60px);
+    width: 200px;
+    height: auto;
+    z-index: 3;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    will-change: transform;
+}
+
+#rocket-logo-img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 15px 35px rgba(0, 210, 255, 0.35));
+    transform-style: preserve-3d;
 }
 
 /* Content Overlay on Left Side */
@@ -414,19 +457,17 @@
     position: relative;
     z-index: 5;
     pointer-events: none;
-    /* Allows click through to the canvas */
     width: 100%;
     transform: translateZ(40px);
-    /* 3D popout effect on tilt */
 }
 
 .logo-tag {
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #00D2FF;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     display: inline-block;
     background: rgba(0, 210, 255, 0.1);
     padding: 6px 16px;
@@ -435,9 +476,9 @@
 }
 
 .left-content h3 {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 800;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     letter-spacing: -0.5px;
     line-height: 1.25;
     background: linear-gradient(135deg, #ffffff 60%, #93C5FD 100%);
@@ -454,37 +495,53 @@
     margin: 0 auto;
 }
 
-/* Premium Brand Logo & Name Footer (New Integration) */
+/* Premium Brand Footer Button */
 .left-footer {
     position: relative;
     z-index: 5;
     pointer-events: none;
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 12px 24px;
+    gap: 14px;
+    background: linear-gradient(135deg, rgba(0, 82, 255, 0.1) 0%, rgba(10, 25, 47, 0.8) 100%);
+    padding: 12px 28px;
     border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1.5px solid rgba(0, 210, 255, 0.25);
     transform: translateZ(35px);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Custom Geometric Brand Logo styling */
+/* Perfect Rounded Center Rocket Container (Footer logo icon) */
 .brand-logo-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 28px;
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, #0A192F 0%, #001E62 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+    flex-shrink: 0;
+    overflow: hidden;
+    /* Added to clip image corners perfectly */
+    padding: 2px;
+    /* Smooth padding inside circle */
+}
+
+/* Left side next to SwiftLaunch logo image styling */
+.brand-logo-img-small {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
 }
 
 .brand-name-text {
     font-size: 14px;
     font-weight: 800;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: #ffffff;
     background: linear-gradient(135deg, #ffffff 0%, #E2E8F0 100%);
@@ -496,7 +553,7 @@
 .popup-right {
     width: 55%;
     background: #ffffff;
-    padding: 60px 50px;
+    padding: 60px 48px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -505,16 +562,15 @@
     transform-style: preserve-3d;
 }
 
-/* Dynamic background design curves */
 .popup-right::before {
     content: "";
     position: absolute;
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 82, 255, 0.03) 0%, rgba(0, 82, 255, 0) 70%);
-    top: -150px;
-    right: -150px;
+    background: radial-gradient(circle, rgba(0, 82, 255, 0.04) 0%, rgba(0, 82, 255, 0) 70%);
+    top: -100px;
+    right: -100px;
     pointer-events: none;
 }
 
@@ -526,26 +582,25 @@
 }
 
 .popup-right h2 {
-    font-size: 34px;
-    color: #08A1DD;
-    font-weight: 800;
+    font-size: 36px;
     color: var(--text-main);
+    font-weight: 800;
     margin-bottom: 8px;
-    letter-spacing: -0.8px;
+    letter-spacing: -1px;
 }
 
 .form-sub {
     color: var(--text-muted);
     font-size: 15px;
     font-weight: 500;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
-/* Form Controls Wrapper */
+/* Form elements styling */
 .popup-form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
     width: 100%;
 }
 
@@ -554,15 +609,14 @@
     width: 100%;
 }
 
-/* Premium Input Fields Design */
 .popup-right input,
 .popup-right textarea {
     width: 100%;
     background: #F8FAFC;
     border: 1.5px solid var(--border-color);
-    border-radius: 16px;
-    padding: 16px 22px;
-    font-size: 15px;
+    border-radius: 14px;
+    padding: 14px 20px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--text-main);
     font-family: var(--font-family);
@@ -571,7 +625,6 @@
     transition: var(--transition-smooth);
 }
 
-/* Dynamic Border Accent States */
 .popup-right input:hover,
 .popup-right textarea:hover {
     border-color: #CBD5E1;
@@ -582,10 +635,9 @@
 .popup-right textarea:focus {
     border-color: var(--primary-blue);
     background: #ffffff;
-    box-shadow: 0 0 0 5px var(--glow-blue), 0 8px 16px rgba(0, 82, 255, 0.04);
+    box-shadow: 0 0 0 4px var(--glow-blue), 0 8px 16px rgba(0, 82, 255, 0.04);
 }
 
-/* Input Field Focus Floating Placeholder Mechanics */
 .popup-right input::placeholder,
 .popup-right textarea::placeholder {
     color: #94A3B8;
@@ -593,25 +645,21 @@
     font-weight: 500;
 }
 
-
-
-
-/* Custom Textarea styling */
 .popup-right textarea {
-    height: 110px;
+    height: 100px;
     resize: none;
     line-height: 1.5;
 }
 
-/* Interactive submit button */
+/* Submit Button */
 .submit-container {
-    margin-top: 8px;
+    margin-top: 6px;
 }
 
 .submit {
-    background: #01328E;
+    background: #0B2447;
     color: #ffffff;
-    padding: 15px 40px;
+    padding: 14px 36px;
     border: none;
     border-radius: 50px;
     font-size: 15px;
@@ -621,25 +669,22 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    box-shadow: 0 8px 24px rgba(0, 82, 255, 0.25);
+    gap: 10px;
+    box-shadow: 0 8px 20px rgba(11, 36, 71, 0.2);
     position: relative;
     overflow: hidden;
 }
 
 .submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0, 82, 255, 0.4);
-    background-color: #08A1DD;
+    box-shadow: 0 12px 24px rgba(0, 82, 255, 0.3);
+    background-color: var(--primary-blue);
 }
 
 .submit:active {
     transform: translateY(0);
 }
 
-
-
-/* Button glow transition effect */
 .submit::after {
     content: '';
     position: absolute;
@@ -648,14 +693,14 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
+    transition: 0.6s;
 }
 
 .submit:hover::after {
     left: 100%;
 }
 
-/* SUCCESS STATE GRAPHIC */
+/* SUCCESS STATE */
 .success-screen {
     display: none;
     text-align: center;
@@ -682,15 +727,14 @@
 }
 
 .success-icon {
-    width: 80px;
-    height: 80px;
+    width: 72px;
+    height: 72px;
     background: #ECFDF5;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #10B981;
-    font-size: 36px;
     box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
     border: 2px solid #A7F3D0;
 }
@@ -703,25 +747,20 @@
 
 .success-screen p {
     color: var(--text-muted);
-    font-size: 16px;
+    font-size: 15px;
     max-width: 320px;
     line-height: 1.6;
     font-weight: 500;
 }
 
-*,
-*::before,
-*::after {
-    animation: none !important;
-    transition: none !important;
-}
-
-/* RESPONSIVENESS RULES for tablets & mobile phones */
+/* Responsive Breakpoints */
 @media (max-width: 900px) {
     .about-popup {
-        width: 650px;
+        width: 100%;
+        max-width: 540px;
         min-height: auto;
         flex-direction: column;
+        border-radius: 24px;
     }
 
     .popup-left {
@@ -734,6 +773,10 @@
         height: 100%;
     }
 
+    #rocket-overlay-container {
+        width: 140px;
+    }
+
     .popup-right {
         width: 100%;
         padding: 40px 30px;
@@ -741,41 +784,44 @@
 
     .left-footer {
         display: none;
-        /* remove for vertical space save on mobiles */
+    }
+
+    .left-content h3 {
+        font-size: 26px;
     }
 }
 
 @media (max-width: 600px) {
     body {
-        padding: 10px;
-    }
-
-    .about-popup {
-        border-radius: 24px;
+        padding: 12px;
     }
 
     .popup-right h2 {
-        font-size: 26px;
+        font-size: 28px;
     }
 
     .popup-right input,
     .popup-right textarea {
-        padding: 14px 18px;
+        padding: 12px 16px;
         font-size: 14px;
     }
 
     .submit {
         width: 100%;
-        padding: 16px;
+        padding: 15px;
     }
 
     .close-btn {
-        top: 15px;
-        right: 15px;
+        top: 16px;
+        right: 16px;
         width: 36px;
         height: 36px;
     }
 }
+
+
+
+
 
 /* ============================= */
 /*     CONTACT + SUBSCRIBE       */
