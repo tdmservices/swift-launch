@@ -103,298 +103,244 @@ if (typeof gsap !== 'undefined') {
 // ==========================================
 // MAIN POPUP AND THREE.JS CONSOLIDATED CODE
 // ==========================================
-document.addEventListener("DOMContentLoaded", () => {
-    // Get all required elements
-    const overlay = document.getElementById('popupOverlay');
-    const openBtn = document.getElementById('openPopupBtn');
-    const closeBtn = document.getElementById('closePopupBtn');
-    const formContainer = document.getElementById('formContainer');
-    const successScreen = document.getElementById('successScreen');
-    const form = document.getElementById('consultationForm');
-    const card = document.getElementById('interactiveCard');
-    const rocketContainer = document.getElementById('rocket-overlay-container');
-    const leftPanel = document.getElementById('leftPanel');
-    const canvasContainer = document.getElementById('three-d-canvas');
 
-    // Check if device is mobile
-    let isMobileDevice = window.innerWidth <= 900;
+const overlay = document.getElementById('popupOverlay');
+const openBtn = document.getElementById('openPopupBtn');
+const closeBtn = document.getElementById('closePopupBtn');
+const formContainer = document.getElementById('formContainer');
+const successScreen = document.getElementById('successScreen');
+const form = document.getElementById('consultationForm');
+const card = document.getElementById('interactiveCard');
+const rocketContainer = document.getElementById('rocket-overlay-container');
 
-    window.addEventListener('resize', () => {
-        isMobileDevice = window.innerWidth <= 900;
-        if (isMobileDevice && rocketContainer) {
-            rocketContainer.style.transform = 'translate(-50%, -50%) translateZ(0px)';
-        }
-    });
+// Check if device is mobile
+let isMobileDevice = window.innerWidth <= 900;
 
-    // ==========================================
-    // 1. VANILLA JS 3D TILT EFFECT FOR POPUP
-    // ==========================================
-    if (card && overlay) {
-        window.addEventListener('resize', () => {
-            isMobileDevice = window.innerWidth <= 900;
-            if (isMobileDevice && card) {
-                card.style.transform = 'none';
-            }
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            if (isMobileDevice || !overlay.classList.contains('active') || !card) return;
-
-            const halfWidth = window.innerWidth / 2;
-            const halfHeight = window.innerHeight / 2;
-
-            const mouseX = (e.clientX - halfWidth) / halfWidth;
-            const mouseY = (e.clientY - halfHeight) / halfHeight;
-
-            const rotateX = -mouseY * 12;
-            const rotateY = mouseX * 12;
-
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
-        });
-
-        overlay.addEventListener('mouseleave', () => {
-            if (isMobileDevice || !card) return;
-            card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
-        });
-    }
-
-    // ==========================================
-    // 2. ACTIVE THREE.JS PARTICLES 3D GLOBE ENGINE
-    // ==========================================
-    let scene, camera, renderer, particleSystem, outerRing;
-    let mouseX = 0, mouseY = 0;
-    let targetX = 0, targetY = 0;
-
-    function initThreeEngine() {
-        if (!leftPanel || !canvasContainer) return;
-        
-        scene = new THREE.Scene();
-        
-        const width = leftPanel.clientWidth || 300;
-        const height = leftPanel.clientHeight || 500;
-        camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-        camera.position.z = 7.5;
-
-        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(width, height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        canvasContainer.appendChild(renderer.domElement);
-
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-        scene.add(ambientLight);
-
-        const pointLight = new THREE.PointLight(0x00d2ff, 3, 20);
-        pointLight.position.set(2, 4, 6);
-        scene.add(pointLight);
-
-        const particleCount = 200;
-        const geometry = new THREE.BufferGeometry();
-        const positions = new Float32Array(particleCount * 3);
-        const sphereRadius = 2.4;
-
-        for (let i = 0; i < particleCount; i++) {
-            const phi = Math.acos(Math.random() * 2 - 1);
-            const theta = Math.random() * Math.PI * 2;
-            positions[i * 3] = sphereRadius * Math.sin(phi) * Math.cos(theta);
-            positions[i * 3 + 1] = sphereRadius * Math.sin(phi) * Math.sin(theta);
-            positions[i * 3 + 2] = sphereRadius * Math.cos(phi);
-        }
-
-        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-        const canvasMaterial = document.createElement('canvas');
-        canvasMaterial.width = 16;
-        canvasMaterial.height = 16;
-        const ctx = canvasMaterial.getContext('2d');
-        const grad = ctx.createRadialGradient(8, 8, 0, 8, 8, 8);
-        grad.addColorStop(0, 'rgba(255,255,255,1)');
-        grad.addColorStop(0.3, 'rgba(0,210,255,1)');
-        grad.addColorStop(1, 'rgba(0,0,0,0)');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, 16, 16);
-
-        const particleTexture = new THREE.CanvasTexture(canvasMaterial);
-        const material = new THREE.PointsMaterial({
-            size: 0.18,
-            map: particleTexture,
-            transparent: true,
-            blending: THREE.AdditiveBlending,
-            depthWrite: false
-        });
-
-        particleSystem = new THREE.Points(geometry, material);
-        scene.add(particleSystem);
-
-        const ringGeometry = new THREE.RingGeometry(2.3, 2.315, 64);
-        const ringMaterial = new THREE.MeshBasicMaterial({
-            color: 0x0052FF,
-            side: THREE.DoubleSide,
-            transparent: true,
-            opacity: 0.25
-        });
-        outerRing = new THREE.Mesh(ringGeometry, ringMaterial);
-        outerRing.rotation.x = Math.PI / 2.3;
-        scene.add(outerRing);
-
-        if (leftPanel) {
-            leftPanel.addEventListener('mousemove', (e) => {
-                const rect = leftPanel.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                targetX = x * 0.001;
-                targetY = y * 0.001;
-            });
-        }
-
-        window.addEventListener('resize', onCanvasResize);
-    }
-
-    function onCanvasResize() {
-        if (!camera || !renderer || !leftPanel) return;
-        const width = leftPanel.clientWidth;
-        const height = leftPanel.clientHeight;
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-        renderer.setSize(width, height);
-    }
-
-    let clock = new THREE.Clock();
-
-    function animateThree() {
-        requestAnimationFrame(animateThree);
-        if (!renderer || !scene || !camera) return;
-
-        const time = clock.getElapsedTime();
-
-        if (particleSystem) {
-            particleSystem.rotation.y = time * 0.04;
-            particleSystem.rotation.x = time * 0.01;
-        }
-        if (outerRing) {
-            outerRing.rotation.z = -time * 0.03;
-        }
-
-        mouseX += (targetX - mouseX) * 0.05;
-        mouseY += (targetY - mouseY) * 0.05;
-
-        if (rocketContainer && !isMobileDevice) {
-            const hoverY = Math.sin(time * 1.5) * 12;
-            const tiltX = -mouseY * 18;
-            const tiltY = mouseX * 18;
-            rocketContainer.style.transform = `translate(-50%, calc(-50% + ${hoverY}px)) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(50px)`;
-        }
-
-        renderer.render(scene, camera);
-    }
-
-    // ==========================================
-    // 3. POPUP OPEN/CLOSE FUNCTIONALITY
-    // ==========================================
-    function openPopup() {
-        if (!overlay) return;
-        overlay.style.display = 'flex';
-        setTimeout(() => {
-            overlay.classList.add('active');
-            if (formContainer) formContainer.style.display = 'flex';
-            if (successScreen) successScreen.style.display = 'none';
-            if (form) form.reset();
-            if (typeof onCanvasResize === 'function') onCanvasResize();
-        }, 10);
-    }
-
-    // Open button handlers
-    const allButtons = document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .call-btn, .schedule-btn, .work-call-btn, .transparent-btn');
-    allButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openPopup();
-        });
-    });
-
-    if (openBtn) {
-        openBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openPopup();
-        });
-    }
-
-    // Close button handler
-    if (closeBtn && overlay) {
-        closeBtn.addEventListener('click', () => {
-            overlay.classList.remove('active');
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 500);
-            if (card) card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
-        });
-    }
-
-    // Close when clicking outside
-    if (overlay) {
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                overlay.classList.remove('active');
-                setTimeout(() => {
-                    overlay.style.display = 'none';
-                }, 500);
-                if (card) card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
-            }
-        });
-    }
-
-    // Form submission handler
-    function handleFormSubmit(event) {
-        if (!form) return;
-        event.preventDefault();
-
-        const btn = form.querySelector('.submit');
-        if (!btn) return;
-        
-        const originalHTML = btn.innerHTML;
-        btn.innerHTML = 'Sending...';
-        btn.style.opacity = '0.7';
-        btn.style.pointerEvents = 'none';
-
-        setTimeout(() => {
-            if (formContainer) formContainer.style.display = 'none';
-            if (successScreen) successScreen.style.display = 'flex';
-            
-            btn.innerHTML = originalHTML;
-            btn.style.opacity = '1';
-            btn.style.pointerEvents = 'auto';
-
-            setTimeout(() => {
-                if (overlay) {
-                    overlay.classList.remove('active');
-                    setTimeout(() => {
-                        if (overlay) overlay.style.display = 'none';
-                    }, 500);
-                }
-            }, 3500);
-        }, 1200);
-    }
-
-    if (form) {
-        form.addEventListener('submit', handleFormSubmit);
-    }
-
-    // Initialize everything on load
-    window.addEventListener('load', () => {
-        initThreeEngine();
-        animateThree();
-
-        setTimeout(() => {
-            if (overlay) {
-                overlay.style.display = 'flex';
-                setTimeout(() => {
-                    overlay.classList.add('active');
-                    onCanvasResize();
-                }, 10);
-            }
-        }, 600);
-    });
+window.addEventListener('resize', () => {
+  isMobileDevice = window.innerWidth <= 900;
+  if (isMobileDevice) {
+    if (rocketContainer) rocketContainer.style.transform = 'translate(-50%, -50%) translateZ(0px)';
+  }
 });
 
+// ==========================================
+// 1. ACTIVE THREE.JS BACKGROUND PARTICLES
+// ==========================================
+let scene, camera, renderer, particleSystem, outerRing;
+const leftPanel = document.getElementById('leftPanel');
+const canvasContainer = document.getElementById('three-d-canvas');
+
+// Mouse dynamic tracking variables
+let mouseX = 0, mouseY = 0;
+let targetX = 0, targetY = 0;
+
+function initThreeEngine() {
+  // Three.js Scene initialize kiya
+  scene = new THREE.Scene();
+
+  // Camera angle aur position setup
+  const width = leftPanel.clientWidth || 300;
+  const height = leftPanel.clientHeight || 500;
+  camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+  camera.position.z = 7.5;
+
+  // Renderer setup premium rendering ke liye
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  canvasContainer.appendChild(renderer.domElement);
+
+  // Light sources
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+  scene.add(ambientLight);
+
+  const pointLight = new THREE.PointLight(0x00d2ff, 3, 20);
+  pointLight.position.set(2, 4, 6);
+  scene.add(pointLight);
+
+  // Background dynamic stars sphere
+  const particleCount = 200;
+  const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(particleCount * 3);
+
+  const sphereRadius = 2.4;
+  for (let i = 0; i < particleCount; i++) {
+    const phi = Math.acos(Math.random() * 2 - 1);
+    const theta = Math.random() * Math.PI * 2;
+
+    positions[i * 3] = sphereRadius * Math.sin(phi) * Math.cos(theta);
+    positions[i * 3 + 1] = sphereRadius * Math.sin(phi) * Math.sin(theta);
+    positions[i * 3 + 2] = sphereRadius * Math.cos(phi);
+  }
+
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+  // Custom glowing round procedural circular particle texture
+  const canvasMaterial = document.createElement('canvas');
+  canvasMaterial.width = 16;
+  canvasMaterial.height = 16;
+  const ctx = canvasMaterial.getContext('2d');
+  const grad = ctx.createRadialGradient(8, 8, 0, 8, 8, 8);
+  grad.addColorStop(0, 'rgba(255,255,255,1)');
+  grad.addColorStop(0.3, 'rgba(0,210,255,1)');
+  grad.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 16, 16);
+
+  const particleTexture = new THREE.CanvasTexture(canvasMaterial);
+
+  const material = new THREE.PointsMaterial({
+    size: 0.18,
+    map: particleTexture,
+    transparent: true,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
+
+  particleSystem = new THREE.Points(geometry, material);
+  scene.add(particleSystem);
+
+  // Outer diagonal orbit ring structure
+  const ringGeometry = new THREE.RingGeometry(2.3, 2.315, 64);
+  const ringMaterial = new THREE.MeshBasicMaterial({
+    color: 0x0052FF,
+    side: THREE.DoubleSide,
+    transparent: true,
+    opacity: 0.25
+  });
+  outerRing = new THREE.Mesh(ringGeometry, ringMaterial);
+  outerRing.rotation.x = Math.PI / 2.3;
+  scene.add(outerRing);
+
+  // Mouse movement controller (Left-side panel par movement track karne ke liye)
+  leftPanel.addEventListener('mousemove', (e) => {
+    const rect = leftPanel.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    targetX = x * 0.001;
+    targetY = y * 0.001;
+  });
+
+  window.addEventListener('resize', onCanvasResize);
+}
+
+function onCanvasResize() {
+  if (!camera || !renderer) return;
+  const width = leftPanel.clientWidth;
+  const height = leftPanel.clientHeight;
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+  renderer.setSize(width, height);
+}
+
+let clock = new THREE.Clock();
+
+function animateThree() {
+  requestAnimationFrame(animateThree);
+
+  if (!renderer || !scene || !camera) return;
+
+  const time = clock.getElapsedTime();
+
+  // Background elements rotation (stars/orbit ring)
+  particleSystem.rotation.y = time * 0.04;
+  particleSystem.rotation.x = time * 0.01;
+  outerRing.rotation.z = -time * 0.03;
+
+  // Inertia-based interactive mouse offsets calculations
+  mouseX += (targetX - mouseX) * 0.05;
+  mouseY += (targetY - mouseY) * 0.05;
+
+  // ROCKET IMAGE HOVER & TILT PHYSICS: Isse exact 3D floating aura effect milta hai
+  if (rocketContainer && !isMobileDevice) {
+    const hoverY = Math.sin(time * 1.5) * 12; // Continuous smooth up-down flow
+    const tiltX = -mouseY * 18; // Left/Right dynamic 3D angle
+    const tiltY = mouseX * 18;  // Up/Down dynamic 3D angle
+
+    // CSS matrix transform apply kiya high-fps execution ke liye
+    rocketContainer.style.transform = `translate(-50%, calc(-50% + ${hoverY}px)) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(50px)`;
+  }
+
+  renderer.render(scene, camera);
+}
+
+// ==========================================
+// 2. TRANSITION CONTROLS AND FORMS API SETUP
+// ==========================================
+
+// Open overlay
+openBtn.addEventListener('click', () => {
+  overlay.style.display = 'flex';
+  setTimeout(() => {
+    overlay.classList.add('active');
+    formContainer.style.display = 'flex';
+    successScreen.style.display = 'none';
+    form.reset();
+    onCanvasResize();
+  }, 10);
+});
+
+// Close overlay
+closeBtn.addEventListener('click', () => {
+  overlay.classList.remove('active');
+  setTimeout(() => {
+    overlay.style.display = 'none';
+  }, 500);
+});
+
+// Close click outside bounds
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay) {
+    overlay.classList.remove('active');
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 500);
+  }
+});
+
+// Simulating sleek Form submission
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  const btn = form.querySelector('.submit');
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = 'Sending...';
+  btn.style.opacity = '0.7';
+  btn.style.pointerEvents = 'none';
+
+  // Fake API response delay transition
+  setTimeout(() => {
+    formContainer.style.display = 'none';
+    successScreen.style.display = 'flex';
+
+    btn.innerHTML = originalHTML;
+    btn.style.opacity = '1';
+    btn.style.pointerEvents = 'auto';
+
+    // Success message ke bad system safely slide-out hoga
+    setTimeout(() => {
+      overlay.classList.remove('active');
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 500);
+    }, 3500);
+  }, 1200);
+}
+
+// Page loads everything sequentially
+window.addEventListener('load', () => {
+  initThreeEngine();
+  animateThree();
+
+  // Settle elegant auto-popup opening
+  setTimeout(() => {
+    overlay.style.display = 'flex';
+    setTimeout(() => {
+      overlay.classList.add('active');
+      onCanvasResize();
+    }, 10);
+  }, 600);
+});
 // ==========================================
 // LOGIN POPUP
 // ==========================================
