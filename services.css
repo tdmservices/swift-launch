@@ -3305,13 +3305,13 @@ textarea {
   margin: 0;
 }
 
-.popup-left img {
+/* .popup-left img {
   width: 240px;
   max-width: 80%;
   position: relative;
   z-index: 5;
   margin-bottom: 169px;
-}
+} */
 
 
 .popup-left::before {
