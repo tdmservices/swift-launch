@@ -113,127 +113,82 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-})
-// ================= CONTACT POPUP =================
+  // ================= CONTACT POPUP =================
 
-const overlay = document.getElementById('popupOverlay');
-const openBtn = document.getElementById('openPopupBtn');
+  const overlay = document.getElementById('popupOverlay');
+  const openBtn = document.getElementById('openPopupBtn');
+  const closeBtn = document.getElementById('closePopupBtn');
+  const formContainer = document.getElementById('formContainer');
+  const successScreen = document.getElementById('successScreen');
+  const form = document.getElementById('consultationForm');
+  const card = document.getElementById('interactiveCard');
+  const rocketContainer = document.getElementById('rocket-overlay-container');
 
-// ✅ Yeh add karo
-document.querySelectorAll(
-    '.primary-btn, .btn-secondary, .btn-primary, .call-btn, .schedule-btn, .work-call-btn, .transparent-btn'
-).forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.preventDefault(); // agar button link ke andar ho
+  // Check if device is mobile
+  let isMobileDevice = window.innerWidth <= 900;
 
-        overlay.classList.add('active');
-
-        if (formContainer) formContainer.style.display = 'flex';
-        if (successScreen) successScreen.style.display = 'none';
-        if (form) form.reset();
-
-        if (typeof onCanvasResize === 'function') {
-            onCanvasResize();
-        }
-    });
-});
-const closeBtn = document.getElementById('closePopupBtn');
-const formContainer = document.getElementById('formContainer');
-const successScreen = document.getElementById('successScreen');
-const form = document.getElementById('consultationForm');
-const card = document.getElementById('interactiveCard');
-
-// ==========================================
-// 1. VANILLA JS 3D TILT EFFECT FOR POPUP
-// ==========================================
-let isMobileDevice = window.innerWidth <= 900;
-
-window.addEventListener('resize', () => {
+  window.addEventListener('resize', () => {
     isMobileDevice = window.innerWidth <= 900;
-    if (isMobileDevice) {
-        card.style.transform = 'none';
+    if (isMobileDevice && rocketContainer) {
+      rocketContainer.style.transform = 'translate(-50%, -50%) translateZ(0px)';
     }
-});
+  });
 
+  // ==========================================
+  // 1. ACTIVE THREE.JS BACKGROUND PARTICLES
+  // ==========================================
+  let scene, camera, renderer, particleSystem, outerRing;
+  const leftPanel = document.getElementById('leftPanel');
+  const canvasContainer = document.getElementById('three-d-canvas');
 
-document.addEventListener('mousemove', (e) => {
-    if (isMobileDevice || !overlay.classList.contains('active')) return;
+  // Mouse dynamic tracking variables
+  let mouseX = 0, mouseY = 0;
+  let targetX = 0, targetY = 0;
 
-    const halfWidth = window.innerWidth / 2;
-    const halfHeight = window.innerHeight / 2;
-
-    // Calculate offsets normalized from -1 to 1
-    const mouseX = (e.clientX - halfWidth) / halfWidth;
-    const mouseY = (e.clientY - halfHeight) / halfHeight;
-
-    // Soft tilt angle values
-    const rotateX = -mouseY * 12; // tilt upwards/downwards
-    const rotateY = mouseX * 12;  // tilt sideways
-
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
-});
-
-// Reset tilt on mouseleave of the container
-overlay.addEventListener('mouseleave', () => {
-    if (isMobileDevice) return;
-    card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
-});
-
-
-// ==========================================
-// 2. ACTIVE THREE.JS PARTICLES 3D GLOBE ENGINE
-// ==========================================
-let scene, camera, renderer, particleSystem, outerRing;
-const leftPanel = document.getElementById('leftPanel');
-const canvasContainer = document.getElementById('three-d-canvas');
-
-// Mouse relative move tracking
-let mouseX = 0, mouseY = 0;
-let targetX = 0, targetY = 0;
-
-function initThreeEngine() {
-    // Scene Setup
+  function initThreeEngine() {
+    if (!leftPanel || !canvasContainer) return;
+    
+    // Three.js Scene initialize kiya
     scene = new THREE.Scene();
 
-    // Camera Setup
-    const width = leftPanel.clientWidth;
-    const height = leftPanel.clientHeight;
+    // Camera angle aur position setup
+    const width = leftPanel.clientWidth || 300;
+    const height = leftPanel.clientHeight || 500;
     camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-    camera.position.z = 8;
+    camera.position.z = 7.5;
 
-    // Renderer Setup
+    // Renderer setup premium rendering ke liye
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     canvasContainer.appendChild(renderer.domElement);
 
-    // Light sources (subtle specularity details)
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+    // Light sources
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
 
-    const pointLight = new THREE.PointLight(0x00d2ff, 2, 20);
-    pointLight.position.set(2, 3, 4);
+    const pointLight = new THREE.PointLight(0x00d2ff, 3, 20);
+    pointLight.position.set(2, 4, 6);
     scene.add(pointLight);
 
-    // Construct 3D Particle Constellation (Globe Structure)
+    // Background dynamic stars sphere
     const particleCount = 200;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
 
-    const sphereRadius = 1.8;
+    const sphereRadius = 2.4;
     for (let i = 0; i < particleCount; i++) {
-        // Generate uniform sphere shell locations
-        const phi = Math.acos(Math.random() * 2 - 1);
-        const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(Math.random() * 2 - 1);
+      const theta = Math.random() * Math.PI * 2;
 
-        positions[i * 3] = sphereRadius * Math.sin(phi) * Math.cos(theta);
-        positions[i * 3 + 1] = sphereRadius * Math.sin(phi) * Math.sin(theta);
-        positions[i * 3 + 2] = sphereRadius * Math.cos(phi);
+      positions[i * 3] = sphereRadius * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = sphereRadius * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = sphereRadius * Math.cos(phi);
     }
 
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-    // High-quality glowing particle material using a procedural circle textures
+    // Custom glowing round procedural circular particle texture
     const canvasMaterial = document.createElement('canvas');
     canvasMaterial.width = 16;
     canvasMaterial.height = 16;
@@ -248,255 +203,309 @@ function initThreeEngine() {
     const particleTexture = new THREE.CanvasTexture(canvasMaterial);
 
     const material = new THREE.PointsMaterial({
-        size: 0.18,
-        map: particleTexture,
-        transparent: true,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
+      size: 0.18,
+      map: particleTexture,
+      transparent: true,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
     });
 
     particleSystem = new THREE.Points(geometry, material);
     scene.add(particleSystem);
 
-    // Add outer orbits structure (Sleek sci-fi tech look)
-    const ringGeometry = new THREE.RingGeometry(2.4, 2.42, 64);
+    // Outer diagonal orbit ring structure
+    const ringGeometry = new THREE.RingGeometry(2.3, 2.315, 64);
     const ringMaterial = new THREE.MeshBasicMaterial({
-        color: 0x0052FF,
-        side: THREE.DoubleSide,
-        transparent: true,
-        opacity: 0.25
+      color: 0x0052FF,
+      side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 0.25
     });
     outerRing = new THREE.Mesh(ringGeometry, ringMaterial);
-    outerRing.rotation.x = Math.PI / 2.5;
+    outerRing.rotation.x = Math.PI / 2.3;
     scene.add(outerRing);
 
-    // Interactive mouse rotation tracking inside the left panel
-    leftPanel.addEventListener('mousemove', (e) => {
+    // Mouse movement controller (Left-side panel par movement track karne ke liye)
+    if (leftPanel) {
+      leftPanel.addEventListener('mousemove', (e) => {
         const rect = leftPanel.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        targetX = x * 0.0015;
-        targetY = y * 0.0015;
-    });
+        targetX = x * 0.001;
+        targetY = y * 0.001;
+      });
+    }
 
-    // Resizing handler
     window.addEventListener('resize', onCanvasResize);
-}
+  }
 
-function onCanvasResize() {
-    if (!camera || !renderer) return;
+  function onCanvasResize() {
+    if (!camera || !renderer || !leftPanel) return;
     const width = leftPanel.clientWidth;
     const height = leftPanel.clientHeight;
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
-}
+  }
 
-// Three.js animation cycle loop
-let clock = new THREE.Clock();
+  let clock = new THREE.Clock();
 
-function animateThree() {
+  function animateThree() {
     requestAnimationFrame(animateThree);
 
     if (!renderer || !scene || !camera) return;
 
-    const delta = clock.getDelta();
     const time = clock.getElapsedTime();
 
-    // Constant elegant 3D space movements
-    particleSystem.rotation.y = time * 0.12;
-    particleSystem.rotation.x = time * 0.05;
+    // Background elements rotation (stars/orbit ring)
+    if (particleSystem) {
+      particleSystem.rotation.y = time * 0.04;
+      particleSystem.rotation.x = time * 0.01;
+    }
+    if (outerRing) {
+      outerRing.rotation.z = -time * 0.03;
+    }
 
-    outerRing.rotation.z = -time * 0.15;
-
-    // Inertia-based interactive mouse rotations
+    // Inertia-based interactive mouse offsets calculations
     mouseX += (targetX - mouseX) * 0.05;
     mouseY += (targetY - mouseY) * 0.05;
 
-    particleSystem.rotation.y += mouseX;
-    particleSystem.rotation.x += mouseY;
-    outerRing.rotation.y = mouseX * 1.5;
+    // ROCKET IMAGE HOVER & TILT PHYSICS
+    if (rocketContainer && !isMobileDevice) {
+      const hoverY = Math.sin(time * 1.5) * 12;
+      const tiltX = -mouseY * 18;
+      const tiltY = mouseX * 18;
+      
+      rocketContainer.style.transform = `translate(-50%, calc(-50% + ${hoverY}px)) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(50px)`;
+    }
 
     renderer.render(scene, camera);
-}
+  }
 
-// ==========================================
-// 3. EVENT LISTENERS AND TRANSITIONS CONTROL
-// ==========================================
-// Open button handler
-openBtn.addEventListener('click', () => {
-    overlay.style.display = 'flex'; // ✅ Yeh add karo
-    overlay.classList.add('active');
-    formContainer.style.display = 'flex';
-    successScreen.style.display = 'none';
-    form.reset();
-    onCanvasResize();
-});
-
-// Baaki buttons ke liye bhi
-document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary').forEach(btn => {
-    btn.addEventListener('click', () => {
-        overlay.style.display = 'flex'; // ✅ Yeh bhi
+  // ==========================================
+  // 2. TRANSITION CONTROLS AND FORMS API SETUP
+  // ==========================================
+  
+  // Open button handler for all buttons
+  const allOpenButtons = document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary, .call-btn, .schedule-btn, .work-call-btn, .transparent-btn');
+  
+  function openPopup() {
+    if (overlay) {
+      overlay.style.display = 'flex';
+      setTimeout(() => {
         overlay.classList.add('active');
-        formContainer.style.display = 'flex';
-        successScreen.style.display = 'none';
-        form.reset();
+        if (formContainer) formContainer.style.display = 'flex';
+        if (successScreen) successScreen.style.display = 'none';
+        if (form) form.reset();
         onCanvasResize();
-    });
-});
-// Close button handler
-closeBtn.addEventListener('click', () => {
-    overlay.classList.remove('active');
-    overlay.style.display = 'none'; // ✅ Yeh add karo
-    card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
-});
-
-// Close when clicking outside of the popup
-overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-        overlay.classList.remove('active');
-        overlay.style.display = 'none'; // ✅ Yeh add karo
-        card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
+      }, 10);
     }
-});
+  }
 
-// Safe Submit handler (Simulating success transition)
-function handleFormSubmit(event) {
+  allOpenButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPopup();
+    });
+  });
+
+  if (openBtn) {
+    openBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPopup();
+    });
+  }
+
+  // Close overlay
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      if (overlay) {
+        overlay.classList.remove('active');
+        setTimeout(() => {
+          overlay.style.display = 'none';
+        }, 500);
+      }
+    });
+  }
+
+  // Close click outside bounds
+  if (overlay) {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
+        setTimeout(() => {
+          overlay.style.display = 'none';
+        }, 500);
+      }
+    });
+  }
+
+  // Simulating sleek Form submission
+  function handleFormSubmit(event) {
+    if (!form) return;
     event.preventDefault();
 
     const btn = form.querySelector('.submit');
+    if (!btn) return;
+    
+    const originalHTML = btn.innerHTML;
     btn.innerHTML = 'Sending...';
     btn.style.opacity = '0.7';
     btn.style.pointerEvents = 'none';
 
-    // Simulate transition to success screen (1.2 seconds)
+    // Fake API response delay transition
     setTimeout(() => {
-        formContainer.style.display = 'none';
-        successScreen.style.display = 'flex';
+      if (formContainer) formContainer.style.display = 'none';
+      if (successScreen) successScreen.style.display = 'flex';
+      
+      btn.innerHTML = originalHTML;
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';
 
-        // Auto close popup with delay
-        setTimeout(() => {
-            overlay.classList.remove('active');
-            card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
-        }, 3500);
+      // Success message ke bad system safely slide-out hoga
+      setTimeout(() => {
+        if (overlay) {
+          overlay.classList.remove('active');
+          setTimeout(() => {
+            if (overlay) overlay.style.display = 'none';
+          }, 500);
+        }
+      }, 3500);
     }, 1200);
-}
+  }
 
-// Start initialization on window load
-window.addEventListener('load', () => {
+  if (form) {
+    form.addEventListener('submit', handleFormSubmit);
+  }
+
+  // Page loads everything sequentially
+  window.addEventListener('load', () => {
     initThreeEngine();
     animateThree();
 
-    // Auto open popup after page starts (very clean delay transition)
+    // Settle elegant auto-popup opening
     setTimeout(() => {
-        overlay.classList.add('active');
-        onCanvasResize();
+      if (overlay) {
+        overlay.style.display = 'flex';
+        setTimeout(() => {
+          overlay.classList.add('active');
+          onCanvasResize();
+        }, 10);
+      }
     }, 600);
-});
-
-// ================= GSAP =================
-
-window.addEventListener("load", function () {
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  let mm = gsap.matchMedia();
-
-  mm.add("(min-width: 1880px)", function () {
-    gsap.to(".info-card", {
-      y: 180,
-      opacity: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero-wrapper",
-        start: "top top",
-        end: "+=1500",
-        scrub: true,
-        pin: true
-      }
-    });
   });
 
-  mm.add("(min-width: 1400px) and (max-width: 1879px)", function () {
-    gsap.to(".info-card", {
-      y: 480,
-      opacity: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero-wrapper",
-        start: "top top",
-        end: "+=1300",
-        scrub: true,
-        pin: true
-      }
+  // ================= GSAP =================
+
+  if (typeof gsap !== 'undefined') {
+    window.addEventListener("load", function () {
+      gsap.registerPlugin(ScrollTrigger);
+
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 1880px)", function () {
+        gsap.to(".info-card", {
+          y: 180,
+          opacity: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".hero-wrapper",
+            start: "top top",
+            end: "+=1500",
+            scrub: true,
+            pin: true
+          }
+        });
+      });
+
+      mm.add("(min-width: 1400px) and (max-width: 1879px)", function () {
+        gsap.to(".info-card", {
+          y: 480,
+          opacity: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".hero-wrapper",
+            start: "top top",
+            end: "+=1300",
+            scrub: true,
+            pin: true
+          }
+        });
+      });
+
+      mm.add("(min-width: 1025px) and (max-width: 1399px)", function () {
+        gsap.to(".info-card", {
+          y: 80,
+          opacity: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".hero-wrapper",
+            start: "top top",
+            end: "+=1000",
+            scrub: true,
+            pin: true
+          }
+        });
+      });
+
+      mm.add("(max-width: 1024px)", function () {
+        gsap.to(".info-card", {
+          y: 50,
+          opacity: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".hero-wrapper",
+            start: "top top",
+            end: "+=800",
+            scrub: true,
+            pin: true
+          }
+        });
+      });
+
+      ScrollTrigger.refresh();
     });
-  });
+  }
 
-  mm.add("(min-width: 1025px) and (max-width: 1399px)", function () {
-    gsap.to(".info-card", {
-      y: 80,
-      opacity: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero-wrapper",
-        start: "top top",
-        end: "+=1000",
-        scrub: true,
-        pin: true
-      }
-    });
-  });
-
-  mm.add("(max-width: 1024px)", function () {
-    gsap.to(".info-card", {
-      y: 50,
-      opacity: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero-wrapper",
-        start: "top top",
-        end: "+=800",
-        scrub: true,
-        pin: true
-      }
-    });
-  });
-
-  ScrollTrigger.refresh();
-});
-
-
-    // Open & Close function controller
-    function toggleSlPopup(show) {
-      const mask = document.getElementById('slPopupOverlayMask');
+  // ================= SL POPUP FUNCTIONS =================
+  
+  // Open & Close function controller
+  window.toggleSlPopup = function(show) {
+    const mask = document.getElementById('slPopupOverlayMask');
+    if (mask) {
       if (show) {
         mask.classList.add('sl-mask-visible');
       } else {
         mask.classList.remove('sl-mask-visible');
       }
     }
+  };
 
-    // File Selector stimulation handler
-    function triggerSlFileSelector() {
-      document.getElementById('slFileSelectorElement').click();
-    }
+  // File Selector stimulation handler
+  window.triggerSlFileSelector = function() {
+    const fileInput = document.getElementById('slFileSelectorElement');
+    if (fileInput) fileInput.click();
+  };
 
-    // Display chosen filename in shield space
-    function handleSlFileSelection(e) {
-      const file = e.target.files[0];
-      const filenameLabel = document.getElementById('slAttachedFileName');
+  // Display chosen filename in shield space
+  window.handleSlFileSelection = function(e) {
+    const file = e.target.files[0];
+    const filenameLabel = document.getElementById('slAttachedFileName');
+    if (filenameLabel) {
       if (file) {
         filenameLabel.textContent = `(${file.name})`;
       } else {
         filenameLabel.textContent = '';
       }
     }
+  };
 
-    // Submit and build beautiful success view inside white shield card
-    function handleSlFormSubmit(e) {
-      e.preventDefault();
-      const formShield = document.getElementById('slFormShieldContainer');
-      
+  // Submit and build beautiful success view inside white shield card
+  window.handleSlFormSubmit = function(e) {
+    e.preventDefault();
+    const formShield = document.getElementById('slFormShieldContainer');
+    
+    if (formShield) {
       formShield.innerHTML = `
         <div class="sl-form-success-shield">
           <div class="sl-form-success-icon-badge">
@@ -514,3 +523,5 @@ window.addEventListener("load", function () {
         </div>
       `;
     }
+  };
+});
