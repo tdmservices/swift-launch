@@ -437,3 +437,52 @@ if (showLogin && loginForm && signupForm) {
         loginForm.style.display = "block";
     });
 }
+
+   // Open & Close function controller
+    function toggleSlPopup(show) {
+      const mask = document.getElementById('slPopupOverlayMask');
+      if (show) {
+        mask.classList.add('sl-mask-visible');
+      } else {
+        mask.classList.remove('sl-mask-visible');
+      }
+    }
+
+    // File Selector stimulation handler
+    function triggerSlFileSelector() {
+      document.getElementById('slFileSelectorElement').click();
+    }
+
+    // Display chosen filename in shield space
+    function handleSlFileSelection(e) {
+      const file = e.target.files[0];
+      const filenameLabel = document.getElementById('slAttachedFileName');
+      if (file) {
+        filenameLabel.textContent = `(${file.name})`;
+      } else {
+        filenameLabel.textContent = '';
+      }
+    }
+
+    // Submit and build beautiful success view inside white shield card
+    function handleSlFormSubmit(e) {
+      e.preventDefault();
+      const formShield = document.getElementById('slFormShieldContainer');
+      
+      formShield.innerHTML = `
+        <div class="sl-form-success-shield">
+          <div class="sl-form-success-icon-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width: 38px; height: 38px;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+          <h2 style="color: #1e3a8a; font-size: 28px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px;">THANKS!</h2>
+          <p style="color: #64748b; font-size: 15px; line-height: 1.6; margin-bottom: 30px; font-weight: 500;">
+            Your message has been received. Our team will contact you shortly.
+          </p>
+          <button onclick="location.reload()" class="sl-form-submit-action" style="max-width: 200px; margin: 0 auto;">
+            Got It
+          </button>
+        </div>
+      `;
+    }
