@@ -3425,7 +3425,7 @@
     }
   }
 
-  
+
   .sl-demo-section {
     display: flex;
     flex-direction: column;
@@ -3887,6 +3887,13 @@
       top: 15px;
       right: 15px;
     }
+  }
+
+  .sl-sidebar-logo-icon-holder img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
   }
 
   @media(max-width: 600px) {

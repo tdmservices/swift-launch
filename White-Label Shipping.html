@@ -1137,138 +1137,132 @@
 
     </footer>
 
-          <!-- Popup Overlay Wrapper -->
+    <!-- Popup Overlay Wrapper -->
     <div id="slPopupOverlayMask">
 
-      <!-- Floating Popup Wrapper -->
-      <div class="sl-modal-board">
-        <div class="sl-modal-grid-decor"></div>
+        <!-- Floating Popup Wrapper -->
+        <div class="sl-modal-board">
+            <div class="sl-modal-grid-decor"></div>
 
-        <!-- Close (X) Button -->
-        <span id="slCloseAction" onclick="toggleSlPopup(false)">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
-            stroke="currentColor" style="width: 18px; height: 18px;">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-          </svg>
-        </span>
-
-        <!-- LEFT SIDE branding info layout panel -->
-        <div class="sl-sidebar-pane">
-
-          <!-- Logo -->
-          <div class="sl-sidebar-logo-block">
-            <div class="sl-sidebar-logo-icon-holder">
-              <!-- Rocket icon SVG -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                  d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.63 8.41a14.98 14.98 0 00-6.16 12.12 14.98 14.98 0 0012.12-6.16z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                  d="M9.63 8.41a6 6 0 00-5.84 7.38h4.8" />
-              </svg>
-            </div>
-            <span>SWIFT-LAUNCH</span>
-          </div>
-
-          <!-- Typography Headings -->
-          <div class="sl-sidebar-body-text">
-            <h2>Get In Touch</h2>
-            <p>We'd love to hear from you! Share your details and our team will contact you shortly.</p>
-          </div>
-
-          <!-- Contact Support Link anchor -->
-          <div class="sl-sidebar-footer-link">
-            <a href="mailto:hello@swiftlaunch.co.uk">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2"
-                stroke="currentColor" style="width: 18px; height: 18px; margin-right: 4px;">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-              </svg>
-              hello@swiftlaunch.co.uk
-            </a>
-          </div>
-        </div>
-
-        <!-- RIGHT SIDE: WHITE INPUT FORM CONTROL SHIELD -->
-        <div class="sl-form-white-shield" id="slFormShieldContainer">
-          <div class="sl-form-shield-title">
-            <h3>Send Us a Message</h3>
-          </div>
-
-          <form onsubmit="handleSlFormSubmit(event)">
-
-            <!-- Name & Company fields Row -->
-            <div class="sl-form-grid-row">
-              <div class="sl-field-container">
-                <label for="slInputName">Your Name</label>
-                <input type="text" id="slInputName" placeholder="Enter your full name" required>
-              </div>
-              <div class="sl-field-container">
-                <label for="slInputCompany">Company Name</label>
-                <input type="text" id="slInputCompany" placeholder="e.g. Execor" required>
-              </div>
-            </div>
-
-            <!-- Email & Phone fields Row -->
-            <div class="sl-form-grid-row">
-              <div class="sl-field-container">
-                <label for="slInputEmail">Email Address</label>
-                <input type="email" id="slInputEmail" placeholder="example@email.com" required>
-              </div>
-              <div class="sl-field-container">
-                <label for="slInputPhone">Phone Number</label>
-                <input type="tel" id="slInputPhone" placeholder="+1 (555) 000-0000" required>
-              </div>
-            </div>
-
-            <!-- Preferred Contact Radio Choice -->
-            <div class="sl-full-block-container">
-              <label>Preferred Contact Method</label>
-              <div class="sl-choices-wrapper">
-                <label class="sl-choice-label">
-                  <input type="radio" name="slContactPreference" value="Phone" required>
-                  Phone
-                </label>
-                <label class="sl-choice-label">
-                  <input type="radio" name="slContactPreference" value="Email" checked required>
-                  Email
-                </label>
-              </div>
-            </div>
-
-            <!-- Attachment simulation upload block -->
-            <div class="sl-uploader-block">
-              <button type="button" class="sl-uploader-trigger-action" onclick="triggerSlFileSelector()">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2"
-                  stroke="currentColor" style="width: 18px; height: 18px;">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l4.5-4.5a4.5 4.5 0 01-1.243-1.077m5.38.33l1.076-1.077a4.5 4.5 0 00-6.364-6.364l-1.076 1.077M15.357 15.357l1.076-1.076a4.5 4.5 0 00-6.364-6.364l-1.076 1.076" />
+            <!-- Close (X) Button -->
+            <span id="slCloseAction" onclick="toggleSlPopup(false)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                    stroke="currentColor" style="width: 18px; height: 18px;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
-                Upload File
-              </button>
-              <span id="slAttachedFileName"
-                style="font-size: 12px; color: #64748b; font-weight: 600; margin-left: 4px;"></span>
+            </span>
+
+            <!-- LEFT SIDE branding info layout panel -->
+            <div class="sl-sidebar-pane">
+
+                <!-- Logo -->
+                <div class="sl-sidebar-logo-block">
+                    <div class="sl-sidebar-logo-icon-holder">
+                        <img src="favicon svg.svg" alt="Swift Launch Logo">
+                    </div>
+                    <span>SWIFT-LAUNCH</span>
+                </div>
+
+                <!-- Typography Headings -->
+                <div class="sl-sidebar-body-text">
+                    <h2>Get In Touch</h2>
+                    <p>We'd love to hear from you! Share your details and our team will contact you shortly.</p>
+                </div>
+
+                <!-- Contact Support Link anchor -->
+                <div class="sl-sidebar-footer-link">
+                    <a href="mailto:hello@swiftlaunch.co.uk">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2"
+                            stroke="currentColor" style="width: 18px; height: 18px; margin-right: 4px;">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                        </svg>
+                        hello@swiftlaunch.co.uk
+                    </a>
+                </div>
             </div>
 
-            <!-- Hidden input file element -->
-            <input type="file" id="slFileSelectorElement" style="display: none;"
-              onchange="handleSlFileSelection(event)">
+            <!-- RIGHT SIDE: WHITE INPUT FORM CONTROL SHIELD -->
+            <div class="sl-form-white-shield" id="slFormShieldContainer">
+                <div class="sl-form-shield-title">
+                    <h3>Send Us a Message</h3>
+                </div>
 
-            <!-- Submitting Actions button inside shield card -->
-            <button type="submit" class="sl-form-submit-action">
-              <span>Send Message</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2"
-                stroke="currentColor" style="width: 18px; height: 18px;">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M6 12L3.269 3.125A59.769 59.769 0 0121.485 12 59.768 59.768 0 013.27 20.875L5.999 12Zm0 0h7.5" />
-              </svg>
-            </button>
+                <form onsubmit="handleSlFormSubmit(event)">
 
-          </form>
+                    <!-- Name & Company fields Row -->
+                    <div class="sl-form-grid-row">
+                        <div class="sl-field-container">
+                            <label for="slInputName">Your Name</label>
+                            <input type="text" id="slInputName" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="sl-field-container">
+                            <label for="slInputCompany">Company Name</label>
+                            <input type="text" id="slInputCompany" placeholder="e.g. Execor" required>
+                        </div>
+                    </div>
+
+                    <!-- Email & Phone fields Row -->
+                    <div class="sl-form-grid-row">
+                        <div class="sl-field-container">
+                            <label for="slInputEmail">Email Address</label>
+                            <input type="email" id="slInputEmail" placeholder="example@email.com" required>
+                        </div>
+                        <div class="sl-field-container">
+                            <label for="slInputPhone">Phone Number</label>
+                            <input type="tel" id="slInputPhone" placeholder="+1 (555) 000-0000" required>
+                        </div>
+                    </div>
+
+                    <!-- Preferred Contact Radio Choice -->
+                    <div class="sl-full-block-container">
+                        <label>Preferred Contact Method</label>
+                        <div class="sl-choices-wrapper">
+                            <label class="sl-choice-label">
+                                <input type="radio" name="slContactPreference" value="Phone" required>
+                                Phone
+                            </label>
+                            <label class="sl-choice-label">
+                                <input type="radio" name="slContactPreference" value="Email" checked required>
+                                Email
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Attachment simulation upload block -->
+                    <div class="sl-uploader-block">
+                        <button type="button" class="sl-uploader-trigger-action" onclick="triggerSlFileSelector()">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2"
+                                stroke="currentColor" style="width: 18px; height: 18px;">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l4.5-4.5a4.5 4.5 0 01-1.243-1.077m5.38.33l1.076-1.077a4.5 4.5 0 00-6.364-6.364l-1.076 1.077M15.357 15.357l1.076-1.076a4.5 4.5 0 00-6.364-6.364l-1.076 1.076" />
+                            </svg>
+                            Upload File
+                        </button>
+                        <span id="slAttachedFileName"
+                            style="font-size: 12px; color: #64748b; font-weight: 600; margin-left: 4px;"></span>
+                    </div>
+
+                    <!-- Hidden input file element -->
+                    <input type="file" id="slFileSelectorElement" style="display: none;"
+                        onchange="handleSlFileSelection(event)">
+
+                    <!-- Submitting Actions button inside shield card -->
+                    <button type="submit" class="sl-form-submit-action">
+                        <span>Send Message</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2"
+                            stroke="currentColor" style="width: 18px; height: 18px;">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6 12L3.269 3.125A59.769 59.769 0 0121.485 12 59.768 59.768 0 013.27 20.875L5.999 12Zm0 0h7.5" />
+                        </svg>
+                    </button>
+
+                </form>
+            </div>
+
         </div>
-
-      </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
