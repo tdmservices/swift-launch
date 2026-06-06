@@ -1,225 +1,145 @@
+// ── Navbar ──
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
-menuToggle.addEventListener("click", () => {
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
-});
+  });
+}
 
-/* SECTION THREE SECTION THREE SECTION THREE SECTION THREE ECTION THREE */
-
+// ── Section 3 — Filter Buttons ──
 const buttons = document.querySelectorAll(".filters button");
 
 buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-
-        // remove active class from all buttons
-        buttons.forEach((btn) => {
-            btn.classList.remove("active");
-        });
-
-        // add active class to clicked button
-        button.classList.add("active");
-
-    });
+  button.addEventListener("click", () => {
+    buttons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+  });
 });
 
-//   <!-- SECTION FIVE SECTION FIVE SECTION FIVE SECTION FIVE SECTION FIVE -->
-
+// ── Section 5 — Brand Slider Center Item ──
 function updateCenterItem() {
-    const slider = document.querySelector('.brand-slider');
-    const items = document.querySelectorAll('.brand-item');
+  const slider = document.querySelector('.brand-slider');
+  const items = document.querySelectorAll('.brand-item');
 
-    if (!slider || !items.length) return;
+  if (!slider || !items.length) return;
 
-    const sliderCenter = slider.getBoundingClientRect().left + slider.offsetWidth / 2;
+  const sliderCenter = slider.getBoundingClientRect().left + slider.offsetWidth / 2;
 
-    let closestItem = null;
-    let closestDistance = Infinity;
+  let closestItem = null;
+  let closestDistance = Infinity;
 
-    items.forEach(item => {
-        const itemRect = item.getBoundingClientRect();
-        const itemCenter = itemRect.left + itemRect.width / 2;
-        const distance = Math.abs(sliderCenter - itemCenter);
+  items.forEach(item => {
+    const itemRect = item.getBoundingClientRect();
+    const itemCenter = itemRect.left + itemRect.width / 2;
+    const distance = Math.abs(sliderCenter - itemCenter);
 
-        if (distance < closestDistance) {
-            closestDistance = distance;
-            closestItem = item;
-        }
-    });
-
-    items.forEach(item => item.classList.remove('active-center'));
-
-    if (closestItem) {
-        closestItem.classList.add('active-center');
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closestItem = item;
     }
+  });
+
+  items.forEach(item => item.classList.remove('active-center'));
+  if (closestItem) closestItem.classList.add('active-center');
 }
 
-// Continuously check which item is in center
 setInterval(updateCenterItem, 50);
 
-
-//  <!-- SECTION EIGHT SECTION EIGHT SECTION EIGHT SECTION EIGHT  -->
-
+// ── Section 8 — Plan Cards Animation ──
 document.addEventListener("DOMContentLoaded", () => {
-
-    const cards = document.querySelectorAll(".plan-card");
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
-        });
-    }, {
-        threshold: 0.2
+  const cards = document.querySelectorAll(".plan-card");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("show");
     });
-
-    cards.forEach(card => observer.observe(card));
-
+  }, { threshold: 0.2 });
+  cards.forEach(card => observer.observe(card));
 });
 
-const faqItems = document.querySelectorAll(".faq-item");
-
-faqItems.forEach(item => {
+// ── FAQ Toggle ──
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll(".faq-item");
+  faqItems.forEach(item => {
     const question = item.querySelector(".faq-question");
-
+    if (!question) return;
     question.addEventListener("click", () => {
-
-        faqItems.forEach(faq => {
-            faq.classList.remove("active");
-        });
-
-        item.classList.add("active");
+      faqItems.forEach(faq => faq.classList.remove("active"));
+      item.classList.add("active");
     });
+  });
 });
 
-
-// SECTON 13 ANMATON SECTON 13 ANMATON SECTON 13 ANMATON
-
+// ── Section 13 — Contact Animation ──
 document.addEventListener("DOMContentLoaded", () => {
-
-    const elements = document.querySelectorAll(
-        ".contact-form, .contact-image, .subscribe"
-    );
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
-        });
-    }, {
-        threshold: 0.2
+  const elements = document.querySelectorAll(".contact-form, .contact-image, .subscribe");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("show");
     });
-
-    elements.forEach(el => observer.observe(el));
-
+  }, { threshold: 0.2 });
+  elements.forEach(el => observer.observe(el));
 });
 
-// /* <!-- SECTON SIX SECTION SIX SECTION SIX SECTION SIX --> */
+// ── Section 6 — Card Filter ──
+document.addEventListener("DOMContentLoaded", () => {
+  const filterBtns = document.querySelectorAll(".filters button");
+  const filterCards = document.querySelectorAll(".card");
 
-const button = document.querySelectorAll(".filters button");
-const cards = document.querySelectorAll(".card");
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
 
-buttons.forEach((button) => {
+      const filter = btn.getAttribute("data-filter");
 
-    button.addEventListener("click", () => {
-
-        // remove active class
-        buttons.forEach((btn) => {
-            btn.classList.remove("active");
-        });
-
-        // add active class
-        button.classList.add("active");
-
-        // get filter value
-        const filter = button.getAttribute("data-filter");
-
-        // filter cards
-        cards.forEach((card) => {
-
-            const category = card.getAttribute("data-category");
-
-            if (filter === "all" || category === filter) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-
-        });
-
+      filterCards.forEach((card) => {
+        const category = card.getAttribute("data-category");
+        card.style.display = (filter === "all" || category === filter) ? "block" : "none";
+      });
     });
-
+  });
 });
 
-// SECTION FOUR SECTION FOUR SECTION FOUR 
-
+// ── Section 4 — Counters ──
 const counters = document.querySelectorAll(".counter");
 
 const startCounter = (counter) => {
-    const target = +counter.getAttribute("data-target");
-    let count = 0;
+  const target = +counter.getAttribute("data-target");
+  let count = 0;
+  const speed = target / 100;
 
-    const speed = target / 100;
+  const updateCount = () => {
+    count += speed;
+    if (count < target) {
+      counter.innerText = target % 1 !== 0 ? count.toFixed(1) : Math.floor(count);
+      requestAnimationFrame(updateCount);
+    } else {
+      counter.innerText = target % 1 !== 0 ? target.toFixed(1) : target;
+    }
+  };
 
-    const updateCount = () => {
-
-        count += speed;
-
-        if (count < target) {
-
-            // decimal support
-            if (target % 1 !== 0) {
-                counter.innerText = count.toFixed(1);
-            } else {
-                counter.innerText = Math.floor(count);
-            }
-
-            requestAnimationFrame(updateCount);
-
-        } else {
-
-            // final value
-            if (target % 1 !== 0) {
-                counter.innerText = target.toFixed(1);
-            } else {
-                counter.innerText = target;
-            }
-        }
-    };
-
-    updateCount();
+  updateCount();
 };
 
-const observer = new IntersectionObserver((entries) => {
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      startCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
 
-    entries.forEach(entry => {
+counters.forEach(counter => counterObserver.observe(counter));
 
-        if (entry.isIntersecting) {
-
-            startCounter(entry.target);
-
-            observer.unobserve(entry.target);
-        }
-    });
-
-}, {
-    threshold: 0.5
-});
-
-counters.forEach(counter => {
-    observer.observe(counter);
-});
-
-
+// ── Auth Popup (Login / Signup) ──
 const authPopup = document.getElementById("authPopup");
 const openLogin = document.getElementById("openLogin");
 const closeAuthPopup = document.getElementById("closeAuthPopup");
-
 const loginForm = document.getElementById("loginForm");
 const signupForm = document.getElementById("signupForm");
-
 const showSignup = document.getElementById("showSignup");
 const showLogin = document.getElementById("showLogin");
 
@@ -238,16 +158,13 @@ if (closeAuthPopup) {
 
 if (authPopup) {
   authPopup.addEventListener("click", function (e) {
-    if (e.target === authPopup) {
-      authPopup.style.display = "none";
-    }
+    if (e.target === authPopup) authPopup.style.display = "none";
   });
 }
 
 if (showSignup) {
   showSignup.addEventListener("click", function (e) {
     e.preventDefault();
-
     loginForm.style.display = "none";
     signupForm.style.display = "block";
   });
@@ -256,330 +173,248 @@ if (showSignup) {
 if (showLogin) {
   showLogin.addEventListener("click", function (e) {
     e.preventDefault();
-
     signupForm.style.display = "none";
     loginForm.style.display = "block";
   });
 }
 
+// ── Consultation Popup (THREE.JS) ──
+(function () {
 
-const overlay = document.getElementById('popupOverlay');
-const openBtn = document.getElementById('openPopupBtn');
+  const overlay = document.getElementById('popupOverlay');
+  const openBtn = document.getElementById('openPopupBtn');
+  const closeBtn = document.getElementById('closePopupBtn');
+  const formContainer = document.getElementById('formContainer');
+  const successScreen = document.getElementById('successScreen');
+  const form = document.getElementById('consultationForm');
+  const card = document.getElementById('interactiveCard');
+  const rocketContainer = document.getElementById('rocket-overlay-container');
+  const leftPanel = document.getElementById('leftPanel');
+  const canvasContainer = document.getElementById('three-d-canvas');
 
-// ✅ Yeh add karo
-document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary').forEach(btn => {
-  btn.addEventListener('click', () => {
-    overlay.classList.add('active');
-    formContainer.style.display = 'flex';
-    successScreen.style.display = 'none';
-    form.reset();
-    onCanvasResize();
+  if (!overlay || !leftPanel || !canvasContainer) return;
+
+  let isMobileDevice = window.innerWidth <= 900;
+
+  window.addEventListener('resize', () => {
+    isMobileDevice = window.innerWidth <= 900;
+    if (isMobileDevice && rocketContainer) {
+      rocketContainer.style.transform = 'translate(-50%, -50%) translateZ(0px)';
+    }
   });
-});
-const closeBtn = document.getElementById('closePopupBtn');
-const formContainer = document.getElementById('formContainer');
-const successScreen = document.getElementById('successScreen');
-const form = document.getElementById('consultationForm');
-const card = document.getElementById('interactiveCard');
 
-// ==========================================
-// 1. VANILLA JS 3D TILT EFFECT FOR POPUP
-// ==========================================
-let isMobileDevice = window.innerWidth <= 900;
+  // THREE.JS SETUP
+  let scene, camera, renderer, particleSystem, outerRing;
+  let mouseX = 0, mouseY = 0;
+  let targetX = 0, targetY = 0;
 
-window.addEventListener('resize', () => {
-  isMobileDevice = window.innerWidth <= 900;
-  if (isMobileDevice) {
-    card.style.transform = 'none';
+  function initThreeEngine() {
+    scene = new THREE.Scene();
+
+    const width = leftPanel.clientWidth || 300;
+    const height = leftPanel.clientHeight || 500;
+    camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+    camera.position.z = 7.5;
+
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    canvasContainer.appendChild(renderer.domElement);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0x00d2ff, 3, 20);
+    pointLight.position.set(2, 4, 6);
+    scene.add(pointLight);
+
+    const particleCount = 200;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const sphereRadius = 2.4;
+
+    for (let i = 0; i < particleCount; i++) {
+      const phi = Math.acos(Math.random() * 2 - 1);
+      const theta = Math.random() * Math.PI * 2;
+      positions[i * 3] = sphereRadius * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = sphereRadius * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = sphereRadius * Math.cos(phi);
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const canvasMat = document.createElement('canvas');
+    canvasMat.width = 16; canvasMat.height = 16;
+    const ctx = canvasMat.getContext('2d');
+    const grad = ctx.createRadialGradient(8, 8, 0, 8, 8, 8);
+    grad.addColorStop(0, 'rgba(255,255,255,1)');
+    grad.addColorStop(0.3, 'rgba(0,210,255,1)');
+    grad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 16, 16);
+
+    const particleTexture = new THREE.CanvasTexture(canvasMat);
+    const material = new THREE.PointsMaterial({
+      size: 0.18,
+      map: particleTexture,
+      transparent: true,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
+    });
+
+    particleSystem = new THREE.Points(geometry, material);
+    scene.add(particleSystem);
+
+    const ringGeometry = new THREE.RingGeometry(2.3, 2.315, 64);
+    const ringMaterial = new THREE.MeshBasicMaterial({
+      color: 0x0052FF,
+      side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 0.25
+    });
+    outerRing = new THREE.Mesh(ringGeometry, ringMaterial);
+    outerRing.rotation.x = Math.PI / 2.3;
+    scene.add(outerRing);
+
+    leftPanel.addEventListener('mousemove', (e) => {
+      const rect = leftPanel.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      targetX = x * 0.001;
+      targetY = y * 0.001;
+    });
+
+    window.addEventListener('resize', onCanvasResize);
   }
-});
 
-
-document.addEventListener('mousemove', (e) => {
-  if (isMobileDevice || !overlay.classList.contains('active')) return;
-
-  const halfWidth = window.innerWidth / 2;
-  const halfHeight = window.innerHeight / 2;
-
-  // Calculate offsets normalized from -1 to 1
-  const mouseX = (e.clientX - halfWidth) / halfWidth;
-  const mouseY = (e.clientY - halfHeight) / halfHeight;
-
-  // Soft tilt angle values
-  const rotateX = -mouseY * 12; // tilt upwards/downwards
-  const rotateY = mouseX * 12;  // tilt sideways
-
-  card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
-});
-
-// Reset tilt on mouseleave of the container
-overlay.addEventListener('mouseleave', () => {
-  if (isMobileDevice) return;
-  card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
-});
-
-
-// ==========================================
-// 2. ACTIVE THREE.JS PARTICLES 3D GLOBE ENGINE
-// ==========================================
-let scene, camera, renderer, particleSystem, outerRing;
-const leftPanel = document.getElementById('leftPanel');
-const canvasContainer = document.getElementById('three-d-canvas');
-
-// Mouse relative move tracking
-let mouseX = 0, mouseY = 0;
-let targetX = 0, targetY = 0;
-
-function initThreeEngine() {
-  // Scene Setup
-  scene = new THREE.Scene();
-
-  // Camera Setup
-  const width = leftPanel.clientWidth;
-  const height = leftPanel.clientHeight;
-  camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-  camera.position.z = 8;
-
-  // Renderer Setup
-  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setSize(width, height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  canvasContainer.appendChild(renderer.domElement);
-
-  // Light sources (subtle specularity details)
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-  scene.add(ambientLight);
-
-  const pointLight = new THREE.PointLight(0x00d2ff, 2, 20);
-  pointLight.position.set(2, 3, 4);
-  scene.add(pointLight);
-
-  // Construct 3D Particle Constellation (Globe Structure)
-  const particleCount = 200;
-  const geometry = new THREE.BufferGeometry();
-  const positions = new Float32Array(particleCount * 3);
-
-  const sphereRadius = 1.8;
-  for (let i = 0; i < particleCount; i++) {
-    // Generate uniform sphere shell locations
-    const phi = Math.acos(Math.random() * 2 - 1);
-    const theta = Math.random() * Math.PI * 2;
-
-    positions[i * 3] = sphereRadius * Math.sin(phi) * Math.cos(theta);
-    positions[i * 3 + 1] = sphereRadius * Math.sin(phi) * Math.sin(theta);
-    positions[i * 3 + 2] = sphereRadius * Math.cos(phi);
+  function onCanvasResize() {
+    if (!camera || !renderer) return;
+    const width = leftPanel.clientWidth;
+    const height = leftPanel.clientHeight;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
   }
 
-  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  const clock = new THREE.Clock();
 
-  // High-quality glowing particle material using a procedural circle textures
-  const canvasMaterial = document.createElement('canvas');
-  canvasMaterial.width = 16;
-  canvasMaterial.height = 16;
-  const ctx = canvasMaterial.getContext('2d');
-  const grad = ctx.createRadialGradient(8, 8, 0, 8, 8, 8);
-  grad.addColorStop(0, 'rgba(255,255,255,1)');
-  grad.addColorStop(0.3, 'rgba(0,210,255,1)');
-  grad.addColorStop(1, 'rgba(0,0,0,0)');
-  ctx.fillStyle = grad;
-  ctx.fillRect(0, 0, 16, 16);
+  function animateThree() {
+    requestAnimationFrame(animateThree);
+    if (!renderer || !scene || !camera) return;
 
-  const particleTexture = new THREE.CanvasTexture(canvasMaterial);
+    const time = clock.getElapsedTime();
 
-  const material = new THREE.PointsMaterial({
-    size: 0.18,
-    map: particleTexture,
-    transparent: true,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false
-  });
+    particleSystem.rotation.y = time * 0.04;
+    particleSystem.rotation.x = time * 0.01;
+    outerRing.rotation.z = -time * 0.03;
 
-  particleSystem = new THREE.Points(geometry, material);
-  scene.add(particleSystem);
+    mouseX += (targetX - mouseX) * 0.05;
+    mouseY += (targetY - mouseY) * 0.05;
 
-  // Add outer orbits structure (Sleek sci-fi tech look)
-  const ringGeometry = new THREE.RingGeometry(2.4, 2.42, 64);
-  const ringMaterial = new THREE.MeshBasicMaterial({
-    color: 0x0052FF,
-    side: THREE.DoubleSide,
-    transparent: true,
-    opacity: 0.25
-  });
-  outerRing = new THREE.Mesh(ringGeometry, ringMaterial);
-  outerRing.rotation.x = Math.PI / 2.5;
-  scene.add(outerRing);
+    if (rocketContainer && !isMobileDevice) {
+      const hoverY = Math.sin(time * 1.5) * 12;
+      const tiltX = -mouseY * 18;
+      const tiltY = mouseX * 18;
+      rocketContainer.style.transform = `translate(-50%, calc(-50% + ${hoverY}px)) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(50px)`;
+    }
 
-  // Interactive mouse rotation tracking inside the left panel
-  leftPanel.addEventListener('mousemove', (e) => {
-    const rect = leftPanel.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    targetX = x * 0.0015;
-    targetY = y * 0.0015;
-  });
-
-  // Resizing handler
-  window.addEventListener('resize', onCanvasResize);
-}
-
-function onCanvasResize() {
-  if (!camera || !renderer) return;
-  const width = leftPanel.clientWidth;
-  const height = leftPanel.clientHeight;
-  camera.aspect = width / height;
-  camera.updateProjectionMatrix();
-  renderer.setSize(width, height);
-}
-
-// Three.js animation cycle loop
-let clock = new THREE.Clock();
-
-function animateThree() {
-  requestAnimationFrame(animateThree);
-
-  if (!renderer || !scene || !camera) return;
-
-  const delta = clock.getDelta();
-  const time = clock.getElapsedTime();
-
-  // Constant elegant 3D space movements
-  particleSystem.rotation.y = time * 0.12;
-  particleSystem.rotation.x = time * 0.05;
-
-  outerRing.rotation.z = -time * 0.15;
-
-  // Inertia-based interactive mouse rotations
-  mouseX += (targetX - mouseX) * 0.05;
-  mouseY += (targetY - mouseY) * 0.05;
-
-  particleSystem.rotation.y += mouseX;
-  particleSystem.rotation.x += mouseY;
-  outerRing.rotation.y = mouseX * 1.5;
-
-  renderer.render(scene, camera);
-}
-
-// ==========================================
-// 3. EVENT LISTENERS AND TRANSITIONS CONTROL
-// ==========================================
-// Open button handler
-openBtn.addEventListener('click', () => {
-  overlay.style.display = 'flex'; // ✅ Yeh add karo
-  overlay.classList.add('active');
-  formContainer.style.display = 'flex';
-  successScreen.style.display = 'none';
-  form.reset();
-  onCanvasResize();
-});
-
-// Baaki buttons ke liye bhi
-document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary').forEach(btn => {
-  btn.addEventListener('click', () => {
-    overlay.style.display = 'flex'; // ✅ Yeh bhi
-    overlay.classList.add('active');
-    formContainer.style.display = 'flex';
-    successScreen.style.display = 'none';
-    form.reset();
-    onCanvasResize();
-  });
-});
-// Close button handler
-closeBtn.addEventListener('click', () => {
-  overlay.classList.remove('active');
-  overlay.style.display = 'none'; // ✅ Yeh add karo
-  card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
-});
-
-// Close when clicking outside of the popup
-overlay.addEventListener('click', (e) => {
-  if (e.target === overlay) {
-    overlay.classList.remove('active');
-    overlay.style.display = 'none'; // ✅ Yeh add karo
-    card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
+    renderer.render(scene, camera);
   }
-});
 
-// Safe Submit handler (Simulating success transition)
-function handleFormSubmit(event) {
-  event.preventDefault();
-
-  const btn = form.querySelector('.submit');
-  btn.innerHTML = 'Sending...';
-  btn.style.opacity = '0.7';
-  btn.style.pointerEvents = 'none';
-
-  // Simulate transition to success screen (1.2 seconds)
-  setTimeout(() => {
-    formContainer.style.display = 'none';
-    successScreen.style.display = 'flex';
-
-    // Auto close popup with delay
+  // Open/Close helpers
+  function openOverlay() {
+    overlay.style.display = 'flex';
     setTimeout(() => {
-      overlay.classList.remove('active');
-      card.style.transform = 'rotateX(10deg) rotateY(-5deg) translateZ(-50px)';
-    }, 3500);
-  }, 1200);
+      overlay.classList.add('active');
+      if (formContainer) formContainer.style.display = 'flex';
+      if (successScreen) successScreen.style.display = 'none';
+      if (form) form.reset();
+      onCanvasResize();
+    }, 10);
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove('active');
+    setTimeout(() => { overlay.style.display = 'none'; }, 500);
+  }
+
+  if (openBtn) openBtn.addEventListener('click', openOverlay);
+
+  document.querySelectorAll('.primary-btn, .btn-secondary, .btn-primary').forEach(btn => {
+    btn.addEventListener('click', openOverlay);
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeOverlay();
+  });
+
+  window.handleFormSubmit = function (event) {
+    event.preventDefault();
+    const btn = form.querySelector('.submit');
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = 'Sending...';
+    btn.style.opacity = '0.7';
+    btn.style.pointerEvents = 'none';
+
+    setTimeout(() => {
+      if (formContainer) formContainer.style.display = 'none';
+      if (successScreen) successScreen.style.display = 'flex';
+      btn.innerHTML = originalHTML;
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';
+
+      setTimeout(() => closeOverlay(), 3500);
+    }, 1200);
+  };
+
+  window.addEventListener('load', () => {
+    initThreeEngine();
+    animateThree();
+    setTimeout(() => openOverlay(), 600);
+  });
+
+})();
+
+// ── SL Popup helpers ──
+function toggleSlPopup(show) {
+  const mask = document.getElementById('slPopupOverlayMask');
+  if (!mask) return;
+  mask.classList.toggle('sl-mask-visible', show);
 }
 
-// Start initialization on window load
-window.addEventListener('load', () => {
-  initThreeEngine();
-  animateThree();
+function triggerSlFileSelector() {
+  const el = document.getElementById('slFileSelectorElement');
+  if (el) el.click();
+}
 
-  // Auto open popup after page starts (very clean delay transition)
-  setTimeout(() => {
-    overlay.classList.add('active');
-    onCanvasResize();
-  }, 600);
-});
+function handleSlFileSelection(e) {
+  const file = e.target.files[0];
+  const filenameLabel = document.getElementById('slAttachedFileName');
+  if (!filenameLabel) return;
+  filenameLabel.textContent = file ? `(${file.name})` : '';
+}
 
+function handleSlFormSubmit(e) {
+  e.preventDefault();
+  const formShield = document.getElementById('slFormShieldContainer');
+  if (!formShield) return;
 
-
-    // Open & Close function controller
-    function toggleSlPopup(show) {
-      const mask = document.getElementById('slPopupOverlayMask');
-      if (show) {
-        mask.classList.add('sl-mask-visible');
-      } else {
-        mask.classList.remove('sl-mask-visible');
-      }
-    }
-
-    // File Selector stimulation handler
-    function triggerSlFileSelector() {
-      document.getElementById('slFileSelectorElement').click();
-    }
-
-    // Display chosen filename in shield space
-    function handleSlFileSelection(e) {
-      const file = e.target.files[0];
-      const filenameLabel = document.getElementById('slAttachedFileName');
-      if (file) {
-        filenameLabel.textContent = `(${file.name})`;
-      } else {
-        filenameLabel.textContent = '';
-      }
-    }
-
-    // Submit and build beautiful success view inside white shield card
-    function handleSlFormSubmit(e) {
-      e.preventDefault();
-      const formShield = document.getElementById('slFormShieldContainer');
-      
-      formShield.innerHTML = `
-        <div class="sl-form-success-shield">
-          <div class="sl-form-success-icon-badge">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width: 38px; height: 38px;">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-          </div>
-          <h2 style="color: #1e3a8a; font-size: 28px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px;">THANKS!</h2>
-          <p style="color: #64748b; font-size: 15px; line-height: 1.6; margin-bottom: 30px; font-weight: 500;">
-            Your message has been received. Our team will contact you shortly.
-          </p>
-          <button onclick="location.reload()" class="sl-form-submit-action" style="max-width: 200px; margin: 0 auto;">
-            Got It
-          </button>
-        </div>
-      `;
-    }
+  formShield.innerHTML = `
+    <div class="sl-form-success-shield">
+      <div class="sl-form-success-icon-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width: 38px; height: 38px;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+      <h2 style="color: #1e3a8a; font-size: 28px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px;">THANKS!</h2>
+      <p style="color: #64748b; font-size: 15px; line-height: 1.6; margin-bottom: 30px; font-weight: 500;">
+        Your message has been received. Our team will contact you shortly.
+      </p>
+      <button onclick="location.reload()" class="sl-form-submit-action" style="max-width: 200px; margin: 0 auto;">
+        Got It
+      </button>
+    </div>
+  `;
+}
